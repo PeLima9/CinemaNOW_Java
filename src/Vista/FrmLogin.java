@@ -122,10 +122,12 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 170));
 
-        txtPassword.setBackground(new java.awt.Color(248, 93, 116));
+        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setText("Contraseña");
+        txtPassword.setToolTipText("");
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -134,10 +136,12 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel1.setText("Login");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
 
-        txtEmail.setBackground(new java.awt.Color(248, 93, 116));
+        txtEmail.setBackground(new java.awt.Color(54, 47, 92));
         txtEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setText("Correo");
+        txtEmail.setToolTipText("");
+        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 520, 50));
 
         btnLogin.setBackground(new java.awt.Color(248, 93, 116));
