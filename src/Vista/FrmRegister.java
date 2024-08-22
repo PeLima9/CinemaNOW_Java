@@ -8,12 +8,12 @@ package Vista;
  *
  * @author eduar
  */
-public class FrmLogin extends javax.swing.JFrame {
+public class FrmRegister extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmLogin
+     * Creates new form FrmRegister
      */
-    public FrmLogin() {
+    public FrmRegister() {
         initComponents();
     }
 
@@ -33,11 +33,12 @@ public class FrmLogin extends javax.swing.JFrame {
         lblCinemaNOW = new javax.swing.JLabel();
         jpDate = new javax.swing.JPanel();
         lblDate = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
-        lblLogin = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
+        txtConfirmPassword = new javax.swing.JTextField();
+        lblRegister = new javax.swing.JLabel();
+        txtRegisterEmail = new javax.swing.JTextField();
+        btnRegister = new javax.swing.JButton();
         imgBanner = new javax.swing.JLabel();
+        txtRegisterPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,38 +123,46 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 170));
 
-        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
-        txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setText("Contraseña");
-        txtPassword.setToolTipText("");
-        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
+        txtConfirmPassword.setBackground(new java.awt.Color(54, 47, 92));
+        txtConfirmPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmPassword.setText("Confirmar Contraseña");
+        txtConfirmPassword.setToolTipText("");
+        txtConfirmPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 520, 50));
 
-        lblLogin.setBackground(new java.awt.Color(255, 255, 255));
-        lblLogin.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
-        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogin.setText("Login");
-        jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+        lblRegister.setBackground(new java.awt.Color(255, 255, 255));
+        lblRegister.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
+        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegister.setText("Register [Admin Only]");
+        jPanel1.add(lblRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
 
-        txtEmail.setBackground(new java.awt.Color(54, 47, 92));
-        txtEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.setText("Correo");
-        txtEmail.setToolTipText("");
-        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 520, 50));
+        txtRegisterEmail.setBackground(new java.awt.Color(54, 47, 92));
+        txtRegisterEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtRegisterEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtRegisterEmail.setText("Correo");
+        txtRegisterEmail.setToolTipText("");
+        txtRegisterEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtRegisterEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 520, 50));
 
-        btnLogin.setBackground(new java.awt.Color(248, 93, 116));
-        btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Iniciar Sesión");
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 180, 50));
+        btnRegister.setBackground(new java.awt.Color(248, 93, 116));
+        btnRegister.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegister.setText("Registrarse");
+        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, 180, 50));
 
         imgBanner.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         imgBanner.setForeground(new java.awt.Color(255, 255, 255));
         imgBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CinemaNOW_LoginBanner.png"))); // NOI18N
         jPanel1.add(imgBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, 400, 450));
+
+        txtRegisterPassword.setBackground(new java.awt.Color(54, 47, 92));
+        txtRegisterPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtRegisterPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtRegisterPassword.setText("Contraseña");
+        txtRegisterPassword.setToolTipText("");
+        txtRegisterPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtRegisterPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 520, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,26 +195,26 @@ public class FrmLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmLogin().setVisible(true);
+                new FrmRegister().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel imgBanner;
     private javax.swing.JLabel imgCinemaNOW;
     private javax.swing.JPanel jPanel1;
@@ -214,8 +223,9 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jpNavBar;
     private javax.swing.JLabel lblCinemaNOW;
     private javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblLogin;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JLabel lblRegister;
+    private javax.swing.JTextField txtConfirmPassword;
+    private javax.swing.JTextField txtRegisterEmail;
+    private javax.swing.JTextField txtRegisterPassword;
     // End of variables declaration//GEN-END:variables
 }
