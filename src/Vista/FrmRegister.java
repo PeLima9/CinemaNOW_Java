@@ -214,7 +214,7 @@ public class FrmRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegister;
+    public javax.swing.JButton btnRegister;
     private javax.swing.JLabel imgBanner;
     private javax.swing.JLabel imgCinemaNOW;
     private javax.swing.JPanel jPanel1;
@@ -224,8 +224,8 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JLabel lblCinemaNOW;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblRegister;
-    private javax.swing.JTextField txtConfirmPassword;
-    private javax.swing.JTextField txtRegisterEmail;
-    private javax.swing.JTextField txtRegisterPassword;
+    public javax.swing.JTextField txtConfirmPassword;
+    public javax.swing.JTextField txtRegisterEmail;
+    public javax.swing.JTextField txtRegisterPassword;
     // End of variables declaration//GEN-END:variables
 }
