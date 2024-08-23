@@ -27,101 +27,24 @@ public class FrmRegister extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jpNavBar = new javax.swing.JPanel();
-        jpHeader = new javax.swing.JPanel();
-        imgCinemaNOW = new javax.swing.JLabel();
-        lblCinemaNOW = new javax.swing.JLabel();
-        jpDate = new javax.swing.JPanel();
-        lblDate = new javax.swing.JLabel();
         txtConfirmPassword = new javax.swing.JTextField();
         lblRegister = new javax.swing.JLabel();
         txtRegisterEmail = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
         imgBanner = new javax.swing.JLabel();
         txtRegisterPassword = new javax.swing.JTextField();
+        jpHeader = new javax.swing.JPanel();
+        imgCinemaNOW = new javax.swing.JLabel();
+        lblCinemaNOW = new javax.swing.JLabel();
+        jpDate = new javax.swing.JPanel();
+        lblDate = new javax.swing.JLabel();
+        jpNavBar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
-
-        javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
-        jpNavBar.setLayout(jpNavBarLayout);
-        jpNavBarLayout.setHorizontalGroup(
-            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1440, Short.MAX_VALUE)
-        );
-        jpNavBarLayout.setVerticalGroup(
-            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1440, 120));
-
-        jpHeader.setBackground(new java.awt.Color(146, 134, 208));
-
-        imgCinemaNOW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CinemaNOW_Logo.png"))); // NOI18N
-
-        lblCinemaNOW.setFont(new java.awt.Font("Montserrat Black", 0, 40)); // NOI18N
-        lblCinemaNOW.setForeground(new java.awt.Color(255, 255, 255));
-        lblCinemaNOW.setText("CinemaNOW");
-
-        jpDate.setBackground(new java.awt.Color(32, 29, 76));
-
-        lblDate.setFont(new java.awt.Font("Montserrat Black", 0, 20)); // NOI18N
-        lblDate.setForeground(new java.awt.Color(255, 255, 255));
-        lblDate.setText("DATE PLACEHOLDER");
-
-        javax.swing.GroupLayout jpDateLayout = new javax.swing.GroupLayout(jpDate);
-        jpDate.setLayout(jpDateLayout);
-        jpDateLayout.setHorizontalGroup(
-            jpDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDateLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
-                .addComponent(lblDate)
-                .addGap(73, 73, 73))
-        );
-        jpDateLayout.setVerticalGroup(
-            jpDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpDateLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(lblDate)
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jpHeaderLayout = new javax.swing.GroupLayout(jpHeader);
-        jpHeader.setLayout(jpHeaderLayout);
-        jpHeaderLayout.setHorizontalGroup(
-            jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpHeaderLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(imgCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCinemaNOW)
-                .addGap(334, 334, 334)
-                .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(298, Short.MAX_VALUE))
-        );
-        jpHeaderLayout.setVerticalGroup(
-            jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpHeaderLayout.createSequentialGroup()
-                .addComponent(imgCinemaNOW)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jpHeaderLayout.createSequentialGroup()
-                .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(lblCinemaNOW))
-                    .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 170));
 
         txtConfirmPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtConfirmPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -164,6 +87,83 @@ public class FrmRegister extends javax.swing.JFrame {
         txtRegisterPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
         jPanel1.add(txtRegisterPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 520, 50));
 
+        jpHeader.setBackground(new java.awt.Color(146, 134, 208));
+
+        imgCinemaNOW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CinemaNOW_Logo.png"))); // NOI18N
+
+        lblCinemaNOW.setFont(new java.awt.Font("Montserrat Black", 0, 40)); // NOI18N
+        lblCinemaNOW.setForeground(new java.awt.Color(255, 255, 255));
+        lblCinemaNOW.setText("CinemaNOW");
+
+        jpDate.setBackground(new java.awt.Color(32, 29, 76));
+
+        lblDate.setFont(new java.awt.Font("Montserrat Black", 0, 20)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(255, 255, 255));
+        lblDate.setText("DATE PLACEHOLDER");
+
+        javax.swing.GroupLayout jpDateLayout = new javax.swing.GroupLayout(jpDate);
+        jpDate.setLayout(jpDateLayout);
+        jpDateLayout.setHorizontalGroup(
+            jpDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDateLayout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(lblDate)
+                .addGap(73, 73, 73))
+        );
+        jpDateLayout.setVerticalGroup(
+            jpDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpDateLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lblDate)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jpHeaderLayout = new javax.swing.GroupLayout(jpHeader);
+        jpHeader.setLayout(jpHeaderLayout);
+        jpHeaderLayout.setHorizontalGroup(
+            jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpHeaderLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(imgCinemaNOW)
+                .addGap(18, 18, 18)
+                .addComponent(lblCinemaNOW)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(288, 288, 288))
+        );
+        jpHeaderLayout.setVerticalGroup(
+            jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpHeaderLayout.createSequentialGroup()
+                .addComponent(imgCinemaNOW)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jpHeaderLayout.createSequentialGroup()
+                .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpHeaderLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpHeaderLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(lblCinemaNOW)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 140));
+
+        jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
+
+        javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
+        jpNavBar.setLayout(jpNavBarLayout);
+        jpNavBarLayout.setHorizontalGroup(
+            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1440, Short.MAX_VALUE)
+        );
+        jpNavBarLayout.setVerticalGroup(
+            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 1440, 140));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,7 +172,7 @@ public class FrmRegister extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

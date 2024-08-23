@@ -27,17 +27,17 @@ public class FrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jpNavBar = new javax.swing.JPanel();
-        jpHeader = new javax.swing.JPanel();
-        imgCinemaNOW = new javax.swing.JLabel();
-        lblCinemaNOW = new javax.swing.JLabel();
-        jpDate = new javax.swing.JPanel();
-        lblDate = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         lblLogin = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         imgBanner = new javax.swing.JLabel();
+        jpHeader = new javax.swing.JPanel();
+        imgCinemaNOW = new javax.swing.JLabel();
+        lblCinemaNOW = new javax.swing.JLabel();
+        jpDate = new javax.swing.JPanel();
+        lblDate = new javax.swing.JLabel();
+        jpNavBar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,20 +45,38 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
+        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
+        txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setText("Contraseña");
+        txtPassword.setToolTipText("");
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
 
-        javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
-        jpNavBar.setLayout(jpNavBarLayout);
-        jpNavBarLayout.setHorizontalGroup(
-            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1440, Short.MAX_VALUE)
-        );
-        jpNavBarLayout.setVerticalGroup(
-            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
+        lblLogin.setBackground(new java.awt.Color(255, 255, 255));
+        lblLogin.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogin.setText("Login");
+        jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
 
-        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1440, 120));
+        txtEmail.setBackground(new java.awt.Color(54, 47, 92));
+        txtEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setText("Correo");
+        txtEmail.setToolTipText("");
+        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 520, 50));
+
+        btnLogin.setBackground(new java.awt.Color(248, 93, 116));
+        btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Iniciar Sesión");
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 180, 50));
+
+        imgBanner.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
+        imgBanner.setForeground(new java.awt.Color(255, 255, 255));
+        imgBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CinemaNOW_LoginBanner.png"))); // NOI18N
+        jPanel1.add(imgBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, 400, 450));
 
         jpHeader.setBackground(new java.awt.Color(146, 134, 208));
 
@@ -98,11 +116,11 @@ public class FrmLogin extends javax.swing.JFrame {
             .addGroup(jpHeaderLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(imgCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addGap(334, 334, 334)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addGap(288, 288, 288))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,48 +130,30 @@ public class FrmLogin extends javax.swing.JFrame {
             .addGroup(jpHeaderLayout.createSequentialGroup()
                 .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(lblCinemaNOW))
+                        .addGap(16, 16, 16)
+                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48)
+                        .addComponent(lblCinemaNOW)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 170));
+        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 140));
 
-        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
-        txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setText("Contraseña");
-        txtPassword.setToolTipText("");
-        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
+        jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
 
-        lblLogin.setBackground(new java.awt.Color(255, 255, 255));
-        lblLogin.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
-        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogin.setText("Login");
-        jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+        javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
+        jpNavBar.setLayout(jpNavBarLayout);
+        jpNavBarLayout.setHorizontalGroup(
+            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1440, Short.MAX_VALUE)
+        );
+        jpNavBarLayout.setVerticalGroup(
+            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
 
-        txtEmail.setBackground(new java.awt.Color(54, 47, 92));
-        txtEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.setText("Correo");
-        txtEmail.setToolTipText("");
-        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 520, 50));
-
-        btnLogin.setBackground(new java.awt.Color(248, 93, 116));
-        btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Iniciar Sesión");
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 180, 50));
-
-        imgBanner.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
-        imgBanner.setForeground(new java.awt.Color(255, 255, 255));
-        imgBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CinemaNOW_LoginBanner.png"))); // NOI18N
-        jPanel1.add(imgBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, 400, 450));
+        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 1440, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
