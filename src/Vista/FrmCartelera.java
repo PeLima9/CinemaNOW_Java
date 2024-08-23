@@ -317,10 +317,10 @@ public class FrmCartelera extends javax.swing.JFrame {
     private javax.swing.JPanel jpDate;
     private javax.swing.JPanel jpHeader;
     private javax.swing.JPanel jpNavBar;
-    private javax.swing.JTable jtbCartelera;
+    public javax.swing.JTable jtbCartelera;
     private javax.swing.JLabel lblCartelera;
     private javax.swing.JLabel lblCinemaNOW;
-    private javax.swing.JLabel lblDate;
+    public javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblUsername;
     public javax.swing.JTextField txtDuration;
     public javax.swing.JTextField txtMoviePoster;

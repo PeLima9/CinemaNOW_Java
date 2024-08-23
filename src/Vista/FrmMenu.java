@@ -334,10 +334,10 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jpTickets;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblCinemaNOW;
-    private javax.swing.JLabel lblDate;
+    public javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPelículas;
     private javax.swing.JLabel lblReservaTickets;
-    private javax.swing.JLabel lblUsername;
+    public javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblVerEmpleados;
     // End of variables declaration//GEN-END:variables
 }

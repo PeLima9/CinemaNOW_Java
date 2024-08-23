@@ -213,7 +213,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jpHeader;
     private javax.swing.JPanel jpNavBar;
     private javax.swing.JLabel lblCinemaNOW;
-    private javax.swing.JLabel lblDate;
+    public javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblLogin;
     public javax.swing.JTextField txtEmail;
     public javax.swing.JTextField txtPassword;

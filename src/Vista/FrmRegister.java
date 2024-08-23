@@ -222,7 +222,7 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JPanel jpHeader;
     private javax.swing.JPanel jpNavBar;
     private javax.swing.JLabel lblCinemaNOW;
-    private javax.swing.JLabel lblDate;
+    public javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblRegister;
     public javax.swing.JTextField txtConfirmPassword;
     public javax.swing.JTextField txtRegisterEmail;
