@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
-/**
- *
- * @author eduar
- */
+import java.sql.*;
+import java.util.UUID;
+
 public class Usuario {
     private String UUID_Usuario;
     private String Nombre;
@@ -64,5 +60,32 @@ public class Usuario {
         this.FotoPerfil = FotoPerfil;
     }
     
+    //Cargar usuario
+    public boolean iniciarSesion() {
+        //Obtenemos la conexión a la base de datos
+        Connection conexion = ClaseConexion.getConexion();
+        boolean resultado = false;
+
+        try {
+            //Preparamos la consulta SQL para verificar el usuario
+            String sql = "SELECT * FROM Usuario WHERE Correo = ? AND Contraseña = ?";
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, getEmail());
+            statement.setString(2, getPassword());
+
+            //Ejecutamos la consulta
+            ResultSet resultSet = statement.executeQuery();
+
+            //Si hay un resultado, significa que el usuario existe y la contraseña es correcta
+            if (resultSet.next()) {
+                resultado = true;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error en el modelo: método iniciarSesion " + ex);
+        }
+
+        return resultado;
+    }
     
 }
