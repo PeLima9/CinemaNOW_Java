@@ -61,28 +61,29 @@ public class Usuario {
     }
     
     //Cargar usuario
-    public boolean iniciarSesion() {
-        //Obtenemos la conexión a la base de datos
+    public boolean Login() {
+        
+        //Conectar a ClaseConexion.java
         Connection conexion = ClaseConexion.getConexion();
         boolean resultado = false;
 
         try {
-            //Preparamos la consulta SQL para verificar el usuario
+            //Preparar Query
             String sql = "SELECT * FROM Usuario WHERE Correo = ? AND Contraseña = ?";
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setString(1, getEmail());
             statement.setString(2, getPassword());
-
-            //Ejecutamos la consulta
+            
+            //Ejecutar Query
             ResultSet resultSet = statement.executeQuery();
 
-            //Si hay un resultado, significa que el usuario existe y la contraseña es correcta
+            //Return si el valor existe
             if (resultSet.next()) {
                 resultado = true;
             }
 
         } catch (SQLException ex) {
-            System.out.println("Error en el modelo: método iniciarSesion " + ex);
+            System.out.println("[Error en Modelo: Login] " + ex);
         }
 
         return resultado;
