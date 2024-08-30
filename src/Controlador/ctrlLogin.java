@@ -2,27 +2,28 @@ package Controlador;
 
 import Modelo.Usuario;
 import Vista.FrmLogin;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
-public class ctrlLogin implements MouseListener{
+public class ctrlLogin implements ActionListener{
     
     //Llamar otros paquetes
-    Usuario modeloLogin;
-    FrmLogin vistaLogin;
+   private  Usuario modeloLogin;
+   private FrmLogin vistaLogin;
     
     public ctrlLogin(Usuario Modelo, FrmLogin Vista){
         this.modeloLogin = Modelo;
         this.vistaLogin = Vista;
         
-        vistaLogin.btnLogin.addMouseListener(this);
+        this.vistaLogin.btnLogin.addActionListener(this);
 
     }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-      
+    
+@Override
+    public void actionPerformed(ActionEvent e) {
         //Establecer datos
         if (e.getSource() == vistaLogin.btnLogin){
            modeloLogin.setEmail(vistaLogin.txtEmail.getText());
@@ -43,20 +44,20 @@ public class ctrlLogin implements MouseListener{
            }
        }
     }
+    public void mouseClicked(MouseEvent e) {
+    }
 
-    @Override
     public void mousePressed(MouseEvent e) {
     }
 
-    @Override
     public void mouseReleased(MouseEvent e) {
     }
 
-    @Override
     public void mouseEntered(MouseEvent e) {
     }
 
-    @Override
     public void mouseExited(MouseEvent e) {
     }
+
+    
 }

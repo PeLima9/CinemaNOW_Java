@@ -11,11 +11,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }
     
 public static void initFrmMenu(){
-        Usuario modelo = new Usuario();
-        FrmLogin vista = new FrmLogin();
-        ctrlLogin controlador = new ctrlLogin(modelo, vista);
         
-        vista.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -305,7 +301,11 @@ public static void initFrmMenu(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmMenu().setVisible(true);
+                Usuario modelo = new Usuario();
+                FrmLogin vista = new FrmLogin();
+                ctrlLogin controlador = new ctrlLogin(modelo, vista);
+        
+                 vista.setVisible(true);
             }
         });
     }
