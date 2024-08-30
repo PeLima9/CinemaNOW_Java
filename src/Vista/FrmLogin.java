@@ -18,7 +18,6 @@ public class FrmLogin extends javax.swing.JFrame {
      */
      public FrmLogin() {
         initComponents();
-        this.setLocationRelativeTo(this);
     }
 
      public static void initFrmLogin(){
@@ -39,10 +38,10 @@ public class FrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
         lblLogin = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
         imgBanner = new javax.swing.JLabel();
         jpHeader = new javax.swing.JPanel();
         imgCinemaNOW = new javax.swing.JLabel();
@@ -57,10 +56,20 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnLogin.setBackground(new java.awt.Color(248, 93, 116));
+        btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Iniciar Sesión");
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 180, 50));
+
         txtPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setText("Contraseña");
         txtPassword.setToolTipText("");
         txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
@@ -74,16 +83,9 @@ public class FrmLogin extends javax.swing.JFrame {
         txtEmail.setBackground(new java.awt.Color(54, 47, 92));
         txtEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.setText("Correo");
         txtEmail.setToolTipText("");
         txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 520, 50));
-
-        btnLogin.setBackground(new java.awt.Color(248, 93, 116));
-        btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Iniciar Sesión");
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 180, 50));
 
         imgBanner.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         imgBanner.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,12 +183,15 @@ public class FrmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         
-        System.out.println("Placeholder");
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

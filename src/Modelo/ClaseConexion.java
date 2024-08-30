@@ -19,10 +19,10 @@ public class ClaseConexion {
             // Retornamos la variable que tiene la conexión
             return conexion;
         } catch (SQLException e) {
-            System.out.println("Este es el error" + e);
+            System.out.println("Error: " + e);
               return null;
         } catch (ClassNotFoundException ex) {
-            System.out.println("este es el error de la clase" + ex);
+            System.out.println("Error de Clase: " + ex);
               return null;
         }
     }

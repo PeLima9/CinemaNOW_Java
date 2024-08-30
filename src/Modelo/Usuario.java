@@ -5,7 +5,13 @@ import java.sql.*;
 import java.util.UUID;
 
 public class Usuario {
-
+    private String UUID_Usuario;
+    private String nombre;
+    private String email;
+    private String contraseña;
+    private int rol_id;
+    private String foto_perfil;
+    
     public String getUUID_Usuario() {
         return UUID_Usuario;
     }
@@ -53,16 +59,9 @@ public class Usuario {
     public void setFoto_perfil(String foto_perfil) {
         this.foto_perfil = foto_perfil;
     }
-    private String UUID_Usuario;
-    private String nombre;
-    private String email;
-    private String contraseña;
-    private int rol_id;
-    private String foto_perfil;
     
     
-    
-    //Cargar usuario
+    //Iniciar Sesión
     public boolean Login() {
         
         //Conectar a ClaseConexion.java

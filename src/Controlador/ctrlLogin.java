@@ -9,36 +9,35 @@ import javax.swing.JOptionPane;
 public class ctrlLogin implements MouseListener{
     
     //Llamar otros paquetes
-    Usuario modelo;
-    FrmLogin vista;
+    Usuario modeloLogin;
+    FrmLogin vistaLogin;
     
     public ctrlLogin(Usuario Modelo, FrmLogin Vista){
-        this.modelo = Modelo;
-        this.vista = Vista;
+        this.modeloLogin = Modelo;
+        this.vistaLogin = Vista;
         
-        vista.btnLogin.addMouseListener(this);
+        vistaLogin.btnLogin.addMouseListener(this);
 
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-       if (e.getSource() == vista.btnLogin) {
-            modelo.setEmail(vista.txtEmail.getText());
-            modelo.setContraseña(vista.txtPassword.getText());
+      
+        if (e.getSource() == vistaLogin.btnLogin){
+           modeloLogin.setEmail(vistaLogin.txtEmail.getText());
+           modeloLogin.setContraseña(vistaLogin.txtPassword.getText());
+           
+           boolean verify = modeloLogin.Login();
+           if (verify == true) {
+               JOptionPane.showMessageDialog(vistaLogin, "Login Exitoso, bienvenido!");
+               Vista.FrmMenu.initFrmMenu();
+               vistaLogin.dispose();
+           }
+           else{
+               JOptionPane.showMessageDialog(vistaLogin, "[ERROR] Usuario No Existente");
 
-           //Variable para comprobar datos          
-            boolean verify = modelo.Login();
-            if (verify == true) {
-                JOptionPane.showMessageDialog(vista,"Login Exitoso, ¡Bienvenido!");
-                Vista.FrmMenu.initFrmMenu();
-                vista.dispose();
-                
-            } else {
-                JOptionPane.showMessageDialog(vista, "El Usuario no Existe");
-
-            }
-
-        }
+           }
+       }
     }
 
     @Override
