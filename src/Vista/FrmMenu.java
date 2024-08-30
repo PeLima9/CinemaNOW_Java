@@ -11,7 +11,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }
     
 public static void initFrmMenu(){
-        
+        new FrmMenu().setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

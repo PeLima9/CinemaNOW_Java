@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
 
 public class ctrlLogin implements ActionListener{
     
-    //Llamar otros paquetes
-   private  Usuario modeloLogin;
+   //Llamar otros paquetes
+   private Usuario modeloLogin;
    private FrmLogin vistaLogin;
     
     public ctrlLogin(Usuario Modelo, FrmLogin Vista){
