@@ -1,16 +1,12 @@
-
 package Controlador;
 
 import Modelo.Usuario;
 import Vista.FrmLogin;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
-
-public class ctrlLogin implements MouseListener {
+public class ctrlLogin implements MouseListener{
     
     //Llamar otros paquetes
     Usuario modelo;
@@ -20,7 +16,7 @@ public class ctrlLogin implements MouseListener {
         this.modelo = Modelo;
         this.vista = Vista;
         
-        Vista.btnLogin.addMouseListener(this);
+        vista.btnLogin.addMouseListener(this);
 
     }
 
@@ -28,20 +24,17 @@ public class ctrlLogin implements MouseListener {
     public void mouseClicked(MouseEvent e) {
        if (e.getSource() == vista.btnLogin) {
             modelo.setEmail(vista.txtEmail.getText());
-            modelo.setPassword(vista.txtPassword.getText());
+            modelo.setContraseña(vista.txtPassword.getText());
 
            //Variable para comprobar datos          
-            boolean comprobar = modelo.Login();
-            if (comprobar == true) {
-                modelo.Login();
+            boolean verify = modelo.Login();
+            if (verify == true) {
                 JOptionPane.showMessageDialog(vista,"Login Exitoso, ¡Bienvenido!");
-                System.out.println("Login Exitoso, ¡Bienvenido!");
                 Vista.FrmMenu.initFrmMenu();
                 vista.dispose();
                 
             } else {
                 JOptionPane.showMessageDialog(vista, "El Usuario no Existe");
-                System.out.println("Login Fallido");
 
             }
 

@@ -5,13 +5,7 @@ import java.sql.*;
 import java.util.UUID;
 
 public class Usuario {
-    private String UUID_Usuario;
-    private String Nombre;
-    private String Email;
-    private String Password;
-    private int Rol;
-    private String FotoPerfil;
-    
+
     public String getUUID_Usuario() {
         return UUID_Usuario;
     }
@@ -21,44 +15,52 @@ public class Usuario {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPassword() {
-        return Password;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-    public int getRol() {
-        return Rol;
+    public int getRol_id() {
+        return rol_id;
     }
 
-    public void setRol(int Rol) {
-        this.Rol = Rol;
+    public void setRol_id(int rol_id) {
+        this.rol_id = rol_id;
     }
 
-    public String getFotoPerfil() {
-        return FotoPerfil;
+    public String getFoto_perfil() {
+        return foto_perfil;
     }
 
-    public void setFotoPerfil(String FotoPerfil) {
-        this.FotoPerfil = FotoPerfil;
+    public void setFoto_perfil(String foto_perfil) {
+        this.foto_perfil = foto_perfil;
     }
+    private String UUID_Usuario;
+    private String nombre;
+    private String email;
+    private String contraseña;
+    private int rol_id;
+    private String foto_perfil;
+    
+    
     
     //Cargar usuario
     public boolean Login() {
@@ -72,7 +74,7 @@ public class Usuario {
             String sql = "SELECT * FROM Usuarios WHERE email = ? AND contraseña = ?";
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setString(1, getEmail());
-            statement.setString(2, getPassword());
+            statement.setString(2, getContraseña());
             
             //Ejecutar Query
             ResultSet resultSet = statement.executeQuery();
@@ -88,5 +90,6 @@ public class Usuario {
 
         return resultado;
     }
+   
     
 }

@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import Controlador.ctrlLogin;
+import Modelo.Usuario;
+
 /**
  *
  * @author eduar
@@ -13,10 +16,19 @@ public class FrmLogin extends javax.swing.JFrame {
     /**
      * Creates new form FrmLogin
      */
-    public FrmLogin() {
+     public FrmLogin() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
+     public static void initFrmLogin(){
+        Usuario modelo = new Usuario();
+        FrmLogin vista = new FrmLogin();
+        ctrlLogin controlador = new ctrlLogin(modelo, vista);
+        
+        vista.setVisible(true);
+    }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,6 +185,8 @@ public class FrmLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        System.out.println("Placeholder");
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
