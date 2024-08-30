@@ -3,6 +3,8 @@ package Controlador;
 
 import Modelo.Usuario;
 import Vista.FrmLogin;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -31,12 +33,15 @@ public class ctrlLogin implements MouseListener {
            //Variable para comprobar datos          
             boolean comprobar = modelo.Login();
             if (comprobar == true) {
+                modelo.Login();
                 JOptionPane.showMessageDialog(vista,"Login Exitoso, ¡Bienvenido!");
+                System.out.println("Login Exitoso, ¡Bienvenido!");
                 Vista.FrmMenu.initFrmMenu();
                 vista.dispose();
                 
             } else {
                 JOptionPane.showMessageDialog(vista, "El Usuario no Existe");
+                System.out.println("Login Fallido");
 
             }
 

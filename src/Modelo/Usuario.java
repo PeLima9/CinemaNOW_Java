@@ -69,7 +69,7 @@ public class Usuario {
 
         try {
             //Preparar Query
-            String sql = "SELECT * FROM Usuario WHERE Correo = ? AND Contraseña = ?";
+            String sql = "SELECT * FROM Usuarios WHERE email = ? AND contraseña = ?";
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setString(1, getEmail());
             statement.setString(2, getPassword());
