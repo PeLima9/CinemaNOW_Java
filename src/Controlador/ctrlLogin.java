@@ -23,18 +23,22 @@ public class ctrlLogin implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
       
+        //Establecer datos
         if (e.getSource() == vistaLogin.btnLogin){
            modeloLogin.setEmail(vistaLogin.txtEmail.getText());
            modeloLogin.setContraseña(vistaLogin.txtPassword.getText());
            
+           //Verificar si el login es correcto
            boolean verify = modeloLogin.Login();
            if (verify == true) {
                JOptionPane.showMessageDialog(vistaLogin, "Login Exitoso, bienvenido!");
+               System.out.println("Login Completado");
                Vista.FrmMenu.initFrmMenu();
                vistaLogin.dispose();
            }
            else{
                JOptionPane.showMessageDialog(vistaLogin, "[ERROR] Usuario No Existente");
+                System.out.println("Login Fallido");
 
            }
        }

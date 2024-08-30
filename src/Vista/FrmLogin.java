@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import Controlador.ctrlLogin;
 import Modelo.Usuario;
 
-/**
- *
- * @author eduar
- */
+
 public class FrmLogin extends javax.swing.JFrame {
 
     /**
@@ -21,11 +15,11 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
      public static void initFrmLogin(){
-        Usuario modelo = new Usuario();
-        FrmLogin vista = new FrmLogin();
-        ctrlLogin controlador = new ctrlLogin(modelo, vista);
+        Usuario Modelo = new Usuario();
+        FrmLogin Vista = new FrmLogin();
+        ctrlLogin Controlador = new ctrlLogin(Modelo, Vista);
         
-        vista.setVisible(true);
+        Vista.setVisible(true);
     }
      
     /**
@@ -38,9 +32,8 @@ public class FrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
-        lblLogin = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         imgBanner = new javax.swing.JLabel();
         jpHeader = new javax.swing.JPanel();
@@ -49,6 +42,9 @@ public class FrmLogin extends javax.swing.JFrame {
         jpDate = new javax.swing.JPanel();
         lblDate = new javax.swing.JLabel();
         jpNavBar = new javax.swing.JPanel();
+        lblLogin1 = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,36 +52,25 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnLogin.setBackground(new java.awt.Color(248, 93, 116));
-        btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Iniciar Sesión");
-        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLoginMouseClicked(evt);
-            }
-        });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 180, 50));
-
         txtPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setToolTipText("");
         txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 520, 50));
 
-        lblLogin.setBackground(new java.awt.Color(255, 255, 255));
-        lblLogin.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
-        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogin.setText("Login");
-        jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+        lblPassword.setBackground(new java.awt.Color(255, 255, 255));
+        lblPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Contraseña");
+        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         txtEmail.setBackground(new java.awt.Color(54, 47, 92));
         txtEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setToolTipText("");
         txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 520, 50));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 520, 50));
 
         imgBanner.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         imgBanner.setForeground(new java.awt.Color(255, 255, 255));
@@ -169,6 +154,29 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 1440, 140));
 
+        lblLogin1.setBackground(new java.awt.Color(255, 255, 255));
+        lblLogin1.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
+        lblLogin1.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogin1.setText("Login");
+        jPanel1.add(lblLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+
+        lblEmail.setBackground(new java.awt.Color(255, 255, 255));
+        lblEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setText("Email");
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
+
+        btnLogin.setBackground(new java.awt.Color(248, 93, 116));
+        btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Iniciar Sesión");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, 200, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,9 +191,9 @@ public class FrmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLoginMouseClicked
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,13 +235,15 @@ public class FrmLogin extends javax.swing.JFrame {
     public javax.swing.JButton btnLogin;
     private javax.swing.JLabel imgBanner;
     private javax.swing.JLabel imgCinemaNOW;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jpDate;
-    private javax.swing.JPanel jpHeader;
-    private javax.swing.JPanel jpNavBar;
+    public javax.swing.JPanel jpHeader;
+    public javax.swing.JPanel jpNavBar;
     private javax.swing.JLabel lblCinemaNOW;
     public javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblLogin;
+    public javax.swing.JLabel lblEmail;
+    public javax.swing.JLabel lblLogin1;
+    public javax.swing.JLabel lblPassword;
     public javax.swing.JTextField txtEmail;
     public javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
