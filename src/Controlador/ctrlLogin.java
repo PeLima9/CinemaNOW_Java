@@ -34,6 +34,7 @@ public class ctrlLogin implements ActionListener{
            if (verify == true) {
                JOptionPane.showMessageDialog(vistaLogin, "Login Exitoso, bienvenido!");
                System.out.println("Login Completado");
+
                Vista.FrmMenu.initFrmMenu();
                vistaLogin.dispose();
            }
