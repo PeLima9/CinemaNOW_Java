@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
 public class ctrlLogin implements MouseListener {
     
     //Llamar otros paquetes
-    Usuario Modelo;
-    FrmLogin Vista;
+    Usuario modelo;
+    FrmLogin vista;
     
     public ctrlLogin(Usuario Modelo, FrmLogin Vista){
-        this.Modelo = Modelo;
-        this.Vista = Vista;
+        this.modelo = Modelo;
+        this.vista = Vista;
         
         Vista.btnLogin.addMouseListener(this);
 
@@ -24,21 +24,22 @@ public class ctrlLogin implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-       if (e.getSource() == Vista.btnLogin) {
-            Modelo.setEmail(Vista.txtEmail.getText());
-            Modelo.setPassword(Vista.txtPassword.getText());
+       if (e.getSource() == vista.btnLogin) {
+            modelo.setEmail(vista.txtEmail.getText());
+            modelo.setPassword(vista.txtPassword.getText());
 
-            //Creo una variable llamada "comprobar" 
-            //que guardará el resultado de ejecutar el metodo iniciarSesion()            
-            boolean comprobar = Modelo.Login();
-
-            //Si la variable es "true" significa que si existe el usuario ingresado    
+           //Variable para comprobar datos          
+            boolean comprobar = modelo.Login();
             if (comprobar == true) {
-                JOptionPane.showMessageDialog(Vista,"Login Exitoso, ¡Bienvenido!");
+                JOptionPane.showMessageDialog(vista,"Login Exitoso, ¡Bienvenido!");
+                Vista.FrmMenu.initFrmMenu();
+                vista.dispose();
+                
             } else {
-                JOptionPane.showMessageDialog(Vista, "El Usuario no Existe");
+                JOptionPane.showMessageDialog(vista, "El Usuario no Existe");
 
             }
+
         }
     }
 
