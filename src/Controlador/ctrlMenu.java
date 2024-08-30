@@ -16,11 +16,15 @@ public class ctrlMenu implements ActionListener{
         this.modeloMenu = Modelo;
         this.vistaMenu = Vista;
         
+        this.vistaMenu.btnCartelera.addActionListener(this);
 
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if (e.getSource() == vistaMenu.btnCartelera){
+                Vista.FrmCartelera.initFrmCartelera();
+                vistaMenu.dispose();
+        }
         
     }
     
