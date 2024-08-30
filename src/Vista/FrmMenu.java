@@ -301,11 +301,7 @@ public static void initFrmMenu(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Usuario modelo = new Usuario();
-                FrmLogin vista = new FrmLogin();
-                ctrlLogin controlador = new ctrlLogin(modelo, vista);
-        
-                 vista.setVisible(true);
+                new FrmMenu().setVisible(true);
             }
         });
     }

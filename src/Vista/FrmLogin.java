@@ -14,6 +14,14 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
     }
      
+     public static void initFrmLogin(){
+         Usuario Modelo = new Usuario();
+         FrmLogin Vista = new FrmLogin();
+         ctrlLogin Controlador = new ctrlLogin(Modelo, Vista);
+        
+                Vista.setVisible(true);
+     }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -218,12 +226,8 @@ public class FrmLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                initFrmLogin();
                 
-                Usuario Modelo = new Usuario();
-                FrmLogin Vista = new FrmLogin();
-                ctrlLogin Controlador = new ctrlLogin(Modelo, Vista);
-        
-                Vista.setVisible(true);
             }
         });
     }
