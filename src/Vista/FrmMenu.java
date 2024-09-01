@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.ctrlLogin;
+import Controlador.ctrlMenu;
 import Modelo.Usuario;
 
 public class FrmMenu extends javax.swing.JFrame {
@@ -11,7 +12,11 @@ public class FrmMenu extends javax.swing.JFrame {
     }
     
 public static void initFrmMenu(){
+         Usuario Modelo = new Usuario();
+         FrmMenu Vista = new FrmMenu();
+         ctrlMenu Controlador = new ctrlMenu(Modelo, Vista);
         
+                Vista.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

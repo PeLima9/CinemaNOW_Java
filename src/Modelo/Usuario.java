@@ -81,6 +81,7 @@ public class Usuario {
             //Return si el valor existe
             if (resultSet.next()) {
                 resultado = true;
+
             }
 
         } catch (SQLException ex) {
@@ -90,5 +91,29 @@ public class Usuario {
         return resultado;
     }
    
-    
+    public boolean GetUserData(){
+        Connection conexion = ClaseConexion.getConexion();
+        
+        boolean resultado = false;
+        
+        try{
+            String sql = "SELECT nombre FROM Usuarios WHERE email = ?";
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, getEmail());
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            if (resultSet.next()){
+                resultado = true;
+            }
+            
+            
+        }
+        catch (SQLException ex){
+            System.out.println("[Error en Modelo: GetUserData] " + ex);
+        }
+        
+        return resultado;
+    }
+   
 }
