@@ -9,10 +9,12 @@ public class Cartelera {
                           
     private String pelicula_id;
     private String titulo;
-    private String email;
-    private String contraseña;
-    private int rol_id;
-    private String foto_perfil;
+    private String descripcion;
+    private int duracion;
+    private int clasificacion_id;
+    private int genero_id;
+    private String poster;
+    
 
                                                 
 }
