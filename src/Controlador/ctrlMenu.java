@@ -1,20 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 
 import Modelo.Usuario;
 import Vista.FrmMenu;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-/**
- *
- * @author Fernando Navarro
- */
-public class ctrlMenu {
+public class ctrlMenu implements ActionListener{
 
-    public ctrlMenu(Usuario Modelo, FrmMenu Vista) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //Llamar otros paquetes
+        private Usuario modeloMenu;
+        private FrmMenu vistaMenu;
+        
+    public ctrlMenu(Usuario Modelo, FrmMenu Vista){
+        this.modeloMenu = Modelo;
+        this.vistaMenu = Vista;
+        
+        this.vistaMenu.btnCartelera.addActionListener(this);
+
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vistaMenu.btnCartelera){
+                Vista.FrmCartelera.initFrmCartelera();
+                vistaMenu.dispose();
+        }
+        
     }
     
 }

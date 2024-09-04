@@ -65,5 +65,9 @@ public class Genero {
             ex.printStackTrace();  
         }
     }
+
+    public void Mostrar(JTable jtbCartelera) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
