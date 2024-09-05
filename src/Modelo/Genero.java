@@ -49,7 +49,7 @@ public class Genero {
     
     
    
-    public void CargarComboGenero(JComboBox<Genero> comboBox){    
+    public void CargarComboGenero(JComboBox comboBox){    
     Connection conexion = ClaseConexion.getConexion();
     comboBox.removeAllItems();
     try{

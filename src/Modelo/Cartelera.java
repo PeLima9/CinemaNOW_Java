@@ -82,7 +82,7 @@ public class Cartelera {
     }
                           
  public void Guardar() {
-    // Creamos una variable igual a ejecutar el método de la clase de conexión
+    
     Connection conexion = ClaseConexion.getConexion();
     try {
     
@@ -99,7 +99,7 @@ public class Cartelera {
         addCartelera.setString(6, getPoster());
         addCartelera.setString(7, getTrailer());
 
-        // Ejecutar la consulta
+       
         addCartelera.executeUpdate();
  
     } catch (SQLException ex) {
@@ -109,20 +109,13 @@ public class Cartelera {
         
       
   public void Eliminar(JTable tabla) {
-
-        //Creamos una variable igual a ejecutar el método de la clase de conexión
-
         Connection conexion = ClaseConexion.getConexion();
- 
-        //obtenemos que fila seleccionó el usuario
-
         int filaSeleccionada = tabla.getSelectedRow();
 
-        //Obtenemos el id de la fila seleccionada
-
+       
         String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
 
-        //borramos 
+
 
         try {
 
@@ -214,18 +207,15 @@ public class Cartelera {
     }
 
     public void Actualizar(JTable tabla) {
-    // Obtenemos la conexión
-    Connection conexion = ClaseConexion.getConexion();
+        Connection conexion = ClaseConexion.getConexion();
     
-    // Obtenemos la fila seleccionada
     int filaSeleccionada = tabla.getSelectedRow();
     
     if (filaSeleccionada != -1) {
-        // Obtenemos el ID de la película seleccionada
+       
         String miUUId = tabla.getValueAt(filaSeleccionada, 0).toString();
         
         try { 
-            // Preparamos la sentencia SQL para actualizar los datos de la película
             PreparedStatement updateCartelera = conexion.prepareStatement(
                 "UPDATE Peliculas SET titulo = ?, descripcion = ?, duracion = ?, clasificacion_id = ?, genero_id = ?, poster = ?, trailer = ? WHERE pelicula_id = ?"
             );
@@ -239,10 +229,8 @@ public class Cartelera {
             updateCartelera.setString(6, getPoster());
             updateCartelera.setString(7, getTrailer());
             
-            // El último parámetro es el ID de la película para identificar la fila que se va a actualizar
             updateCartelera.setInt(8, Integer.parseInt(miUUId));
             
-            // Ejecutamos la actualización
             updateCartelera.executeUpdate();
             
             System.out.println("Película actualizada correctamente.");

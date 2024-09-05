@@ -47,27 +47,34 @@ public class Clasificacion {
     }
 
    
-        public void CargarComboClasificacion(JComboBox<Clasificacion>  comboBox){    
-        Connection conexion = ClaseConexion.getConexion();
-        comboBox.removeAllItems();
-        try{
-            Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("Select * from Clasificacion");
-            while (rs.next()) {
-                int idClasificacion = rs.getInt("Clasificacion_id");
-                String clasificacion = rs.getString("Nombre_clasificacion");
-                comboBox.addItem(new Clasificacion(idClasificacion, clasificacion));                
-            }   
+    public void CargarComboClasificacion(JComboBox<Clasificacion> comboBox) {    
+    Connection conexion = ClaseConexion.getConexion();
+    comboBox.removeAllItems(); // Asegúrate de limpiar el comboBox antes de llenarlo
+    
+    try {
+        Statement statement = conexion.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM Clasificacion");
+        
+        while (rs.next()) {
+            int idClasificacion = rs.getInt("Clasificacion_id");
+            String clasificacionNombre = rs.getString("Nombre_clasificacion");
+            comboBox.addItem(new Clasificacion(idClasificacion, clasificacionNombre));
         }
-        catch(SQLException ex)
-        {
-            ex.printStackTrace();  
+        
+        rs.close(); // Asegúrate de cerrar el ResultSet
+        statement.close(); // Asegúrate de cerrar el Statement
+    } catch (SQLException ex) {
+        ex.printStackTrace(); // Imprime la traza de pila para depuración
+    } finally {
+        try {
+            if (conexion != null && !conexion.isClosed()) {
+                conexion.close(); // Cierra la conexión en el bloque finally
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-}
-
-    public void CargarComboClasificacion(JComboBox<String> jcbRating) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-        }
-        
-        
+}}
+            
+           
+    
