@@ -36,10 +36,10 @@ public class Genero {
         
     }
     
-    public Genero(int idGenero, String genero)
+    public Genero(int idGenero, String nombreGenero)
     {
         this.genero_id = idGenero;
-        this.genero = genero;
+        this.genero = nombreGenero;
     }
     
       @Override
