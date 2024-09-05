@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,10 +48,9 @@ public class Clasificacion {
     }
 
    
-    public void CargarComboClasificacion(JComboBox<Clasificacion> comboBox) {    
+    public void CargarComboClasificacion(JComboBox comboBox) {    
     Connection conexion = ClaseConexion.getConexion();
-    comboBox.removeAllItems(); // Asegúrate de limpiar el comboBox antes de llenarlo
-    
+    comboBox.removeAllItems();     
     try {
         Statement statement = conexion.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM Clasificacion");
@@ -61,20 +61,13 @@ public class Clasificacion {
             comboBox.addItem(new Clasificacion(idClasificacion, clasificacionNombre));
         }
         
-        rs.close(); // Asegúrate de cerrar el ResultSet
-        statement.close(); // Asegúrate de cerrar el Statement
+        rs.close(); 
+        statement.close(); 
     } catch (SQLException ex) {
-        ex.printStackTrace(); // Imprime la traza de pila para depuración
-    } finally {
-        try {
-            if (conexion != null && !conexion.isClosed()) {
-                conexion.close(); // Cierra la conexión en el bloque finally
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        ex.printStackTrace();
+    } 
     }
-}}
+}
             
            
     

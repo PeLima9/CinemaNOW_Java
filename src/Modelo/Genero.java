@@ -1,11 +1,12 @@
 package Modelo;
 
 import java.sql.*;
-import javax.swing.JTable;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JComboBox;
-import javax.swing.table.DefaultTableModel;
-import Vista.FrmCartelera;
-import javax.swing.JComboBox;
+
 
 
 public class Genero {

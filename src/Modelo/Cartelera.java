@@ -84,6 +84,7 @@ public class Cartelera {
  public void Guardar() {
     
     Connection conexion = ClaseConexion.getConexion();
+
     try {
     
         PreparedStatement addCartelera = conexion.prepareStatement(
@@ -136,47 +137,49 @@ public class Cartelera {
         
     }
     
-      public void Mostrar(JTable tabla) {
-        //Creamos una variable de la clase de conexion
-        Connection conexion = ClaseConexion.getConexion();
-        //Definimos el modelo de la tabla
-        DefaultTableModel modeloTacos = new DefaultTableModel();
-        modeloTacos.setColumnIdentifiers(new Object[]{"pelicula_id", "titulo", "descripcion", "duracion", "clasificacion_id", "genero_id", "poster", "trailer"});
-        try {
-            //Creamos un Statement
-            Statement statement = conexion.createStatement();
-            //Ejecutamos el Statement con la consulta y lo asignamos a una variable de tipo ResultSet
-            ResultSet rs = statement.executeQuery("SELECT \n" +
-"    P.titulo,\n" +
-"    P.descripcion,\n" +
-"    P.duracion,\n" +
-"    C.nombre_clasificacion,\n" +
-"    G.genero,\n" +
-"    P.poster,\n" +
-"    P.trailer\n" +
-"FROM \n" +
-"    Peliculas P\n" +
-"INNER JOIN \n" +
-"    Clasificacion C ON P.clasificacion_id = C.clasificacion_id\n" +
-"INNER JOIN \n" +
-"    GeneroPelicula G ON P.genero_id = G.genero_id;");
-            //Recorremos el ResultSet
-            while (rs.next()) {
-                //Llenamos el modelo por cada vez que recorremos el resultSet
-                modeloTacos.addRow(new Object[]{rs.getString("pelicula_id"), 
-                    rs.getString("titulo"), 
-                    rs.getInt("descripcion"), 
-                        rs.getInt("duracion"), 
-                            rs.getInt("clasificacion_id"), 
-                                rs.getInt("genero_id"), 
-                                    rs.getInt("poster"), 
-                    rs.getString("trailer")});
-            }
-            //Asignamos el nuevo modelo lleno a la tabla
-            tabla.setModel(modeloTacos);
-        } catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+      public void MostrarCartelera(JTable tabla) {
+    Connection conexion = ClaseConexion.getConexion();
+    
+    DefaultTableModel model = new DefaultTableModel();
+    model.setColumnIdentifiers(new Object[]{"pelicula_id", "titulo", "descripcion", "duracion", "clasificacion_nombre", "genero_nombre", "poster", "trailer"});
+    
+    try {
+        Statement statement = conexion.createStatement();
+        
+        // Consulta SQL modificada con JOIN
+        ResultSet rs = statement.executeQuery(
+            "SELECT " +
+            "p.pelicula_id, " +
+            "p.titulo, " +
+            "p.descripcion, " +
+            "p.duracion, " +
+            "c.nombre AS clasificacion_nombre, " +
+            "g.nombre AS genero_nombre, " +
+            "p.poster, " +
+            "p.trailer " +
+            "FROM Peliculas p " +
+            "JOIN Clasificacion c ON p.clasificacion_id = c.clasificacion_id " +
+            "JOIN GeneroPelicula g ON p.genero_id = g.genero_id"
+        );
+        
+        while (rs.next()) {
+            model.addRow(new Object[]{
+                rs.getInt("pelicula_id"), 
+                rs.getString("titulo"), 
+                rs.getString("descripcion"), 
+                rs.getInt("duracion"), 
+                rs.getString("clasificacion_nombre"), 
+                rs.getString("genero_nombre"), 
+                rs.getString("poster"), 
+                rs.getString("trailer")
+            });
         }
+        
+        tabla.setModel(model);
+    } catch (Exception e) {
+        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+    }
+
         
         
     }
@@ -194,7 +197,7 @@ public class Cartelera {
             String genero_idTB = Vista.jtbCartelera.getValueAt(filaSeleccionada,5).toString();
             String posterTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 6).toString();
             String trailerTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 7).toString();
-            // Establece los valores en los campos de texto
+          
 
             Vista.txtMovieTitle.setText(tituloTB);
             Vista.txtSinopsis.setText(descripcionTBTB);
@@ -220,7 +223,7 @@ public class Cartelera {
                 "UPDATE Peliculas SET titulo = ?, descripcion = ?, duracion = ?, clasificacion_id = ?, genero_id = ?, poster = ?, trailer = ? WHERE pelicula_id = ?"
             );
             
-            // Asignamos los valores a los parámetros de la consulta
+          
             updateCartelera.setString(1, getTitulo());
             updateCartelera.setString(2, getDescripcion());
             updateCartelera.setInt(3, getDuracion());
@@ -241,15 +244,8 @@ public class Cartelera {
         System.out.println("No se ha seleccionado ninguna fila para actualizar.");
     }
 }
-
-    private int pelicula_id() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
- }   
-
-    public void cargarDatosTabla(JTable jtbCartelera) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-}
+
     
 
 
