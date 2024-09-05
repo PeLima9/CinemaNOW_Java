@@ -147,19 +147,7 @@ public class Cartelera {
         Statement statement = conexion.createStatement();
         
         // Consulta SQL modificada con JOIN
-        ResultSet rs = statement.executeQuery(
-            "SELECT " +
-            "p.pelicula_id, " +
-            "p.titulo, " +
-            "p.descripcion, " +
-            "p.duracion, " +
-            "c.nombre AS clasificacion_nombre, " +
-            "g.nombre AS genero_nombre, " +
-            "p.poster, " +
-            "p.trailer " +
-            "FROM Peliculas p " +
-            "JOIN Clasificacion c ON p.clasificacion_id = c.clasificacion_id " +
-            "JOIN GeneroPelicula g ON p.genero_id = g.genero_id"
+        ResultSet rs = statement.executeQuery("SELECT p.pelicula_id, p.titulo, p.descripcion, p.duracion, c.nombre_clasificacion AS clasificacion_nombre, g.genero AS genero_nombre, p.poster, p.trailer FROM Peliculas p JOIN Clasificacion c ON p.clasificacion_id = c.clasificacion_id JOIN GeneroPelicula g ON p.genero_id = g.genero_id"
         );
         
         while (rs.next()) {
