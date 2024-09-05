@@ -62,10 +62,11 @@ public class Clasificacion {
         }
         
         rs.close(); 
-        statement.close(); 
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-    } 
+        statement.close();  
+        }
+        catch (SQLException ex) {
+            System.out.println("[Clasificacion] Error al cargar ComboBox: " + ex);
+        } 
     }
 }
             

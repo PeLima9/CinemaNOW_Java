@@ -88,8 +88,7 @@ public class Cartelera {
     try {
     
         PreparedStatement addCartelera = conexion.prepareStatement(
-            "INSERT INTO Peliculas (titulo, descripcion, duracion, clasificacion_id, genero_id, poster, trailer) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO Peliculas (titulo, descripcion, duracion, clasificacion_id, genero_id, poster, trailer) VALUES (?, ?, ?, ?, ?, ?, ?)"
         );
 
         addCartelera.setString(1, getTitulo());
@@ -104,7 +103,7 @@ public class Cartelera {
         addCartelera.executeUpdate();
  
     } catch (SQLException ex) {
-        System.out.println("Este es el error en el modelo: método guardar " + ex);
+        System.out.println("[Cartelera] Error en Guardar: " + ex);
     }
 }
         
@@ -165,7 +164,7 @@ public class Cartelera {
         
         tabla.setModel(model);
     } catch (Exception e) {
-        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+        System.out.println("[Cartelera] Error en MostrarCartelera: " + e);
     }
 
         

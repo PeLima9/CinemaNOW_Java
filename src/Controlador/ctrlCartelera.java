@@ -51,6 +51,10 @@ public class ctrlCartelera implements MouseListener, KeyListener {
 
         ModeloCartelera.MostrarCartelera(VistaCartelera.jtbCartelera);
     }
+
+    public ctrlCartelera(Cartelera Modelo, FrmCartelera Vista) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
@@ -67,6 +71,7 @@ public class ctrlCartelera implements MouseListener, KeyListener {
             
             ModeloCartelera.Guardar();
             ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
+            
         }
         
         if (e.getSource() == VistaFrmCartelera.btnDeleteMovie) {
