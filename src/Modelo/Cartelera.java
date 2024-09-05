@@ -7,20 +7,29 @@ import Vista.FrmCartelera;
 
 public class Cartelera {
 
-    private String pelicula_id;
+    private int pelicula_id;
     private String titulo;
     private String descripcion;
     private int duracion;
     private int clasificacion_id;
     private int genero_id;
     private String poster;
+    private String trailer;
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
     
     
-    public String getPelicula_id() {
+    public int getPelicula_id() {
         return pelicula_id;
     }
 
-    public void setPelicula_id(String pelicula_id) {
+    public void setPelicula_id(int pelicula_id) {
         this.pelicula_id = pelicula_id;
     }
 
@@ -73,25 +82,32 @@ public class Cartelera {
     }
                           
  public void Guardar() {
-        //Creamos una variable igual a ejecutar el método de la clase de conexión
-        Connection conexion = ClaseConexion.getConexion();
-        try {
-            //Creamos el PreparedStatement que ejecutará la Query
-            PreparedStatement addMenu = conexion.prepareStatement("INSERT INTO tbmenu(UUID_menu, Nombre, Precio, Ingredientes) VALUES (?, ?, ?, ?)");
-            //Establecer valores de la consulta SQL
-            addMenu.setString(1, UUID.randomUUID().toString());
-            addMenu.setString(2, getNombre());
-            addMenu.setDouble(3, getPrecio());
-            addMenu.setString(4, getIngredientes());
+    // Creamos una variable igual a ejecutar el método de la clase de conexión
+    Connection conexion = ClaseConexion.getConexion();
+    try {
+    
+        PreparedStatement addCartelera = conexion.prepareStatement(
+            "INSERT INTO Peliculas (titulo, descripcion, duracion, clasificacion_id, genero_id, poster, trailer) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?)"
+        );
+
+        addCartelera.setString(1, getTitulo());
+        addCartelera.setString(2, getDescripcion());
+        addCartelera.setInt(3, getDuracion());
+        addCartelera.setInt(4, getClasificacion_id());
+        addCartelera.setInt(5, getGenero_id());
+        addCartelera.setString(6, getPoster());
+        addCartelera.setString(7, getTrailer());
+
+        // Ejecutar la consulta
+        addCartelera.executeUpdate();
  
-            //Ejecutar la consulta
-            addMenu.executeUpdate();
- 
-        } catch (SQLException ex) {
-            System.out.println("este es el error en el modelo:metodo guardar " + ex);
-        }
+    } catch (SQLException ex) {
+        System.out.println("Este es el error en el modelo: método guardar " + ex);
+    }
+}
         
-      }
+      
   public void Eliminar(JTable tabla) {
 
         //Creamos una variable igual a ejecutar el método de la clase de conexión
@@ -110,11 +126,11 @@ public class Cartelera {
 
         try {
 
-            PreparedStatement deleteEstudiante = conexion.prepareStatement("delete from tbMenu where UUID_menu = ?");
+            PreparedStatement deleteCartelera = conexion.prepareStatement("delete from Peliculas where pelicula_id = ?");
 
-            deleteEstudiante.setString(1, miId);
+            deleteCartelera.setString(1, miId);
 
-            deleteEstudiante.executeUpdate();
+            deleteCartelera.executeUpdate();
 
         } catch (Exception e) {
 
@@ -132,19 +148,36 @@ public class Cartelera {
         Connection conexion = ClaseConexion.getConexion();
         //Definimos el modelo de la tabla
         DefaultTableModel modeloTacos = new DefaultTableModel();
-        modeloTacos.setColumnIdentifiers(new Object[]{"UUID_menu", "Nombre", "Precio", "Ingredientes"});
+        modeloTacos.setColumnIdentifiers(new Object[]{"pelicula_id", "titulo", "descripcion", "duracion", "clasificacion_id", "genero_id", "poster", "trailer"});
         try {
             //Creamos un Statement
             Statement statement = conexion.createStatement();
             //Ejecutamos el Statement con la consulta y lo asignamos a una variable de tipo ResultSet
-            ResultSet rs = statement.executeQuery("SELECT * FROM tbMenu");
+            ResultSet rs = statement.executeQuery("SELECT \n" +
+"    P.titulo,\n" +
+"    P.descripcion,\n" +
+"    P.duracion,\n" +
+"    C.nombre_clasificacion,\n" +
+"    G.genero,\n" +
+"    P.poster,\n" +
+"    P.trailer\n" +
+"FROM \n" +
+"    Peliculas P\n" +
+"INNER JOIN \n" +
+"    Clasificacion C ON P.clasificacion_id = C.clasificacion_id\n" +
+"INNER JOIN \n" +
+"    GeneroPelicula G ON P.genero_id = G.genero_id;");
             //Recorremos el ResultSet
             while (rs.next()) {
                 //Llenamos el modelo por cada vez que recorremos el resultSet
-                modeloTacos.addRow(new Object[]{rs.getString("UUID_menu"), 
-                    rs.getString("nombre"), 
-                    rs.getInt("precio"), 
-                    rs.getString("ingredientes")});
+                modeloTacos.addRow(new Object[]{rs.getString("pelicula_id"), 
+                    rs.getString("titulo"), 
+                    rs.getInt("descripcion"), 
+                        rs.getInt("duracion"), 
+                            rs.getInt("clasificacion_id"), 
+                                rs.getInt("genero_id"), 
+                                    rs.getInt("poster"), 
+                    rs.getString("trailer")});
             }
             //Asignamos el nuevo modelo lleno a la tabla
             tabla.setModel(modeloTacos);
@@ -155,47 +188,83 @@ public class Cartelera {
         
     }
       
-        public void cargarDatosTabla(frmMenu vista) {
+        public void cargarDatosTabla(FrmCartelera Vista) {
         // Obtén la fila seleccionada 
-        int filaSeleccionada = vista.jtbMenu.getSelectedRow();
+        int filaSeleccionada = Vista.jtbCartelera.getSelectedRow();
         // Debemos asegurarnos que haya una fila seleccionada antes de acceder a sus valores
         if (filaSeleccionada != -1) {
-            String UUIDDeTb = vista.jtbMenu.getValueAt(filaSeleccionada, 0).toString();
-            String NombreDeTB = vista.jtbMenu.getValueAt(filaSeleccionada, 1).toString();
-            String PrecioTB = vista.jtbMenu.getValueAt(filaSeleccionada, 2).toString();
-            String ingredientesTB = vista.jtbMenu.getValueAt(filaSeleccionada, 3).toString();
+            String IDTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 0).toString();
+            String tituloTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 1).toString();
+            String descripcionTBTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 2).toString();
+             String duracionTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 3).toString();
+            String clasificacion_idTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 4).toString();
+            String genero_idTB = Vista.jtbCartelera.getValueAt(filaSeleccionada,5).toString();
+            String posterTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 6).toString();
+            String trailerTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 7).toString();
             // Establece los valores en los campos de texto
-            vista.txtNombre.setText(NombreDeTB);
-            vista.txtPrecio.setText(PrecioTB);
-            vista.txtIngredientes.setText(ingredientesTB);
+
+            Vista.txtMovieTitle.setText(tituloTB);
+            Vista.txtSinopsis.setText(descripcionTBTB);
+            Vista.txtDuration.setText(duracionTB);
+            Vista.jcbRating.setSelectedItem(clasificacion_idTB);
+            Vista.jcbGenre.setSelectedItem(genero_idTB);
+            Vista.txtMoviePoster1.setText(posterTB);
+            Vista.txtMovieTrailer.setText(trailerTB);
         }
     }
+
+    public void Actualizar(JTable tabla) {
+    // Obtenemos la conexión
+    Connection conexion = ClaseConexion.getConexion();
+    
+    // Obtenemos la fila seleccionada
+    int filaSeleccionada = tabla.getSelectedRow();
+    
+    if (filaSeleccionada != -1) {
+        // Obtenemos el ID de la película seleccionada
+        String miUUId = tabla.getValueAt(filaSeleccionada, 0).toString();
         
-        public void Actualizar(JTable tabla) {
-        //Creamos una variable igual a ejecutar el método de la clase de conexión
-        Connection conexion = ClaseConexion.getConexion();
-        //obtenemos que fila seleccionó el usuario
-        int filaSeleccionada = tabla.getSelectedRow();
-        if (filaSeleccionada != -1) {
-            //Obtenemos el id de la fila seleccionada
-            String miUUId = tabla.getValueAt(filaSeleccionada, 0).toString();
-            try { 
-                //Ejecutamos la Query
-                PreparedStatement updateUser = conexion.prepareStatement("update tbmenu set nombre= ?, precio = ?, ingredientes = ? where UUID_menu = ?");
-                updateUser.setString(1, getNombre());
-                updateUser.setDouble(2, getPrecio());
-                updateUser.setString(3, getIngredientes());
-                updateUser.setString(4, miUUId);
-                updateUser.executeUpdate();
-            } catch (Exception e) {
-                System.out.println("este es el error en el metodo de actualizar" + e);
-            }
-        } else {
-            System.out.println("no funciona actualizar");
+        try { 
+            // Preparamos la sentencia SQL para actualizar los datos de la película
+            PreparedStatement updateCartelera = conexion.prepareStatement(
+                "UPDATE Peliculas SET titulo = ?, descripcion = ?, duracion = ?, clasificacion_id = ?, genero_id = ?, poster = ?, trailer = ? WHERE pelicula_id = ?"
+            );
+            
+            // Asignamos los valores a los parámetros de la consulta
+            updateCartelera.setString(1, getTitulo());
+            updateCartelera.setString(2, getDescripcion());
+            updateCartelera.setInt(3, getDuracion());
+            updateCartelera.setInt(4, getClasificacion_id());
+            updateCartelera.setInt(5, getGenero_id());
+            updateCartelera.setString(6, getPoster());
+            updateCartelera.setString(7, getTrailer());
+            
+            // El último parámetro es el ID de la película para identificar la fila que se va a actualizar
+            updateCartelera.setInt(8, Integer.parseInt(miUUId));
+            
+            // Ejecutamos la actualización
+            updateCartelera.executeUpdate();
+            
+            System.out.println("Película actualizada correctamente.");
+        } catch (Exception e) {
+            System.out.println("Error en el método de actualizar: " + e.getMessage());
         }
+    } else {
+        System.out.println("No se ha seleccionado ninguna fila para actualizar.");
     }
+}
+
+    private int pelicula_id() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+ }   
+
+    public void cargarDatosTabla(JTable jtbCartelera) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
+    
 
 
 
                                                 
-}
+

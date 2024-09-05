@@ -35,12 +35,13 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnAddMovie = new javax.swing.JButton();
         btnDeleteMovie = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
-        txtMoviePoster = new javax.swing.JTextField();
+        txtMovieTrailer = new javax.swing.JTextField();
         txtSinopsis = new javax.swing.JTextField();
         jcbGenre = new javax.swing.JComboBox<>();
         jcbRating = new javax.swing.JComboBox<>();
         txtMovieTitle = new javax.swing.JTextField();
         txtDuration = new javax.swing.JTextField();
+        txtMoviePoster1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +73,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         jpNavBarLayout.setVerticalGroup(
             jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imgTickets)
                     .addComponent(imgEmpleados)
@@ -80,7 +81,7 @@ public class FrmCartelera extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 1440, 140));
+        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1440, 110));
 
         jpHeader.setBackground(new java.awt.Color(146, 134, 208));
 
@@ -147,7 +148,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         lblCartelera.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
         lblCartelera.setForeground(new java.awt.Color(255, 255, 255));
         lblCartelera.setText("Cartelera");
-        jPanel1.add(lblCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 160, -1, -1));
+        jPanel1.add(lblCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 150, -1, -1));
 
         jtbCartelera.setBackground(new java.awt.Color(32, 29, 76));
         jtbCartelera.setFont(new java.awt.Font("Montserrat Black", 0, 12)); // NOI18N
@@ -165,7 +166,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtbCartelera);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 900, 400));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 900, 410));
 
         lblUsername.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,34 +177,34 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnEditMovie.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnEditMovie.setForeground(new java.awt.Color(255, 255, 255));
         btnEditMovie.setText("Modificar Película");
-        jPanel1.add(btnEditMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 520, 210, 50));
+        jPanel1.add(btnEditMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 560, 210, 50));
 
         btnAddMovie.setBackground(new java.awt.Color(248, 93, 116));
         btnAddMovie.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnAddMovie.setForeground(new java.awt.Color(255, 255, 255));
         btnAddMovie.setText("Agregar Película");
-        jPanel1.add(btnAddMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 520, 210, 50));
+        jPanel1.add(btnAddMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 560, 210, 50));
 
         btnDeleteMovie.setBackground(new java.awt.Color(248, 93, 116));
         btnDeleteMovie.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnDeleteMovie.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteMovie.setText("Borrar Película");
-        jPanel1.add(btnDeleteMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 590, 210, 50));
+        jPanel1.add(btnDeleteMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 620, 210, 50));
 
         btnClear.setBackground(new java.awt.Color(248, 93, 116));
         btnClear.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Borrar Película");
         btnClear.setActionCommand("Limpiar Campos");
-        jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 590, 210, 50));
+        jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 620, 210, 50));
 
-        txtMoviePoster.setBackground(new java.awt.Color(54, 47, 92));
-        txtMoviePoster.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtMoviePoster.setForeground(new java.awt.Color(255, 255, 255));
-        txtMoviePoster.setText("Póster de la Película");
-        txtMoviePoster.setToolTipText("");
-        txtMoviePoster.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtMoviePoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 470, 440, 30));
+        txtMovieTrailer.setBackground(new java.awt.Color(54, 47, 92));
+        txtMovieTrailer.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtMovieTrailer.setForeground(new java.awt.Color(255, 255, 255));
+        txtMovieTrailer.setText("Trailer");
+        txtMovieTrailer.setToolTipText("");
+        txtMovieTrailer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtMovieTrailer, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 510, 440, 30));
 
         txtSinopsis.setBackground(new java.awt.Color(54, 47, 92));
         txtSinopsis.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -211,21 +212,21 @@ public class FrmCartelera extends javax.swing.JFrame {
         txtSinopsis.setText("Descripción");
         txtSinopsis.setToolTipText("");
         txtSinopsis.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 270, 440, 30));
+        jPanel1.add(txtSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 260, 440, 30));
 
         jcbGenre.setBackground(new java.awt.Color(54, 47, 92));
         jcbGenre.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         jcbGenre.setForeground(new java.awt.Color(255, 255, 255));
         jcbGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Género", "Item 2", "Item 3", "Item 4" }));
         jcbGenre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(jcbGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 420, 440, 30));
+        jPanel1.add(jcbGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 410, 440, 30));
 
         jcbRating.setBackground(new java.awt.Color(54, 47, 92));
         jcbRating.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         jcbRating.setForeground(new java.awt.Color(255, 255, 255));
         jcbRating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clasificación", "Item 2", "Item 3", "Item 4" }));
         jcbRating.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(jcbRating, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 370, 440, 30));
+        jPanel1.add(jcbRating, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 360, 440, 30));
 
         txtMovieTitle.setBackground(new java.awt.Color(54, 47, 92));
         txtMovieTitle.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -233,7 +234,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         txtMovieTitle.setText("Título");
         txtMovieTitle.setToolTipText("");
         txtMovieTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtMovieTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 220, 440, 30));
+        jPanel1.add(txtMovieTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 210, 440, 30));
 
         txtDuration.setBackground(new java.awt.Color(54, 47, 92));
         txtDuration.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -241,17 +242,31 @@ public class FrmCartelera extends javax.swing.JFrame {
         txtDuration.setText("Duración");
         txtDuration.setToolTipText("");
         txtDuration.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 320, 440, 30));
+        jPanel1.add(txtDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 310, 440, 30));
+
+        txtMoviePoster1.setBackground(new java.awt.Color(54, 47, 92));
+        txtMoviePoster1.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtMoviePoster1.setForeground(new java.awt.Color(255, 255, 255));
+        txtMoviePoster1.setText("Póster de la Película");
+        txtMoviePoster1.setToolTipText("");
+        txtMoviePoster1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtMoviePoster1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 460, 440, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -314,8 +329,9 @@ public class FrmCartelera extends javax.swing.JFrame {
     public javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblUsername;
     public javax.swing.JTextField txtDuration;
-    public javax.swing.JTextField txtMoviePoster;
+    public javax.swing.JTextField txtMoviePoster1;
     public javax.swing.JTextField txtMovieTitle;
+    public javax.swing.JTextField txtMovieTrailer;
     public javax.swing.JTextField txtSinopsis;
     // End of variables declaration//GEN-END:variables
 }
