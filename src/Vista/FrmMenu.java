@@ -235,7 +235,7 @@ public static void initFrmMenu(){
 
         jPanel3.add(jpCartelera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1440, 520));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1440, 550));
 
         jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
 
