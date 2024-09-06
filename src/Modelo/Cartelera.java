@@ -191,7 +191,7 @@ public class Cartelera {
             Vista.txtDuration.setText(duracionTB);
             Vista.jcbRating.setSelectedItem(clasificacion_idTB);
             Vista.jcbGenre.setSelectedItem(genero_idTB);
-            Vista.txtMoviePoster1.setText(posterTB);
+            Vista.txtMoviePoster.setText(posterTB);
             Vista.txtMovieTrailer.setText(trailerTB);
         }
     }

@@ -53,7 +53,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         jcbRating = new javax.swing.JComboBox<>();
         txtMovieTitle = new javax.swing.JTextField();
         txtDuration = new javax.swing.JTextField();
-        txtMoviePoster1 = new javax.swing.JTextField();
+        txtMoviePoster = new javax.swing.JTextField();
         lblCartelera1 = new javax.swing.JLabel();
         lblCartelera2 = new javax.swing.JLabel();
         lblCartelera3 = new javax.swing.JLabel();
@@ -214,7 +214,6 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnClear.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Limpiar Campos");
-        btnClear.setActionCommand("Limpiar Campos");
         jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 620, 210, 50));
 
         txtMovieTrailer.setBackground(new java.awt.Color(54, 47, 92));
@@ -257,12 +256,12 @@ public class FrmCartelera extends javax.swing.JFrame {
         txtDuration.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
         jPanel1.add(txtDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 300, 320, 40));
 
-        txtMoviePoster1.setBackground(new java.awt.Color(54, 47, 92));
-        txtMoviePoster1.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtMoviePoster1.setForeground(new java.awt.Color(255, 255, 255));
-        txtMoviePoster1.setToolTipText("");
-        txtMoviePoster1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtMoviePoster1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 450, 320, 40));
+        txtMoviePoster.setBackground(new java.awt.Color(54, 47, 92));
+        txtMoviePoster.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        txtMoviePoster.setForeground(new java.awt.Color(255, 255, 255));
+        txtMoviePoster.setToolTipText("");
+        txtMoviePoster.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtMoviePoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 450, 320, 40));
 
         lblCartelera1.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         lblCartelera1.setForeground(new java.awt.Color(255, 255, 255));
@@ -303,17 +302,13 @@ public class FrmCartelera extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -383,7 +378,7 @@ public class FrmCartelera extends javax.swing.JFrame {
     public javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblUsername;
     public javax.swing.JTextField txtDuration;
-    public javax.swing.JTextField txtMoviePoster1;
+    public javax.swing.JTextField txtMoviePoster;
     public javax.swing.JTextField txtMovieTitle;
     public javax.swing.JTextField txtMovieTrailer;
     public javax.swing.JTextField txtSinopsis;
