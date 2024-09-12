@@ -14,33 +14,32 @@ import javax.swing.JOptionPane;
 
 public class ctrlCartelera implements MouseListener, KeyListener {
     
+    //Conectar Modelo y Vista
     private Cartelera ModeloCartelera;
     private Genero ModeloGenero;
     private Clasificacion ModeloClasificacion;
     private FrmCartelera VistaFrmCartelera;
     
     public ctrlCartelera(Cartelera cartelera, Genero genero, Clasificacion clasificacion, FrmCartelera VistaCartelera) {
+
+        //Asignar Modelo y Vista
         this.ModeloCartelera = cartelera;
         this.ModeloGenero = genero;
         this.ModeloClasificacion = clasificacion;
         this.VistaFrmCartelera = VistaCartelera;
         
-        
-
-        
+        //Cargar ComboBox
         this.ModeloGenero.CargarComboGenero(VistaCartelera.jcbGenre);
         this.ModeloClasificacion.CargarComboClasificacion(VistaCartelera.jcbRating);
         
-        
-
-
+        //Agregar MouseListener
         VistaCartelera.btnAddMovie.addMouseListener(this);
         VistaCartelera.jtbCartelera.addMouseListener(this);
         VistaCartelera.btnDeleteMovie.addMouseListener(this);
         VistaCartelera.btnEditMovie.addMouseListener(this);
         VistaCartelera.jcbGenre.addMouseListener(this);
-        VistaCartelera.btnClear.addMouseListener(this);
-
+        VistaCartelera.btnMenu.addMouseListener(this);
+        
         VistaCartelera.jcbGenre.addActionListener(e -> {
             if (e.getSource() == VistaCartelera.jcbGenre) {
                 Genero selectedItem = (Genero) VistaCartelera.jcbGenre.getSelectedItem();
@@ -51,12 +50,20 @@ public class ctrlCartelera implements MouseListener, KeyListener {
             }
         });
 
+        //Configurar JTable
         ModeloCartelera.MostrarCartelera(VistaCartelera.jtbCartelera);
     }    
     
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        //Volver al Menú
+        if (e.getSource() == VistaFrmCartelera.btnMenu){
+                Vista.FrmMenu.initFrmMenu();
+                VistaFrmCartelera.dispose();
+                System.out.println("FrmMenu cargado exitosamente");
+        }
         
         //Agregar
         if (e.getSource() == VistaFrmCartelera.btnAddMovie) {
@@ -149,7 +156,7 @@ public class ctrlCartelera implements MouseListener, KeyListener {
         }
         
         //Limpiar Campos
-        if (e.getSource() == VistaFrmCartelera.btnClear){
+        if (e.getSource() == VistaFrmCartelera.btnMenu){
 
             VistaFrmCartelera.txtMovieTitle.setText(null);
             VistaFrmCartelera.txtSinopsis.setText(null);

@@ -7,8 +7,6 @@ import Modelo.Clasificacion;
 import Modelo.Genero;
 import Vista.FrmCartelera;
 
-
-
 public class FrmCartelera extends javax.swing.JFrame {
 
     public FrmCartelera() {
@@ -46,7 +44,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnEditMovie = new javax.swing.JButton();
         btnAddMovie = new javax.swing.JButton();
         btnDeleteMovie = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         txtMovieTrailer = new javax.swing.JTextField();
         txtSinopsis = new javax.swing.JTextField();
         jcbGenre = new javax.swing.JComboBox<>();
@@ -61,6 +59,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         lblCartelera5 = new javax.swing.JLabel();
         lblCartelera6 = new javax.swing.JLabel();
         lblCartelera7 = new javax.swing.JLabel();
+        btnClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -210,11 +209,11 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnDeleteMovie.setText("Borrar Película");
         jPanel1.add(btnDeleteMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 620, 210, 50));
 
-        btnClear.setBackground(new java.awt.Color(248, 93, 116));
-        btnClear.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnClear.setForeground(new java.awt.Color(255, 255, 255));
-        btnClear.setText("Limpiar Campos");
-        jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 620, 210, 50));
+        btnMenu.setBackground(new java.awt.Color(248, 93, 116));
+        btnMenu.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu.setText("Volver a inicio");
+        jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 210, 50));
 
         txtMovieTrailer.setBackground(new java.awt.Color(54, 47, 92));
         txtMovieTrailer.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -298,6 +297,12 @@ public class FrmCartelera extends javax.swing.JFrame {
         lblCartelera7.setText("Género:");
         jPanel1.add(lblCartelera7, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 410, -1, -1));
 
+        btnClear.setBackground(new java.awt.Color(248, 93, 116));
+        btnClear.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
+        btnClear.setText("Limpiar Campos");
+        jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 620, 210, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -314,34 +319,8 @@ public class FrmCartelera extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 initFrmCartelera();
@@ -354,6 +333,7 @@ public class FrmCartelera extends javax.swing.JFrame {
     public javax.swing.JButton btnClear;
     public javax.swing.JButton btnDeleteMovie;
     public javax.swing.JButton btnEditMovie;
+    public javax.swing.JButton btnMenu;
     public javax.swing.JLabel imgCartelera;
     private javax.swing.JLabel imgCinemaNOW;
     public javax.swing.JLabel imgEmpleados;
