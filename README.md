@@ -552,5 +552,36 @@ SELECT nombre FROM Usuarios WHERE email = 'logintest@gmail.com';
 SELECT p.pelicula_id, p.titulo, p.descripcion, p.duracion, c.nombre_clasificacion AS clasificacion_nombre, g.genero AS genero_nombre, p.poster, p.trailer FROM Peliculas p JOIN Clasificacion c ON p.clasificacion_id = c.clasificacion_id JOIN GeneroPelicula g ON p.genero_id = g.genero_id;
 
 
+--Empleado de Prueba--
+CREATE TABLE Empleados(
+    idEmpleado INT PRIMARY KEY,
+    nombreEmpleado VARCHAR2(50),
+    correoEmpleado VARCHAR2(50),
+    passwordEmpleado VARCHAR2(25),
+    salario DECIMAL(6,2)
+);
+
+CREATE SEQUENCE empleadosSeq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trigEmpleados
+BEFORE INSERT
+ON Empleados FOR EACH ROW
+BEGIN
+    SELECT empleadosSeq.NEXTVAL INTO :NEW.idEmpleado FROM DUAL;
+END;
+/
+
+INSERT INTO Empleados (nombreEmpleado, correoEmpleado, passwordEmpleado, salario)
+VALUES ('EmpleadoTest', 'empleadotest@gmail.com', 'EmpleadoTest', 100.99);
+
+--Trigger para insertar Usuarios y Empleados--
+CREATE OR REPLACE TRIGGER userEmployee
+AFTER INSERT ON Empleados
+FOR EACH ROW
+BEGIN
+    INSERT INTO Usuarios (usuario_id, nombre, email, contraseña, rol_id, foto_perfil) 
+    VALUES (usuarios_seq.NEXTVAL, :NEW.nombreEmpleado, :NEW.correoEmpleado, :NEW.passwordEmpleado, 2, 'Placeholder Foto');
+END;
+/
 
 ```
