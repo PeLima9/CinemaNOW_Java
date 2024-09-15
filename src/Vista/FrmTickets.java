@@ -21,10 +21,6 @@ public class FrmTickets extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jpNavBar = new javax.swing.JPanel();
-        imgCartelera = new javax.swing.JLabel();
-        imgTickets = new javax.swing.JLabel();
-        imgEmpleados = new javax.swing.JLabel();
         jpHeader = new javax.swing.JPanel();
         imgCinemaNOW = new javax.swing.JLabel();
         lblCinemaNOW = new javax.swing.JLabel();
@@ -36,46 +32,16 @@ public class FrmTickets extends javax.swing.JFrame {
         lblUsername = new javax.swing.JLabel();
         btnDeleteTicket = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
+        jpNavBar = new javax.swing.JPanel();
+        imgTickets = new javax.swing.JButton();
+        imgCartelera = new javax.swing.JButton();
+        imgEmpleados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
-
-        imgCartelera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie.png"))); // NOI18N
-
-        imgTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie_Ticket.png"))); // NOI18N
-
-        imgEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Management.png"))); // NOI18N
-
-        javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
-        jpNavBar.setLayout(jpNavBarLayout);
-        jpNavBarLayout.setHorizontalGroup(
-            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(imgTickets)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
-                .addComponent(imgEmpleados)
-                .addGap(340, 340, 340)
-                .addComponent(imgCartelera)
-                .addGap(236, 236, 236))
-        );
-        jpNavBarLayout.setVerticalGroup(
-            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imgTickets)
-                    .addComponent(imgEmpleados)
-                    .addComponent(imgCartelera))
-                .addGap(17, 17, 17))
-        );
-
-        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1440, 110));
 
         jpHeader.setBackground(new java.awt.Color(146, 134, 208));
 
@@ -179,6 +145,46 @@ public class FrmTickets extends javax.swing.JFrame {
         btnMenu.setText("Volver a inicio");
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 210, 50));
 
+        jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
+
+        imgTickets.setBackground(new java.awt.Color(32, 29, 76));
+        imgTickets.setForeground(new java.awt.Color(32, 29, 76));
+        imgTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie_Ticket.png"))); // NOI18N
+
+        imgCartelera.setBackground(new java.awt.Color(32, 29, 76));
+        imgCartelera.setForeground(new java.awt.Color(32, 29, 76));
+        imgCartelera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie.png"))); // NOI18N
+
+        imgEmpleados.setBackground(new java.awt.Color(32, 29, 76));
+        imgEmpleados.setForeground(new java.awt.Color(32, 29, 76));
+        imgEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Management.png"))); // NOI18N
+
+        javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
+        jpNavBar.setLayout(jpNavBarLayout);
+        jpNavBarLayout.setHorizontalGroup(
+            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
+                .addGap(213, 213, 213)
+                .addComponent(imgTickets)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                .addComponent(imgEmpleados)
+                .addGap(312, 312, 312)
+                .addComponent(imgCartelera)
+                .addGap(223, 223, 223))
+        );
+        jpNavBarLayout.setVerticalGroup(
+            jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpNavBarLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imgEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imgCartelera, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imgTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1440, 110));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -207,10 +213,10 @@ public class FrmTickets extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDeleteTicket;
     public javax.swing.JButton btnMenu;
-    public javax.swing.JLabel imgCartelera;
+    public javax.swing.JButton imgCartelera;
     private javax.swing.JLabel imgCinemaNOW;
-    public javax.swing.JLabel imgEmpleados;
-    public javax.swing.JLabel imgTickets;
+    public javax.swing.JButton imgEmpleados;
+    public javax.swing.JButton imgTickets;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpDate;

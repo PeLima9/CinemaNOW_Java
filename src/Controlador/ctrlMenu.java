@@ -20,14 +20,18 @@ public class ctrlMenu implements ActionListener{
         
         //Agregar ActionListener
         this.vistaMenu.btnCartelera.addActionListener(this);
-        this.vistaMenu.btnTickers.addActionListener(this);
+        this.vistaMenu.btnTickets.addActionListener(this);
+        this.vistaMenu.btnEmpleados.addActionListener(this);
+        this.vistaMenu.imgCartelera.addActionListener(this);
+        this.vistaMenu.imgTickets.addActionListener(this);
+        this.vistaMenu.imgEmpleados.addActionListener(this);
 
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         
         //Boton Cartelera
-        if (e.getSource() == vistaMenu.btnCartelera){
+        if (e.getSource() == vistaMenu.btnCartelera || e.getSource() == vistaMenu.imgCartelera){
                 Vista.FrmCartelera.initFrmCartelera();
                 vistaMenu.dispose();
                 System.out.println("FrmCartelera cargado exitosamente");
@@ -35,10 +39,17 @@ public class ctrlMenu implements ActionListener{
         }
         
         //Boton Tickets
-        if (e.getSource() == vistaMenu.btnTickers){
+        if (e.getSource() == vistaMenu.btnTickets || e.getSource() == vistaMenu.imgTickets){
                 Vista.FrmTickets.initFrmTickets();
                 vistaMenu.dispose();
                 System.out.println("FrmTickets cargado exitosamente");
+        }
+        
+        //Boton Empleados
+        if (e.getSource() == vistaMenu.btnEmpleados || e.getSource() == vistaMenu.imgEmpleados){
+                Vista.FrmEmpleados.initFrmEmpleados();
+                vistaMenu.dispose();
+                System.out.println("FrmEmpleados cargado Exitosamente");
         }
     }
     

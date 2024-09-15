@@ -17,6 +17,10 @@ public class ctrlTickets implements ActionListener{
          
          //Agregar ActionListener
          this.VistaTickets.btnMenu.addActionListener(this);
+         
+         this.VistaTickets.imgCartelera.addActionListener(this);
+         this.VistaTickets.imgTickets.addActionListener(this);
+         this.VistaTickets.imgEmpleados.addActionListener(this);
      }
         
     @Override
@@ -27,6 +31,28 @@ public class ctrlTickets implements ActionListener{
                 Vista.FrmMenu.initFrmMenu();
                 VistaTickets.dispose();
                 System.out.println("FrmMenu cargado exitosamente");
+        }
+        
+        //Boton Cartelera
+        if (e.getSource() == VistaTickets.imgCartelera){
+                Vista.FrmCartelera.initFrmCartelera();
+                VistaTickets.dispose();
+                System.out.println("FrmCartelera cargado exitosamente");
+
+        }
+        
+        //Boton Tickets
+        if (e.getSource() == VistaTickets.imgTickets){
+                Vista.FrmTickets.initFrmTickets();
+                VistaTickets.dispose();
+                System.out.println("FrmTickets cargado exitosamente");
+        }
+        
+        //Boton Empleados
+        if ( e.getSource() == VistaTickets.imgEmpleados){
+                Vista.FrmEmpleados.initFrmEmpleados();
+                VistaTickets.dispose();
+                System.out.println("FrmEmpleados cargado Exitosamente");
         }
         
     }

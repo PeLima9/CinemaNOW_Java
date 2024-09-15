@@ -40,6 +40,10 @@ public class ctrlCartelera implements MouseListener, KeyListener {
         VistaCartelera.jcbGenre.addMouseListener(this);
         VistaCartelera.btnMenu.addMouseListener(this);
         
+        VistaCartelera.imgCartelera.addMouseListener(this);
+        VistaCartelera.imgTickets.addMouseListener(this);
+        VistaCartelera.imgEmpleados.addMouseListener(this);
+        
         VistaCartelera.jcbGenre.addActionListener(e -> {
             if (e.getSource() == VistaCartelera.jcbGenre) {
                 Genero selectedItem = (Genero) VistaCartelera.jcbGenre.getSelectedItem();
@@ -63,6 +67,28 @@ public class ctrlCartelera implements MouseListener, KeyListener {
                 Vista.FrmMenu.initFrmMenu();
                 VistaFrmCartelera.dispose();
                 System.out.println("FrmMenu cargado exitosamente");
+        }
+        
+         //Boton Cartelera
+        if (e.getSource() == VistaFrmCartelera.imgCartelera){
+                Vista.FrmCartelera.initFrmCartelera();
+                VistaFrmCartelera.dispose();
+                System.out.println("FrmCartelera cargado exitosamente");
+
+        }
+        
+        //Boton Tickets
+        if (e.getSource() == VistaFrmCartelera.imgTickets){
+                Vista.FrmTickets.initFrmTickets();
+                VistaFrmCartelera.dispose();
+                System.out.println("FrmTickets cargado exitosamente");
+        }
+        
+        //Boton Empleados
+        if ( e.getSource() == VistaFrmCartelera.imgEmpleados){
+                Vista.FrmEmpleados.initFrmEmpleados();
+                VistaFrmCartelera.dispose();
+                System.out.println("FrmEmpleados cargado Exitosamente");
         }
         
         //Agregar

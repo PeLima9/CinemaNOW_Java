@@ -33,7 +33,7 @@ public static void initFrmMenu(){
         lblUsername = new javax.swing.JLabel();
         lblBienvenida = new javax.swing.JLabel();
         jpTickets3 = new javax.swing.JPanel();
-        btnTickers = new javax.swing.JButton();
+        btnTickets = new javax.swing.JButton();
         lblReservaTickets = new javax.swing.JLabel();
         jpEmpleados1 = new javax.swing.JPanel();
         btnEmpleados = new javax.swing.JButton();
@@ -42,9 +42,9 @@ public static void initFrmMenu(){
         btnCartelera = new javax.swing.JButton();
         lblPelículas = new javax.swing.JLabel();
         jpNavBar = new javax.swing.JPanel();
-        imgCartelera = new javax.swing.JLabel();
-        imgTickets = new javax.swing.JLabel();
-        imgEmpleados = new javax.swing.JLabel();
+        imgTickets = new javax.swing.JButton();
+        imgCartelera = new javax.swing.JButton();
+        imgEmpleados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,10 +129,10 @@ public static void initFrmMenu(){
 
         jpTickets3.setBackground(new java.awt.Color(32, 29, 76));
 
-        btnTickers.setBackground(new java.awt.Color(248, 93, 116));
-        btnTickers.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
-        btnTickers.setForeground(new java.awt.Color(255, 255, 255));
-        btnTickers.setText("Tickets");
+        btnTickets.setBackground(new java.awt.Color(248, 93, 116));
+        btnTickets.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
+        btnTickets.setForeground(new java.awt.Color(255, 255, 255));
+        btnTickets.setText("Tickets");
 
         lblReservaTickets.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         lblReservaTickets.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,7 +146,7 @@ public static void initFrmMenu(){
                 .addGroup(jpTickets3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpTickets3Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(btnTickers, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpTickets3Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(lblReservaTickets)))
@@ -158,7 +158,7 @@ public static void initFrmMenu(){
                 .addGap(39, 39, 39)
                 .addComponent(lblReservaTickets)
                 .addGap(79, 79, 79)
-                .addComponent(btnTickers, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -239,10 +239,16 @@ public static void initFrmMenu(){
 
         jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
 
-        imgCartelera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie.png"))); // NOI18N
-
+        imgTickets.setBackground(new java.awt.Color(32, 29, 76));
+        imgTickets.setForeground(new java.awt.Color(32, 29, 76));
         imgTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie_Ticket.png"))); // NOI18N
 
+        imgCartelera.setBackground(new java.awt.Color(32, 29, 76));
+        imgCartelera.setForeground(new java.awt.Color(32, 29, 76));
+        imgCartelera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie.png"))); // NOI18N
+
+        imgEmpleados.setBackground(new java.awt.Color(32, 29, 76));
+        imgEmpleados.setForeground(new java.awt.Color(32, 29, 76));
         imgEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Management.png"))); // NOI18N
 
         javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
@@ -250,23 +256,23 @@ public static void initFrmMenu(){
         jpNavBarLayout.setHorizontalGroup(
             jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
-                .addGap(226, 226, 226)
+                .addGap(213, 213, 213)
                 .addComponent(imgTickets)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
                 .addComponent(imgEmpleados)
-                .addGap(340, 340, 340)
+                .addGap(312, 312, 312)
                 .addComponent(imgCartelera)
-                .addGap(236, 236, 236))
+                .addGap(223, 223, 223))
         );
         jpNavBarLayout.setVerticalGroup(
             jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpNavBarLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addGroup(jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imgTickets)
-                    .addComponent(imgEmpleados)
-                    .addComponent(imgCartelera))
-                .addGap(17, 17, 17))
+                    .addComponent(imgEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imgCartelera, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imgTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1440, 110));
@@ -320,11 +326,11 @@ public static void initFrmMenu(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCartelera;
     public javax.swing.JButton btnEmpleados;
-    public javax.swing.JButton btnTickers;
-    public javax.swing.JLabel imgCartelera;
+    public javax.swing.JButton btnTickets;
+    public javax.swing.JButton imgCartelera;
     private javax.swing.JLabel imgCinemaNOW;
-    public javax.swing.JLabel imgEmpleados;
-    public javax.swing.JLabel imgTickets;
+    public javax.swing.JButton imgEmpleados;
+    public javax.swing.JButton imgTickets;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jpCartelera1;
