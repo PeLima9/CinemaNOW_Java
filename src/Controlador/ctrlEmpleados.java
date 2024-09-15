@@ -1,31 +1,41 @@
 
 package Controlador;
 
+import Modelo.Empleado;
 import Vista.FrmEmpleados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class ctrlEmpleados implements ActionListener{
+public class ctrlEmpleados implements MouseListener, ActionListener{
 
             //Llamar otros paquetes
             private FrmEmpleados VistaEmpleados;
+            private Empleado ModeloEmpleados;
         
-        public ctrlEmpleados(FrmEmpleados Vista){
+        public ctrlEmpleados(FrmEmpleados Vista, Empleado Modelo){
             
             //Asignar Modelo y Vista
             this.VistaEmpleados = Vista;
+            this.ModeloEmpleados = Modelo;
             
-            //Agregar ActionListener
+            //Agregar MouseListener
             this.VistaEmpleados.btnMenu.addActionListener(this);
             
             this.VistaEmpleados.imgCartelera.addActionListener(this);
             this.VistaEmpleados.imgTickets.addActionListener(this);
             this.VistaEmpleados.imgEmpleados.addActionListener(this);
             
+            this.VistaEmpleados.jtbEmpleados.addMouseListener(this);
+            
+            //Configurar JTable
+            ModeloEmpleados.MostrarEmpleados(Vista.jtbEmpleados);
         }
-    @Override
+
+        @Override
     public void actionPerformed(ActionEvent e) {
-         //Volver al Menú
+        //Volver al Menú
         if (e.getSource() == VistaEmpleados.btnMenu){
                 Vista.FrmMenu.initFrmMenu();
                 VistaEmpleados.dispose();
@@ -53,6 +63,32 @@ public class ctrlEmpleados implements ActionListener{
                 VistaEmpleados.dispose();
                 System.out.println("FrmEmpleados cargado Exitosamente");
         }
+    }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        
+        //Mostrar datos en TextField
+        if (e.getSource() == VistaEmpleados.jtbEmpleados) {
+            ModeloEmpleados.CargarDatosTabla(VistaEmpleados);
+            System.out.println("Datos mostrados exitosamente");
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
     
 }

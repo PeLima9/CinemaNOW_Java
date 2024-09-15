@@ -2,23 +2,14 @@
 package Modelo;
 
 import java.sql.*;
-import java.util.UUID;
 
 public class Usuario {
-    private String UUID_Usuario;
     private String nombre;
     private String email;
     private String contraseña;
     private int rol_id;
     private String foto_perfil;
-    
-    public String getUUID_Usuario() {
-        return UUID_Usuario;
-    }
 
-    public void setUUID_Usuario(String UUID_Usuario) {
-        this.UUID_Usuario = UUID_Usuario;
-    }
 
     public String getNombre() {
         return nombre;

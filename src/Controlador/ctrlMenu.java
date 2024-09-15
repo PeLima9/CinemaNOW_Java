@@ -5,8 +5,11 @@ import Modelo.Usuario;
 import Vista.FrmMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class ctrlMenu implements ActionListener{
+
+public class ctrlMenu implements MouseListener, ActionListener{
 
     //Llamar otros paquetes
         private Usuario modeloMenu;
@@ -27,9 +30,9 @@ public class ctrlMenu implements ActionListener{
         this.vistaMenu.imgEmpleados.addActionListener(this);
 
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         //Boton Cartelera
         if (e.getSource() == vistaMenu.btnCartelera || e.getSource() == vistaMenu.imgCartelera){
                 Vista.FrmCartelera.initFrmCartelera();
@@ -51,6 +54,26 @@ public class ctrlMenu implements ActionListener{
                 vistaMenu.dispose();
                 System.out.println("FrmEmpleados cargado Exitosamente");
         }
+    }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
     
 }

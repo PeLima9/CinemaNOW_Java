@@ -5,7 +5,6 @@ import Controlador.ctrlCartelera;
 import Modelo.Cartelera;
 import Modelo.Clasificacion;
 import Modelo.Genero;
-import Vista.FrmCartelera;
 
 public class FrmCartelera extends javax.swing.JFrame {
 

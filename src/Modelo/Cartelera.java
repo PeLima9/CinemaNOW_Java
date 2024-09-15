@@ -179,7 +179,7 @@ public class Cartelera {
             String IDTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 0).toString();
             String tituloTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 1).toString();
             String descripcionTBTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 2).toString();
-             String duracionTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 3).toString();
+            String duracionTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 3).toString();
             String clasificacion_idTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 4).toString();
             String genero_idTB = Vista.jtbCartelera.getValueAt(filaSeleccionada,5).toString();
             String posterTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 6).toString();

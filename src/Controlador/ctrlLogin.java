@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
-public class ctrlLogin implements ActionListener{
+public class ctrlLogin implements MouseListener, ActionListener{
     
    //Llamar otros paquetes
    private Usuario modeloLogin;
@@ -22,9 +22,9 @@ public class ctrlLogin implements ActionListener{
 
     }
     
-@Override
+    @Override
     public void actionPerformed(ActionEvent e) {
-        //Establecer datos
+         //Establecer datos
         if (e.getSource() == vistaLogin.btnLogin){
            modeloLogin.setEmail(vistaLogin.txtEmail.getText());
            modeloLogin.setContraseña(vistaLogin.txtPassword.getText());
@@ -45,6 +45,7 @@ public class ctrlLogin implements ActionListener{
            }
        }
     }
+    
     public void mouseClicked(MouseEvent e) {
     }
 
@@ -59,6 +60,5 @@ public class ctrlLogin implements ActionListener{
 
     public void mouseExited(MouseEvent e) {
     }
-
     
 }

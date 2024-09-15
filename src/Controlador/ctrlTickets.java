@@ -2,10 +2,10 @@
 package Controlador;
 
 import Vista.FrmTickets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class ctrlTickets implements ActionListener{
+public class ctrlTickets implements MouseListener{
         
         //Llamar otros paquetes
         private FrmTickets VistaTickets;
@@ -16,17 +16,16 @@ public class ctrlTickets implements ActionListener{
          this.VistaTickets = Vista;
          
          //Agregar ActionListener
-         this.VistaTickets.btnMenu.addActionListener(this);
+         this.VistaTickets.btnMenu.addMouseListener(this);
          
-         this.VistaTickets.imgCartelera.addActionListener(this);
-         this.VistaTickets.imgTickets.addActionListener(this);
-         this.VistaTickets.imgEmpleados.addActionListener(this);
+         this.VistaTickets.imgCartelera.addMouseListener(this);
+         this.VistaTickets.imgTickets.addMouseListener(this);
+         this.VistaTickets.imgEmpleados.addMouseListener(this);
      }
-        
+
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
-         //Volver al Menú
+    public void mouseClicked(MouseEvent e) {
+        //Volver al Menú
         if (e.getSource() == VistaTickets.btnMenu){
                 Vista.FrmMenu.initFrmMenu();
                 VistaTickets.dispose();
@@ -54,7 +53,22 @@ public class ctrlTickets implements ActionListener{
                 VistaTickets.dispose();
                 System.out.println("FrmEmpleados cargado Exitosamente");
         }
-        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
     
 }
