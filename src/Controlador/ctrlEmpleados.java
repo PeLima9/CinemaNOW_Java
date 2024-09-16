@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 public class ctrlEmpleados implements MouseListener, ActionListener{
 
@@ -20,14 +21,16 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             this.VistaEmpleados = Vista;
             this.ModeloEmpleados = Modelo;
             
-            //Agregar MouseListener
+            //Agregar ActionListener
             this.VistaEmpleados.btnMenu.addActionListener(this);
             
             this.VistaEmpleados.imgCartelera.addActionListener(this);
             this.VistaEmpleados.imgTickets.addActionListener(this);
             this.VistaEmpleados.imgEmpleados.addActionListener(this);
             
+            //Agregar MouseListener
             this.VistaEmpleados.jtbEmpleados.addMouseListener(this);
+            this.VistaEmpleados.btnAddEmployee.addMouseListener(this);
             
             //Configurar JTable
             ModeloEmpleados.MostrarEmpleados(Vista.jtbEmpleados);
@@ -72,6 +75,33 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         if (e.getSource() == VistaEmpleados.jtbEmpleados) {
             ModeloEmpleados.CargarDatosTabla(VistaEmpleados);
             System.out.println("Datos mostrados exitosamente");
+        }
+        
+        //Boton Agregar
+        if (e.getSource() == VistaEmpleados.btnAddEmployee){
+            ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
+            ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
+            ModeloEmpleados.setPasswordEmpleado(VistaEmpleados.txtPasswordEmpleado.getText());
+            
+            //Convertir salario a Double
+            String salarioTexto = VistaEmpleados.txtSalario.getText().trim();
+            double salario = Double.parseDouble(salarioTexto);
+            ModeloEmpleados.setSalarioEmpleado(salario);
+            
+            ModeloEmpleados.AgregarEmpleado();
+            ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
+            System.out.println("Datos guardados exitosamente");
+
+        }
+        
+        //Limpiar Campos
+        if (e.getSource() == VistaEmpleados.btnClear){
+
+            VistaEmpleados.txtNombreEmpleado.setText(null);
+            VistaEmpleados.txtCorreoEmpleado.setText(null);
+            VistaEmpleados.txtPasswordEmpleado.setText(null);
+            VistaEmpleados.txtSalario.setText(null);
+            System.out.println("Campos vaciados exitosamente");
         }
     }
 

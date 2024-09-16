@@ -39,6 +39,7 @@ public class ctrlCartelera implements MouseListener, KeyListener {
         VistaCartelera.btnEditMovie.addMouseListener(this);
         VistaCartelera.jcbGenre.addMouseListener(this);
         VistaCartelera.btnMenu.addMouseListener(this);
+        VistaCartelera.btnClear.addMouseListener(this);
         
         VistaCartelera.imgCartelera.addMouseListener(this);
         VistaCartelera.imgTickets.addMouseListener(this);
@@ -111,7 +112,6 @@ public class ctrlCartelera implements MouseListener, KeyListener {
             VistaFrmCartelera.txtDuration.setText(null);
             VistaFrmCartelera.txtMoviePoster.setText(null);
             VistaFrmCartelera.txtMovieTrailer.setText(null);
-            System.out.println("Campos vaciados exitosamente");
 
             
         }
@@ -136,7 +136,6 @@ public class ctrlCartelera implements MouseListener, KeyListener {
             VistaFrmCartelera.txtDuration.setText(null);
             VistaFrmCartelera.txtMoviePoster.setText(null);
             VistaFrmCartelera.txtMovieTrailer.setText(null);
-            System.out.println("Campos vaciados exitosamente");
             }
         }
         
@@ -176,13 +175,12 @@ public class ctrlCartelera implements MouseListener, KeyListener {
             VistaFrmCartelera.txtDuration.setText(null);
             VistaFrmCartelera.txtMoviePoster.setText(null);
             VistaFrmCartelera.txtMovieTrailer.setText(null);
-            System.out.println("Campos vaciados exitosamente");
             }
 
         }
         
         //Limpiar Campos
-        if (e.getSource() == VistaFrmCartelera.btnMenu){
+        if (e.getSource() == VistaFrmCartelera.btnClear){
 
             VistaFrmCartelera.txtMovieTitle.setText(null);
             VistaFrmCartelera.txtSinopsis.setText(null);

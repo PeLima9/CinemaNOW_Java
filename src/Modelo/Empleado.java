@@ -105,6 +105,32 @@ public class Empleado {
             Vista.txtSalario.setText(salarioTb);
         }
     }
+    
+    public void AgregarEmpleado(){
+        //Obtener Conexión
+        Connection conexion = ClaseConexion.getConexion();
+        
+        //Preparar Query
+        try {
+            //SQL Query
+            PreparedStatement addEmpleado = conexion.prepareStatement("INSERT INTO Empleados (nombreEmpleado, correoEmpleado, passwordEmpleado, salario) VALUES (?, ?, ?, ?)");
+            
+            //Establecer Valores
+            addEmpleado.setString(1, getNombreEmpleado());
+            addEmpleado.setString(2, getCorreoEmpleado());
+            addEmpleado.setString(3, getPasswordEmpleado());
+            addEmpleado.setDouble(4, getSalarioEmpleado());
+            
+            //Ejecutar Query
+            addEmpleado.executeUpdate();
+            
+            System.out.println("Dato guardado exitosamente");
+            
+        }
+        catch (Exception e){
+            System.out.println("[Empleado] Error en AgregarEmpleado: " + e);
+        }
+    }
 }
 
 

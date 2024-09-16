@@ -36,9 +36,9 @@ public class FrmEmpleados extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbEmpleados = new javax.swing.JTable();
         lblUsername = new javax.swing.JLabel();
-        btnEditMovie = new javax.swing.JButton();
-        btnAddMovie = new javax.swing.JButton();
-        btnDeleteMovie = new javax.swing.JButton();
+        btnEditEmployee = new javax.swing.JButton();
+        btnAddEmployee = new javax.swing.JButton();
+        btnDeleteEmployee = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         txtSalario = new javax.swing.JTextField();
         txtCorreoEmpleado = new javax.swing.JTextField();
@@ -150,23 +150,23 @@ public class FrmEmpleados extends javax.swing.JFrame {
         lblUsername.setText("USERNAME PLACEHOLDER");
         jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        btnEditMovie.setBackground(new java.awt.Color(248, 93, 116));
-        btnEditMovie.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnEditMovie.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditMovie.setText("Modificar Empleado");
-        jPanel1.add(btnEditMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 560, 230, 50));
+        btnEditEmployee.setBackground(new java.awt.Color(248, 93, 116));
+        btnEditEmployee.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnEditEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditEmployee.setText("Modificar Empleado");
+        jPanel1.add(btnEditEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 560, 230, 50));
 
-        btnAddMovie.setBackground(new java.awt.Color(248, 93, 116));
-        btnAddMovie.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnAddMovie.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddMovie.setText("Agregar Empleado");
-        jPanel1.add(btnAddMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 560, 230, 50));
+        btnAddEmployee.setBackground(new java.awt.Color(248, 93, 116));
+        btnAddEmployee.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnAddEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddEmployee.setText("Agregar Empleado");
+        jPanel1.add(btnAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 560, 230, 50));
 
-        btnDeleteMovie.setBackground(new java.awt.Color(248, 93, 116));
-        btnDeleteMovie.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnDeleteMovie.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeleteMovie.setText("Borrar Empleado");
-        jPanel1.add(btnDeleteMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 620, 230, 50));
+        btnDeleteEmployee.setBackground(new java.awt.Color(248, 93, 116));
+        btnDeleteEmployee.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnDeleteEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteEmployee.setText("Borrar Empleado");
+        jPanel1.add(btnDeleteEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 620, 230, 50));
 
         btnMenu.setBackground(new java.awt.Color(248, 93, 116));
         btnMenu.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -294,10 +294,10 @@ public class FrmEmpleados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAddMovie;
+    public javax.swing.JButton btnAddEmployee;
     public javax.swing.JButton btnClear;
-    public javax.swing.JButton btnDeleteMovie;
-    public javax.swing.JButton btnEditMovie;
+    public javax.swing.JButton btnDeleteEmployee;
+    public javax.swing.JButton btnEditEmployee;
     public javax.swing.JButton btnMenu;
     public javax.swing.JButton imgCartelera;
     private javax.swing.JLabel imgCinemaNOW;
