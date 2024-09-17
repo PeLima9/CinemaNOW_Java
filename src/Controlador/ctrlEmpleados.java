@@ -31,6 +31,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             //Agregar MouseListener
             this.VistaEmpleados.jtbEmpleados.addMouseListener(this);
             this.VistaEmpleados.btnAddEmployee.addMouseListener(this);
+            this.VistaEmpleados.btnEditEmployee.addMouseListener(this);
             
             //Configurar JTable
             ModeloEmpleados.MostrarEmpleados(Vista.jtbEmpleados);
@@ -92,6 +93,37 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
             System.out.println("Datos guardados exitosamente");
 
+        }
+        
+        //Boton Actualizar
+        if (e.getSource() == VistaEmpleados.btnEditEmployee){
+            //Mostar JOptonPanel con botones
+            String[] buttons = {"Cancelar", "Continuar"};
+            int confirm = JOptionPane.showOptionDialog(VistaEmpleados, "Está seguro que desea actualizar este registro?", "Actualizar", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, buttons, buttons[0]);
+            
+            if (confirm == 0){
+                //*No hace nada*
+            }
+            else if (confirm == 1){
+                ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
+                ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
+                ModeloEmpleados.setPasswordEmpleado(VistaEmpleados.txtPasswordEmpleado.getText());
+                
+                //Convertir salario a Double
+                String salarioTexto = VistaEmpleados.txtSalario.getText().trim();
+                double salario = Double.parseDouble(salarioTexto);
+                ModeloEmpleados.setSalarioEmpleado(salario);
+                
+                ModeloEmpleados.EditarEmpleados(VistaEmpleados.jtbEmpleados);
+                ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
+                System.out.println("Dato actualizado exitosamente");
+                
+                //Limpiar Campos
+                VistaEmpleados.txtNombreEmpleado.setText(null);
+                VistaEmpleados.txtCorreoEmpleado.setText(null);
+                VistaEmpleados.txtPasswordEmpleado.setText(null);
+                VistaEmpleados.txtSalario.setText(null);
+            }
         }
         
         //Limpiar Campos

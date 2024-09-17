@@ -53,6 +53,7 @@ public class Empleado {
         this.salarioEmpleado = salarioEmpleado;
     }
     
+    //Select
     public void MostrarEmpleados (JTable Table){
         //Conectar a Oracle
         Connection conexion = ClaseConexion.getConexion();
@@ -87,6 +88,7 @@ public class Empleado {
         }   
     }
     
+    //Select
     public void CargarDatosTabla(FrmEmpleados Vista){
         //Cargar fila seleccionada
         int selectedRow = Vista.jtbEmpleados.getSelectedRow();
@@ -106,6 +108,7 @@ public class Empleado {
         }
     }
     
+    //Insert
     public void AgregarEmpleado(){
         //Obtener Conexión
         Connection conexion = ClaseConexion.getConexion();
@@ -130,6 +133,43 @@ public class Empleado {
         catch (Exception e){
             System.out.println("[Empleado] Error en AgregarEmpleado: " + e);
         }
+    }
+    
+    //Update
+    public void EditarEmpleados(JTable Tabla){
+        //Obtener Conexión
+        Connection conexion = ClaseConexion.getConexion();
+        
+        //Seleccionar fila de la tabla
+        int selectedRow = Tabla.getSelectedRow();
+        if (selectedRow != 1) {
+             
+            String selectedId = Tabla.getValueAt(selectedRow, 0).toString();
+            //Preparar Query
+            try {
+                //SQL Query
+                PreparedStatement updateEmpleado = conexion.prepareStatement("UPDATE Empleados SET nombreEmpleado = ?, correoEmpleado = ?, passwordEmpleado = ?, salario = ? WHERE idEmpleado = ?");
+                
+                //Asignar valores
+                updateEmpleado.setString(1, getNombreEmpleado());
+                updateEmpleado.setString(2, getCorreoEmpleado());
+                updateEmpleado.setString(3, getPasswordEmpleado());
+                updateEmpleado.setDouble(4, getSalarioEmpleado());
+                
+                updateEmpleado.setInt(5, Integer.parseInt(selectedId));
+                
+                //Ejecutar Query
+                updateEmpleado.executeUpdate();
+                
+                //Imprimir en consola
+                System.out.println("Empleado actualizado exitosamente");
+            }
+            catch (Exception e){
+                System.out.println("[Empleado] Error en EditarEmpleado: " + e);
+            }
+        }
+        
+       
     }
 }
 
