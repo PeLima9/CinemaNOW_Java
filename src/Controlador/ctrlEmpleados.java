@@ -91,7 +91,6 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             
             ModeloEmpleados.AgregarEmpleado();
             ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
-            System.out.println("Datos guardados exitosamente");
 
         }
         
@@ -116,7 +115,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
                 
                 ModeloEmpleados.EditarEmpleados(VistaEmpleados.jtbEmpleados);
                 ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
-                System.out.println("Dato actualizado exitosamente");
+
                 
                 //Limpiar Campos
                 VistaEmpleados.txtNombreEmpleado.setText(null);
