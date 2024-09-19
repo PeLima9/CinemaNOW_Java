@@ -574,8 +574,8 @@ END;
 INSERT INTO Empleados (nombreEmpleado, correoEmpleado, passwordEmpleado, salario)
 VALUES ('EmpleadoTest', 'empleadotest@gmail.com', 'EmpleadoTest', 100.99);
 
---Trigger para insertar Usuarios y Empleados--
-CREATE OR REPLACE TRIGGER userEmployee
+--Trigger para Insertar Usuarios y Empleados--
+CREATE OR REPLACE TRIGGER insertUserEmployee
 AFTER INSERT ON Empleados
 FOR EACH ROW
 BEGIN
@@ -589,7 +589,6 @@ CREATE OR REPLACE TRIGGER updateUserEmployee
 AFTER UPDATE ON Empleados
 FOR EACH ROW
 BEGIN
-
     INSERT INTO Usuarios (usuario_id, nombre, email, contraseña, rol_id, foto_perfil) 
     VALUES (usuarios_seq.NEXTVAL, :NEW.nombreEmpleado, :NEW.correoEmpleado, :NEW.passwordEmpleado, 2, 'Placeholder Foto');
     
@@ -598,12 +597,19 @@ BEGIN
 END;
 /
 
-UPDATE Empleados SET nombreEmpleado = 'test', correoEmpleado = 'test@gmail.com', passwordEmpleado = 'test', salario = 0.75 WHERE correoEmpleado = 'test@gmail.com';
+--Trigger para Eliminar Usuarios y Empleados--
+CREATE OR REPLACE TRIGGER deleteUserEmployee
+AFTER DELETE ON Empleados
+FOR EACH ROW
+BEGIN
+    DELETE FROM Usuarios WHERE email = :OLD.correoEmpleado;
+END;
+/
 
+UPDATE Empleados SET nombreEmpleado = 'test', correoEmpleado = 'test@gmail.com', passwordEmpleado = 'test', salario = 0.75 WHERE correoEmpleado = 'test@gmail.com';
 UPDATE Usuarios SET nombre = 'test', email = 'test@gmail.com', contraseña = 'test' WHERE email = 'testupdated@gmail.com';
 
 SELECT * FROM Empleados;
-
 SELECT * FROM Usuarios;
 
 commit;

@@ -84,7 +84,7 @@ public class Empleado {
             Table.setModel(model);
         }
         catch (Exception e){
-            System.out.println("[Empleados] Error en MostrarEmpleados: " + e);
+            System.out.println("[Empleados] Error en MostrarEmpleados: " + e + "\n");
         }   
     }
     
@@ -127,11 +127,11 @@ public class Empleado {
             //Ejecutar Query
             addEmpleado.executeUpdate();
             
-            System.out.println("Dato guardado exitosamente");
+            System.out.println("Dato guardado exitosamente\n");
             
         }
         catch (Exception e){
-            System.out.println("[Empleado] Error en AgregarEmpleado: " + e);
+            System.out.println("[Empleado] Error en AgregarEmpleado: " + e + "\n");
         }
     }
     
@@ -161,15 +161,41 @@ public class Empleado {
                 //Ejecutar Query
                 updateEmpleado.executeUpdate();
                 
-                //Imprimir en consola
-                System.out.println("Empleado actualizado exitosamente");
+                //Imprimir en Consola
+                System.out.println("Empleado actualizado exitosamente\n");
             }
             catch (Exception e){
-                System.out.println("[Empleado] Error en EditarEmpleado: " + e);
+                System.out.println("[Empleado] Error en EditarEmpleado: " + e + "\n");
             }
         }
-        
-       
+    }
+    
+    //Delete
+    public void EliminarEmpleado(JTable Tabla){
+        //Obtener Conexión
+        Connection conexion = ClaseConexion.getConexion();
+
+        //Seleccionar fila de la tabla
+        int selectedRow = Tabla.getSelectedRow();
+        String id = Tabla.getValueAt(selectedRow, 0).toString();
+
+        //Preparar Query
+        try{
+            //SQL Query
+            PreparedStatement deleteEmpleado = conexion.prepareStatement("DELETE FROM Empleados WHERE idEmpleado = ?");
+
+            //Asignar valores
+            deleteEmpleado.setString(1, id);
+
+            //Ejecutar Query
+            deleteEmpleado.executeUpdate();
+
+            //Imprimir en Consola
+            System.out.println("Empleado eliminado exitosamente\n");
+        }
+        catch (Exception e){
+            System.out.println("[Empleado] Error en EliminarEmpleado: " + e + "\n");
+        }
     }
 }
 

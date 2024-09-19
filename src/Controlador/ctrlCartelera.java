@@ -126,10 +126,10 @@ public class ctrlCartelera implements MouseListener, KeyListener {
                 //*No hace nada*
             }
             else if (confirm == 1){
-                System.out.println("Dato eliminado exitosamente");
                 ModeloCartelera.Eliminar(VistaFrmCartelera.jtbCartelera);
                 ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
             
+                System.out.println("Dato eliminado exitosamente");
             //Vaciar campos
             VistaFrmCartelera.txtMovieTitle.setText(null);
             VistaFrmCartelera.txtSinopsis.setText(null);

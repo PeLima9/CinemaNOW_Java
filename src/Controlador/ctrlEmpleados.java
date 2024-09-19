@@ -32,6 +32,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             this.VistaEmpleados.jtbEmpleados.addMouseListener(this);
             this.VistaEmpleados.btnAddEmployee.addMouseListener(this);
             this.VistaEmpleados.btnEditEmployee.addMouseListener(this);
+            this.VistaEmpleados.btnDeleteEmployee.addMouseListener(this);
             
             //Configurar JTable
             ModeloEmpleados.MostrarEmpleados(Vista.jtbEmpleados);
@@ -43,14 +44,14 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         if (e.getSource() == VistaEmpleados.btnMenu){
                 Vista.FrmMenu.initFrmMenu();
                 VistaEmpleados.dispose();
-                System.out.println("FrmMenu cargado exitosamente");
+                System.out.println("FrmMenu cargado exitosamente\n");
         }
         
          //Boton Cartelera
         if (e.getSource() == VistaEmpleados.imgCartelera){
                 Vista.FrmCartelera.initFrmCartelera();
                 VistaEmpleados.dispose();
-                System.out.println("FrmCartelera cargado exitosamente");
+                System.out.println("FrmCartelera cargado exitosamente\n");
 
         }
         
@@ -58,14 +59,14 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         if (e.getSource() == VistaEmpleados.imgTickets){
                 Vista.FrmTickets.initFrmTickets();
                 VistaEmpleados.dispose();
-                System.out.println("FrmTickets cargado exitosamente");
+                System.out.println("FrmTickets cargado exitosamente\n");
         }
         
         //Boton Empleados
         if ( e.getSource() == VistaEmpleados.imgEmpleados){
                 Vista.FrmEmpleados.initFrmEmpleados();
                 VistaEmpleados.dispose();
-                System.out.println("FrmEmpleados cargado Exitosamente");
+                System.out.println("FrmEmpleados cargado Exitosamente\n");
         }
     }
     
@@ -75,7 +76,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         //Mostrar datos en TextField
         if (e.getSource() == VistaEmpleados.jtbEmpleados) {
             ModeloEmpleados.CargarDatosTabla(VistaEmpleados);
-            System.out.println("Datos mostrados exitosamente");
+            System.out.println("Datos mostrados exitosamente\n");
         }
         
         //Boton Agregar
@@ -96,7 +97,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         
         //Boton Actualizar
         if (e.getSource() == VistaEmpleados.btnEditEmployee){
-            //Mostar JOptonPanel con botones
+            //Mostar JOptonPanel con Botones
             String[] buttons = {"Cancelar", "Continuar"};
             int confirm = JOptionPane.showOptionDialog(VistaEmpleados, "Está seguro que desea actualizar este registro?", "Actualizar", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, buttons, buttons[0]);
             
@@ -125,6 +126,27 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             }
         }
         
+        //Boton Eliminar
+        if (e.getSource() == VistaEmpleados.btnDeleteEmployee){
+            //Mostrar JOptionPanel con Botones
+            String[] buttons = {"Cancelar", "Continuar"};
+            int confirm = JOptionPane.showOptionDialog(VistaEmpleados, "Está seguro que desea eliminar este registro?", "Eliminar", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, buttons, buttons[0]);
+            
+            if (confirm == 0){
+                //*No hace nada*
+            }
+            else if (confirm == 1){
+                ModeloEmpleados.EliminarEmpleado(VistaEmpleados.jtbEmpleados);
+                ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
+                
+                //Vaciar Campos
+                VistaEmpleados.txtNombreEmpleado.setText(null);
+                VistaEmpleados.txtCorreoEmpleado.setText(null);
+                VistaEmpleados.txtPasswordEmpleado.setText(null);
+                VistaEmpleados.txtSalario.setText(null);
+            }
+        }
+        
         //Limpiar Campos
         if (e.getSource() == VistaEmpleados.btnClear){
 
@@ -132,7 +154,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             VistaEmpleados.txtCorreoEmpleado.setText(null);
             VistaEmpleados.txtPasswordEmpleado.setText(null);
             VistaEmpleados.txtSalario.setText(null);
-            System.out.println("Campos vaciados exitosamente");
+            System.out.println("Campos vaciados exitosamente\n");
         }
     }
 
