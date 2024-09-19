@@ -28,7 +28,7 @@ CREATE TABLE Usuarios (
     usuario_id VARCHAR2(255) PRIMARY KEY,
     nombre VARCHAR2(100) NOT NULL,
     email VARCHAR2(100) NOT NULL UNIQUE,
-    contraseña VARCHAR2(100) NOT NULL,
+    contraseña VARCHAR2(255) NOT NULL,
     rol_id INT NOT NULL,
     foto_perfil VARCHAR2(255),
     CONSTRAINT fk_usuario_rol_id FOREIGN KEY (rol_id) REFERENCES Roles(rol_id)
@@ -535,7 +535,7 @@ END; /
 
 
 
---Usuario de Prueba--
+--Usuario de Prueba [No Ejecutar]--
 INSERT INTO Usuarios (usuario_id, nombre, email, contraseña, rol_id, foto_perfil)
 VALUES (usuarios_seq.NEXTVAL, 'LoginTest', 'logintest@gmail.com', 'LoginTest', 3, 'Placeholder Foto');
 
@@ -557,7 +557,7 @@ CREATE TABLE Empleados(
     idEmpleado INT PRIMARY KEY,
     nombreEmpleado VARCHAR2(50),
     correoEmpleado VARCHAR2(50),
-    passwordEmpleado VARCHAR2(25),
+    passwordEmpleado VARCHAR2(255),
     salario DECIMAL(6,2)
 );
 

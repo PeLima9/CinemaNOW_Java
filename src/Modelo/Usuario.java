@@ -1,6 +1,8 @@
 
 package Modelo;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
 public class Usuario {
@@ -105,6 +107,26 @@ public class Usuario {
         }
         
         return resultado;
+    }
+    
+    //Encriptación a SHA-256
+    public String encryptSHA256(String password) {
+	MessageDigest md = null;
+	try {
+		md = MessageDigest.getInstance("SHA-256");
+	}
+	catch (NoSuchAlgorithmException e) {
+		System.out.println(e.toString());
+		return null;
+	}
+	byte[] hash = md.digest(password.getBytes());
+	StringBuffer sb = new StringBuffer();
+ 
+	for(byte b : hash) {
+		sb.append(String.format("%02x", b));
+	}
+ 
+	return sb.toString();
     }
    
 }

@@ -63,7 +63,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         }
         
         //Boton Empleados
-        if ( e.getSource() == VistaEmpleados.imgEmpleados){
+        if (e.getSource() == VistaEmpleados.imgEmpleados){
                 Vista.FrmEmpleados.initFrmEmpleados();
                 VistaEmpleados.dispose();
                 System.out.println("FrmEmpleados cargado Exitosamente\n");
@@ -83,7 +83,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         if (e.getSource() == VistaEmpleados.btnAddEmployee){
             ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
             ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
-            ModeloEmpleados.setPasswordEmpleado(VistaEmpleados.txtPasswordEmpleado.getText());
+            ModeloEmpleados.setPasswordEmpleado(ModeloEmpleados.encryptSHA256(VistaEmpleados.txtPasswordEmpleado.getText()));
             
             //Convertir salario a Double
             String salarioTexto = VistaEmpleados.txtSalario.getText().trim();

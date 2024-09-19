@@ -16,6 +16,7 @@ public class ctrlLogin implements MouseListener, ActionListener{
     
     public ctrlLogin(Usuario Modelo, FrmLogin Vista){
         this.modeloLogin = Modelo;
+        
         this.vistaLogin = Vista;
         
         this.vistaLogin.btnLogin.addActionListener(this);
@@ -27,7 +28,7 @@ public class ctrlLogin implements MouseListener, ActionListener{
          //Establecer datos
         if (e.getSource() == vistaLogin.btnLogin){
            modeloLogin.setEmail(vistaLogin.txtEmail.getText());
-           modeloLogin.setContraseña(vistaLogin.txtPassword.getText());
+           modeloLogin.setContraseña(modeloLogin.encryptSHA256(vistaLogin.txtPassword.getText()));
            
            //Verificar si el login es correcto
            boolean verify = modeloLogin.Login();
