@@ -82,17 +82,31 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         
         //Boton Agregar
         if (e.getSource() == VistaEmpleados.btnAddEmployee){
-            ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
-            ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
-            ModeloEmpleados.setPasswordEmpleado(ModeloEmpleados.encryptSHA256(VistaEmpleados.txtPasswordEmpleado.getText()));
             
-            //Convertir salario a Double
-            String salarioTexto = VistaEmpleados.txtSalario.getText().trim();
-            double salario = Double.parseDouble(salarioTexto);
-            ModeloEmpleados.setSalarioEmpleado(salario);
+            //Validación de Datos
+            if (VistaEmpleados.txtNombreEmpleado.getText().isEmpty() || VistaEmpleados.txtCorreoEmpleado.getText().isEmpty() || VistaEmpleados.txtPasswordEmpleado.getText().isEmpty() || VistaEmpleados.txtSalario.getText().isEmpty()){
+                //Mostrar JOptionPane
+                JOptionPane.showMessageDialog(VistaEmpleados, "No pueden haber campos vacíos, intente nuevamente.");
+            }
+            else{
+                ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
+                ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
+                ModeloEmpleados.setPasswordEmpleado(ModeloEmpleados.encryptSHA256(VistaEmpleados.txtPasswordEmpleado.getText()));
             
-            ModeloEmpleados.AgregarEmpleado();
-            ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
+                //Convertir salario a Double
+                String salarioTexto = VistaEmpleados.txtSalario.getText().trim();
+                double salario = Double.parseDouble(salarioTexto);
+                ModeloEmpleados.setSalarioEmpleado(salario);
+            
+                ModeloEmpleados.AgregarEmpleado();
+                ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
+                
+                //Limpiar Campos
+                VistaEmpleados.txtNombreEmpleado.setText(null);
+                VistaEmpleados.txtCorreoEmpleado.setText(null);
+                VistaEmpleados.txtPasswordEmpleado.setText(null);
+                VistaEmpleados.txtSalario.setText(null);
+            }
 
         }
         
@@ -106,24 +120,31 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
                 //*No hace nada*
             }
             else if (confirm == 1){
-                ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
-                ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
-            ModeloEmpleados.setPasswordEmpleado(ModeloEmpleados.encryptSHA256(VistaEmpleados.txtPasswordEmpleado.getText()));
                 
-                //Convertir salario a Double
-                String salarioTexto = VistaEmpleados.txtSalario.getText().trim();
-                double salario = Double.parseDouble(salarioTexto);
-                ModeloEmpleados.setSalarioEmpleado(salario);
+                //Validación de Datos
+                if (VistaEmpleados.txtNombreEmpleado.getText().isEmpty() || VistaEmpleados.txtCorreoEmpleado.getText().isEmpty() || VistaEmpleados.txtPasswordEmpleado.getText().isEmpty() || VistaEmpleados.txtSalario.getText().isEmpty()){
+                //Mostrar JOptionPane
+                    JOptionPane.showMessageDialog(VistaEmpleados, "No pueden haber campos vacíos, intente nuevamente.");
+                 }
+                else{
+                    ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
+                    ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
+                    ModeloEmpleados.setPasswordEmpleado(ModeloEmpleados.encryptSHA256(VistaEmpleados.txtPasswordEmpleado.getText()));
                 
-                ModeloEmpleados.EditarEmpleados(VistaEmpleados.jtbEmpleados);
-                ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
-
+                    //Convertir salario a Double
+                    String salarioTexto = VistaEmpleados.txtSalario.getText().trim();
+                    double salario = Double.parseDouble(salarioTexto);
+                    ModeloEmpleados.setSalarioEmpleado(salario);
                 
-                //Limpiar Campos
-                VistaEmpleados.txtNombreEmpleado.setText(null);
-                VistaEmpleados.txtCorreoEmpleado.setText(null);
-                VistaEmpleados.txtPasswordEmpleado.setText(null);
-                VistaEmpleados.txtSalario.setText(null);
+                    ModeloEmpleados.EditarEmpleados(VistaEmpleados.jtbEmpleados);
+                    ModeloEmpleados.MostrarEmpleados(VistaEmpleados.jtbEmpleados);
+                    
+                    //Limpiar Campos
+                    VistaEmpleados.txtNombreEmpleado.setText(null);
+                    VistaEmpleados.txtCorreoEmpleado.setText(null);
+                    VistaEmpleados.txtPasswordEmpleado.setText(null);
+                    VistaEmpleados.txtSalario.setText(null);
+                }
             }
         }
         
