@@ -33,6 +33,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             this.VistaEmpleados.btnAddEmployee.addMouseListener(this);
             this.VistaEmpleados.btnEditEmployee.addMouseListener(this);
             this.VistaEmpleados.btnDeleteEmployee.addMouseListener(this);
+            this.VistaEmpleados.btnClear.addMouseListener(this);
             
             //Configurar JTable
             ModeloEmpleados.MostrarEmpleados(Vista.jtbEmpleados);
@@ -149,7 +150,6 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
         
         //Limpiar Campos
         if (e.getSource() == VistaEmpleados.btnClear){
-
             VistaEmpleados.txtNombreEmpleado.setText(null);
             VistaEmpleados.txtCorreoEmpleado.setText(null);
             VistaEmpleados.txtPasswordEmpleado.setText(null);
