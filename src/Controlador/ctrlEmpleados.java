@@ -107,7 +107,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
             else if (confirm == 1){
                 ModeloEmpleados.setNombreEmpleado(VistaEmpleados.txtNombreEmpleado.getText());
                 ModeloEmpleados.setCorreoEmpleado(VistaEmpleados.txtCorreoEmpleado.getText());
-                ModeloEmpleados.setPasswordEmpleado(VistaEmpleados.txtPasswordEmpleado.getText());
+            ModeloEmpleados.setPasswordEmpleado(ModeloEmpleados.encryptSHA256(VistaEmpleados.txtPasswordEmpleado.getText()));
                 
                 //Convertir salario a Double
                 String salarioTexto = VistaEmpleados.txtSalario.getText().trim();
