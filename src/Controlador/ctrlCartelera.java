@@ -94,26 +94,32 @@ public class ctrlCartelera implements MouseListener, KeyListener {
         
         //Agregar
         if (e.getSource() == VistaFrmCartelera.btnAddMovie) {
-            ModeloCartelera.setTitulo(VistaFrmCartelera.txtMovieTitle.getText());
-            ModeloCartelera.setDescripcion(VistaFrmCartelera.txtSinopsis.getText());
-            ModeloCartelera.setDuracion(Integer.parseInt(VistaFrmCartelera.txtDuration.getText()));
-            ModeloCartelera.setClasificacion_id(((Clasificacion) VistaFrmCartelera.jcbRating.getSelectedItem()).getClasificacion_id());
-            ModeloCartelera.setGenero_id(((Genero) VistaFrmCartelera.jcbGenre.getSelectedItem()).getGenero_id());
-            ModeloCartelera.setPoster(VistaFrmCartelera.txtMoviePoster.getText());
-            ModeloCartelera.setTrailer(VistaFrmCartelera.txtMovieTrailer.getText());
             
-            ModeloCartelera.Guardar();
-            ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
-            System.out.println("Dato guardado exitosamente");
+            //Validación de Datos
+            if (VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty()){
+                //Mostrar JOptionPane
+                JOptionPane.showMessageDialog(VistaFrmCartelera, "No pueden haber campos vacíos, intente nuevamente.");
+            }
+            else{
+                ModeloCartelera.setTitulo(VistaFrmCartelera.txtMovieTitle.getText());
+                ModeloCartelera.setDescripcion(VistaFrmCartelera.txtSinopsis.getText());
+                ModeloCartelera.setDuracion(Integer.parseInt(VistaFrmCartelera.txtDuration.getText()));
+                ModeloCartelera.setClasificacion_id(((Clasificacion) VistaFrmCartelera.jcbRating.getSelectedItem()).getClasificacion_id());
+                ModeloCartelera.setGenero_id(((Genero) VistaFrmCartelera.jcbGenre.getSelectedItem()).getGenero_id());
+                ModeloCartelera.setPoster(VistaFrmCartelera.txtMoviePoster.getText());
+                ModeloCartelera.setTrailer(VistaFrmCartelera.txtMovieTrailer.getText());
             
-            //Vaciar campos
-            VistaFrmCartelera.txtMovieTitle.setText(null);
-            VistaFrmCartelera.txtSinopsis.setText(null);
-            VistaFrmCartelera.txtDuration.setText(null);
-            VistaFrmCartelera.txtMoviePoster.setText(null);
-            VistaFrmCartelera.txtMovieTrailer.setText(null);
-
+                ModeloCartelera.Guardar();
+                ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
+                System.out.println("Dato guardado exitosamente");
             
+                //Vaciar campos
+                VistaFrmCartelera.txtMovieTitle.setText(null);
+                VistaFrmCartelera.txtSinopsis.setText(null);
+                VistaFrmCartelera.txtDuration.setText(null);
+                VistaFrmCartelera.txtMoviePoster.setText(null);
+                VistaFrmCartelera.txtMovieTrailer.setText(null);
+            }            
         }
         
         //Eliminar
@@ -155,26 +161,33 @@ public class ctrlCartelera implements MouseListener, KeyListener {
             if (confirm == 0){
                 //*No hace nada*
             }
-            else if (confirm == 1){
+                else if (confirm == 1){
                 
-            ModeloCartelera.setTitulo(VistaFrmCartelera.txtMovieTitle.getText());
-            ModeloCartelera.setDescripcion(VistaFrmCartelera.txtSinopsis.getText());
-            ModeloCartelera.setDuracion(Integer.parseInt(VistaFrmCartelera.txtDuration.getText()));
-            ModeloCartelera.setClasificacion_id(((Clasificacion) VistaFrmCartelera.jcbRating.getSelectedItem()).getClasificacion_id());
-            ModeloCartelera.setGenero_id(((Genero) VistaFrmCartelera.jcbGenre.getSelectedItem()).getGenero_id()); 
-            ModeloCartelera.setPoster(VistaFrmCartelera.txtMoviePoster.getText());
-            ModeloCartelera.setTrailer(VistaFrmCartelera.txtMovieTrailer.getText());
+                //Validación de Datos
+                if (VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty()){
+                    //Mostrar JOptionPane
+                    JOptionPane.showMessageDialog(VistaFrmCartelera, "No pueden haber campos vacíos, intente nuevamente.");
+                }
+                else{
+                    ModeloCartelera.setTitulo(VistaFrmCartelera.txtMovieTitle.getText());
+                    ModeloCartelera.setDescripcion(VistaFrmCartelera.txtSinopsis.getText());
+                    ModeloCartelera.setDuracion(Integer.parseInt(VistaFrmCartelera.txtDuration.getText()));
+                    ModeloCartelera.setClasificacion_id(((Clasificacion) VistaFrmCartelera.jcbRating.getSelectedItem()).getClasificacion_id());
+                    ModeloCartelera.setGenero_id(((Genero) VistaFrmCartelera.jcbGenre.getSelectedItem()).getGenero_id()); 
+                    ModeloCartelera.setPoster(VistaFrmCartelera.txtMoviePoster.getText());
+                    ModeloCartelera.setTrailer(VistaFrmCartelera.txtMovieTrailer.getText());
             
-            ModeloCartelera.Actualizar(VistaFrmCartelera.jtbCartelera);
-            ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
-            System.out.println("Dato actualizado exitosamente");
+                    ModeloCartelera.Actualizar(VistaFrmCartelera.jtbCartelera);
+                    ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
+                    System.out.println("Dato actualizado exitosamente");
             
-            //Vaciar campos
-            VistaFrmCartelera.txtMovieTitle.setText(null);
-            VistaFrmCartelera.txtSinopsis.setText(null);
-            VistaFrmCartelera.txtDuration.setText(null);
-            VistaFrmCartelera.txtMoviePoster.setText(null);
-            VistaFrmCartelera.txtMovieTrailer.setText(null);
+                    //Vaciar campos
+                    VistaFrmCartelera.txtMovieTitle.setText(null);
+                    VistaFrmCartelera.txtSinopsis.setText(null);
+                    VistaFrmCartelera.txtDuration.setText(null);
+                    VistaFrmCartelera.txtMoviePoster.setText(null);
+                    VistaFrmCartelera.txtMovieTrailer.setText(null);
+                }
             }
 
         }
