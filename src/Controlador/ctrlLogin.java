@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;import Vista.FrmRegister;
 
 public class ctrlLogin implements MouseListener, ActionListener{
     
@@ -20,6 +20,7 @@ public class ctrlLogin implements MouseListener, ActionListener{
         this.vistaLogin = Vista;
         
         this.vistaLogin.btnLogin.addActionListener(this);
+        this.vistaLogin.btnSignUp.addActionListener(this);
 
     }
     
@@ -44,7 +45,12 @@ public class ctrlLogin implements MouseListener, ActionListener{
                 System.out.println("Login Fallido");
 
            }
-       }
+       } else if (e.getSource() == vistaLogin.btnSignUp) {
+        FrmRegister frmRegister = new FrmRegister(); 
+        frmRegister.setVisible(true);
+        Vista.FrmRegister.initFrmRegister();
+        vistaLogin.dispose();
+    }
     }
     
     public void mouseClicked(MouseEvent e) {

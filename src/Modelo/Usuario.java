@@ -4,6 +4,7 @@ package Modelo;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.UUID;
 
 public class Usuario {
     private String nombre;
@@ -127,6 +128,38 @@ public class Usuario {
 	}
  
 	return sb.toString();
+    }
+    
+     public boolean registrarUsuario() {
+        Connection con = null;
+        PreparedStatement ps = null;
+        
+        try {
+            con = ClaseConexion.getConexion();
+            
+            String usuario_id = UUID.randomUUID().toString();
+            
+            String sql = "INSERT INTO usuarios (usuario_id, nombre, email, contraseña, rol_id) VALUES (?, ?, ?, ?, ?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario_id);
+            ps.setString(2, nombre);
+            ps.setString(3, email);
+            ps.setString(4, contraseña);
+            ps.setInt(5, 2);
+
+            int result = ps.executeUpdate();
+            return result > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
    
 }
