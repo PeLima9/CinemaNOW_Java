@@ -3,6 +3,7 @@ package Vista;
 
 import Controlador.ctrlRegister;
 import Modelo.Usuario;
+import javax.swing.ImageIcon;
 /**
  *
  * @author eduar
@@ -14,6 +15,8 @@ public class FrmRegister extends javax.swing.JFrame {
      */
     public FrmRegister() {
         initComponents();
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
     }
     
     public static void initFrmRegister() {
@@ -45,6 +48,8 @@ public class FrmRegister extends javax.swing.JFrame {
         txtRegisterEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CinemaNow - Registro");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
@@ -88,7 +93,7 @@ public class FrmRegister extends javax.swing.JFrame {
         txtRegisterPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtRegisterPassword.setText("Contraseña");
         txtRegisterPassword.setToolTipText("");
-        txtRegisterPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        txtRegisterPassword.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 51, 51), new java.awt.Color(255, 102, 102), new java.awt.Color(255, 51, 102), new java.awt.Color(255, 102, 51)));
         jPanel1.add(txtRegisterPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
 
         jpHeader.setBackground(new java.awt.Color(146, 134, 208));
@@ -131,9 +136,9 @@ public class FrmRegister extends javax.swing.JFrame {
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 666, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addGap(20, 20, 20))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,15 +148,15 @@ public class FrmRegister extends javax.swing.JFrame {
             .addGroup(jpHeaderLayout.createSequentialGroup()
                 .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpHeaderLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(lblCinemaNOW)))
+                        .addComponent(lblCinemaNOW))
+                    .addGroup(jpHeaderLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 140));
+        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1440, 150));
 
         jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
 

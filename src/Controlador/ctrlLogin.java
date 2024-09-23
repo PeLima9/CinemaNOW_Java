@@ -7,6 +7,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;import Vista.FrmRegister;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ctrlLogin implements MouseListener, ActionListener{
     
@@ -15,6 +20,8 @@ public class ctrlLogin implements MouseListener, ActionListener{
    private FrmLogin vistaLogin;
     
     public ctrlLogin(Usuario Modelo, FrmLogin Vista){
+        this.iniciarReloj();
+        
         this.modeloLogin = Modelo;
         
         this.vistaLogin = Vista;
@@ -52,6 +59,18 @@ public class ctrlLogin implements MouseListener, ActionListener{
         vistaLogin.dispose();
     }
     }
+    public void iniciarReloj() {
+    Timer timer = new Timer();
+    TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            SimpleDateFormat formatoFechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaHoraActual = formatoFechaHora.format(new Date());
+            vistaLogin.lblDate.setText(fechaHoraActual);
+        }
+    };
+    timer.scheduleAtFixedRate(task, 0, 1000); // Actualizar cada segundo (1000 ms)
+}
     
     public void mouseClicked(MouseEvent e) {
     }

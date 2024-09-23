@@ -4,11 +4,14 @@ package Vista;
 import Controlador.ctrlLogin;
 import Controlador.ctrlMenu;
 import Modelo.Usuario;
+import javax.swing.ImageIcon;
 
 public class FrmMenu extends javax.swing.JFrame {
 
     public FrmMenu() {
         initComponents();
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
     }
     
 public static void initFrmMenu(){
@@ -47,6 +50,8 @@ public static void initFrmMenu(){
         imgEmpleados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CinemaNow - Menu");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
@@ -92,9 +97,9 @@ public static void initFrmMenu(){
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addGap(22, 22, 22))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,11 +109,11 @@ public static void initFrmMenu(){
             .addGroup(jpHeaderLayout.createSequentialGroup()
                 .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpHeaderLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(lblCinemaNOW)))
+                        .addComponent(lblCinemaNOW))
+                    .addGroup(jpHeaderLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

@@ -10,6 +10,11 @@ import Vista.FrmRegister;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ctrlRegister implements ActionListener {
 
@@ -17,6 +22,7 @@ public class ctrlRegister implements ActionListener {
     public FrmRegister vistaRegister;
 
     public ctrlRegister(Usuario modelo, FrmRegister vista) {
+        this.iniciarReloj();
     this.modeloUsuario = modelo;
     this.vistaRegister = vista;
 
@@ -45,4 +51,16 @@ public class ctrlRegister implements ActionListener {
             }
         }
     }
+    public void iniciarReloj() {
+    Timer timer = new Timer();
+    TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            SimpleDateFormat formatoFechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaHoraActual = formatoFechaHora.format(new Date());
+            vistaRegister.lblDate.setText(fechaHoraActual);
+        }
+    };
+    timer.scheduleAtFixedRate(task, 0, 1000); // Actualizar cada segundo (1000 ms)
+}
 }

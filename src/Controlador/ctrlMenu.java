@@ -7,6 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class ctrlMenu implements MouseListener, ActionListener{
@@ -16,6 +20,8 @@ public class ctrlMenu implements MouseListener, ActionListener{
         private FrmMenu vistaMenu;
         
     public ctrlMenu(Usuario Modelo, FrmMenu Vista){
+        
+        this.iniciarReloj();
         
         //Asignar Modelo y Vista
         this.modeloMenu = Modelo;
@@ -55,6 +61,18 @@ public class ctrlMenu implements MouseListener, ActionListener{
                 System.out.println("FrmEmpleados cargado Exitosamente");
         }
     }
+    public void iniciarReloj() {
+    Timer timer = new Timer();
+    TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            SimpleDateFormat formatoFechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaHoraActual = formatoFechaHora.format(new Date());
+            vistaMenu.lblDate.setText(fechaHoraActual);
+        }
+    };
+    timer.scheduleAtFixedRate(task, 0, 1000); // Actualizar cada segundo (1000 ms)
+}
     
     @Override
     public void mouseClicked(MouseEvent e) {

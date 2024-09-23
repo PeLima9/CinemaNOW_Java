@@ -10,6 +10,11 @@ import Modelo.Genero;
 import Vista.FrmCartelera;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 
 public class ctrlCartelera implements MouseListener, KeyListener {
@@ -21,6 +26,8 @@ public class ctrlCartelera implements MouseListener, KeyListener {
     private FrmCartelera VistaFrmCartelera;
     
     public ctrlCartelera(Cartelera cartelera, Genero genero, Clasificacion clasificacion, FrmCartelera VistaCartelera) {
+        
+        this.iniciarReloj();
 
         //Asignar Modelo y Vista
         this.ModeloCartelera = cartelera;
@@ -203,6 +210,19 @@ public class ctrlCartelera implements MouseListener, KeyListener {
             System.out.println("Campos vaciados exitosamente");
         }
     }
+    
+    public void iniciarReloj() {
+    Timer timer = new Timer();
+    TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            SimpleDateFormat formatoFechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaHoraActual = formatoFechaHora.format(new Date());
+            VistaFrmCartelera.lblDate.setText(fechaHoraActual);
+        }
+    };
+    timer.scheduleAtFixedRate(task, 0, 1000); // Actualizar cada segundo (1000 ms)
+}
 
     @Override
     public void mousePressed(MouseEvent e) {

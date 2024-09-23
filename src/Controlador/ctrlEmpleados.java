@@ -8,15 +8,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ctrlEmpleados implements MouseListener, ActionListener{
 
+            
             //Llamar otros paquetes
             private FrmEmpleados VistaEmpleados;
             private Empleado ModeloEmpleados;
         
         public ctrlEmpleados(FrmEmpleados Vista, Empleado Modelo){
-            
+            this.iniciarReloj();
             //Asignar Modelo y Vista
             this.VistaEmpleados = Vista;
             this.ModeloEmpleados = Modelo;
@@ -70,6 +76,19 @@ public class ctrlEmpleados implements MouseListener, ActionListener{
                 System.out.println("FrmEmpleados cargado Exitosamente\n");
         }
     }
+    
+    public void iniciarReloj() {
+    Timer timer = new Timer();
+    TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            SimpleDateFormat formatoFechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaHoraActual = formatoFechaHora.format(new Date());
+            VistaEmpleados.lblDate.setText(fechaHoraActual);
+        }
+    };
+    timer.scheduleAtFixedRate(task, 0, 1000); // Actualizar cada segundo (1000 ms)
+}
     
     @Override
     public void mouseClicked(MouseEvent e) {
