@@ -1,24 +1,18 @@
 
 package Modelo;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.UUID;
 
 public class Usuario {
-    private String UUID_Usuario;
     private String nombre;
     private String email;
     private String contraseña;
     private int rol_id;
     private String foto_perfil;
-    
-    public String getUUID_Usuario() {
-        return UUID_Usuario;
-    }
 
-    public void setUUID_Usuario(String UUID_Usuario) {
-        this.UUID_Usuario = UUID_Usuario;
-    }
 
     public String getNombre() {
         return nombre;
@@ -70,7 +64,7 @@ public class Usuario {
 
         try {
             //Preparar Query
-            String sql = "SELECT * FROM Usuarios WHERE email = ? AND contraseña = ?";
+            String sql = "SELECT * FROM Usuarios WHERE email = ? AND contraseña = ? AND rol_id = 2";
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setString(1, getEmail());
             statement.setString(2, getContraseña());
@@ -114,6 +108,58 @@ public class Usuario {
         }
         
         return resultado;
+    }
+    
+    //Encriptación a SHA-256
+    public String encryptSHA256(String password) {
+	MessageDigest md = null;
+	try {
+		md = MessageDigest.getInstance("SHA-256");
+	}
+	catch (NoSuchAlgorithmException e) {
+		System.out.println(e.toString());
+		return null;
+	}
+	byte[] hash = md.digest(password.getBytes());
+	StringBuffer sb = new StringBuffer();
+ 
+	for(byte b : hash) {
+		sb.append(String.format("%02x", b));
+	}
+ 
+	return sb.toString();
+    }
+    
+     public boolean registrarUsuario() {
+        Connection con = null;
+        PreparedStatement ps = null;
+        
+        try {
+            con = ClaseConexion.getConexion();
+            
+            String usuario_id = UUID.randomUUID().toString();
+            
+            String sql = "INSERT INTO usuarios (usuario_id, nombre, email, contraseña, rol_id) VALUES (?, ?, ?, ?, ?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario_id);
+            ps.setString(2, nombre);
+            ps.setString(3, email);
+            ps.setString(4, contraseña);
+            ps.setInt(5, 2);
+
+            int result = ps.executeUpdate();
+            return result > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
    
 }

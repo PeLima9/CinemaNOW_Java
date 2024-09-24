@@ -88,8 +88,7 @@ public class Cartelera {
     try {
     
         PreparedStatement addCartelera = conexion.prepareStatement(
-            "INSERT INTO Peliculas (titulo, descripcion, duracion, clasificacion_id, genero_id, poster, trailer) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO Peliculas (titulo, descripcion, duracion, clasificacion_id, genero_id, poster, trailer) VALUES (?, ?, ?, ?, ?, ?, ?)"
         );
 
         addCartelera.setString(1, getTitulo());
@@ -104,7 +103,7 @@ public class Cartelera {
         addCartelera.executeUpdate();
  
     } catch (SQLException ex) {
-        System.out.println("Este es el error en el modelo: método guardar " + ex);
+        System.out.println("[Cartelera] Error en Guardar: " + ex);
     }
 }
         
@@ -147,19 +146,7 @@ public class Cartelera {
         Statement statement = conexion.createStatement();
         
         // Consulta SQL modificada con JOIN
-        ResultSet rs = statement.executeQuery(
-            "SELECT " +
-            "p.pelicula_id, " +
-            "p.titulo, " +
-            "p.descripcion, " +
-            "p.duracion, " +
-            "c.nombre AS clasificacion_nombre, " +
-            "g.nombre AS genero_nombre, " +
-            "p.poster, " +
-            "p.trailer " +
-            "FROM Peliculas p " +
-            "JOIN Clasificacion c ON p.clasificacion_id = c.clasificacion_id " +
-            "JOIN GeneroPelicula g ON p.genero_id = g.genero_id"
+        ResultSet rs = statement.executeQuery("SELECT p.pelicula_id, p.titulo, p.descripcion, p.duracion, c.nombre_clasificacion AS clasificacion_nombre, g.genero AS genero_nombre, p.poster, p.trailer FROM Peliculas p JOIN Clasificacion c ON p.clasificacion_id = c.clasificacion_id JOIN GeneroPelicula g ON p.genero_id = g.genero_id"
         );
         
         while (rs.next()) {
@@ -177,7 +164,7 @@ public class Cartelera {
         
         tabla.setModel(model);
     } catch (Exception e) {
-        System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+        System.out.println("[Cartelera] Error en MostrarCartelera: " + e);
     }
 
         
@@ -192,7 +179,7 @@ public class Cartelera {
             String IDTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 0).toString();
             String tituloTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 1).toString();
             String descripcionTBTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 2).toString();
-             String duracionTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 3).toString();
+            String duracionTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 3).toString();
             String clasificacion_idTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 4).toString();
             String genero_idTB = Vista.jtbCartelera.getValueAt(filaSeleccionada,5).toString();
             String posterTB = Vista.jtbCartelera.getValueAt(filaSeleccionada, 6).toString();
@@ -204,7 +191,7 @@ public class Cartelera {
             Vista.txtDuration.setText(duracionTB);
             Vista.jcbRating.setSelectedItem(clasificacion_idTB);
             Vista.jcbGenre.setSelectedItem(genero_idTB);
-            Vista.txtMoviePoster1.setText(posterTB);
+            Vista.txtMoviePoster.setText(posterTB);
             Vista.txtMovieTrailer.setText(trailerTB);
         }
     }

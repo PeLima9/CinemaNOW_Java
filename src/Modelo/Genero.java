@@ -13,7 +13,9 @@ public class Genero {
 
     private int genero_id;
     private String genero;
+
     
+
     public int getGenero_id() {
         return genero_id;
     }
@@ -32,14 +34,16 @@ public class Genero {
 
 
 //Extras para el ComboBox
-    public Genero(){
-        
-    }
-    
     public Genero(int idGenero, String nombreGenero)
     {
         this.genero_id = idGenero;
         this.genero = nombreGenero;
+    }
+    
+     public Genero()
+    {
+        this.genero_id = genero_id;
+        this.genero = genero;
     }
     
       @Override
@@ -48,25 +52,25 @@ public class Genero {
         return genero;
     }
     
-    
-   
-    public void CargarComboGenero(JComboBox comboBox){    
+   public void CargarComboGenero(JComboBox comboBox) {    
     Connection conexion = ClaseConexion.getConexion();
-    comboBox.removeAllItems();
-    try{
+    comboBox.removeAllItems();     
+    try {
         Statement statement = conexion.createStatement();
-        ResultSet rs = statement.executeQuery("Select * from GeneroPelicula");
+        ResultSet rs = statement.executeQuery("SELECT * FROM GeneroPelicula");
+        
         while (rs.next()) {
             int idGenero = rs.getInt("genero_id");
             String nombreGenero = rs.getString("genero");
-            comboBox.addItem(new Genero(idGenero, nombreGenero));                
-        }   
-    } catch(SQLException ex) {
-        ex.printStackTrace();  
+            comboBox.addItem(new Genero(idGenero, nombreGenero));
+        }
+        
+        rs.close(); 
+        statement.close();  
+        }
+        catch (SQLException ex) {
+            System.out.println("[Clasificacion] Error al cargar ComboBox: " + ex);
+        } 
     }
-}
-    
-
-  
     
 }
