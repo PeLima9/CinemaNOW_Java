@@ -1,6 +1,6 @@
 
 package Controlador;
-
+import Modelo.Tickets;
 import Vista.FrmTickets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,8 +9,10 @@ public class ctrlTickets implements MouseListener{
         
         //Llamar otros paquetes
         private FrmTickets VistaTickets;
+        private Tickets modeloTickets;
         
      public ctrlTickets (FrmTickets Vista){
+         
          
          //Asignar Modelo y Vista
          this.VistaTickets = Vista;
@@ -21,6 +23,9 @@ public class ctrlTickets implements MouseListener{
          this.VistaTickets.imgCartelera.addMouseListener(this);
          this.VistaTickets.imgTickets.addMouseListener(this);
          this.VistaTickets.imgEmpleados.addMouseListener(this);
+         this.
+         
+         modeloTickets.MostrarTickets(VistaTickets.jtbTickets);
      }
 
     @Override
@@ -52,6 +57,12 @@ public class ctrlTickets implements MouseListener{
                 Vista.FrmEmpleados.initFrmEmpleados();
                 VistaTickets.dispose();
                 System.out.println("FrmEmpleados cargado Exitosamente");
+        }
+        
+         if (e.getSource() == VistaTickets.jtbTickets) {
+            modeloTickets.cargarDatosTabla(modeloTickets);
+            System.out.println("Datos mostrados exitosamente");
+
         }
     }
 
