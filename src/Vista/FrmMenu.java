@@ -4,11 +4,14 @@ package Vista;
 import Controlador.ctrlLogin;
 import Controlador.ctrlMenu;
 import Modelo.Usuario;
+import javax.swing.ImageIcon;
 
 public class FrmMenu extends javax.swing.JFrame {
 
     public FrmMenu() {
         initComponents();
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
     }
     
 public static void initFrmMenu(){
@@ -47,6 +50,8 @@ public static void initFrmMenu(){
         imgEmpleados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CinemaNow - Menu");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
@@ -92,9 +97,9 @@ public static void initFrmMenu(){
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addGap(22, 22, 22))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,11 +109,11 @@ public static void initFrmMenu(){
             .addGroup(jpHeaderLayout.createSequentialGroup()
                 .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpHeaderLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(lblCinemaNOW)))
+                        .addComponent(lblCinemaNOW))
+                    .addGroup(jpHeaderLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -143,14 +148,11 @@ public static void initFrmMenu(){
         jpTickets3Layout.setHorizontalGroup(
             jpTickets3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpTickets3Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addGroup(jpTickets3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpTickets3Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpTickets3Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(lblReservaTickets)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addComponent(lblReservaTickets)
+                    .addComponent(btnTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jpTickets3Layout.setVerticalGroup(
             jpTickets3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +161,7 @@ public static void initFrmMenu(){
                 .addComponent(lblReservaTickets)
                 .addGap(79, 79, 79)
                 .addComponent(btnTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jPanel3.add(jpTickets3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 330, 410));
@@ -179,12 +181,15 @@ public static void initFrmMenu(){
         jpEmpleados1.setLayout(jpEmpleados1Layout);
         jpEmpleados1Layout.setHorizontalGroup(
             jpEmpleados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpEmpleados1Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(jpEmpleados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblVerEmpleados))
-                .addGap(64, 64, 64))
+            .addGroup(jpEmpleados1Layout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addGroup(jpEmpleados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpEmpleados1Layout.createSequentialGroup()
+                        .addComponent(btnEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpEmpleados1Layout.createSequentialGroup()
+                        .addComponent(lblVerEmpleados)
+                        .addGap(81, 81, 81))))
         );
         jpEmpleados1Layout.setVerticalGroup(
             jpEmpleados1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,19 +221,19 @@ public static void initFrmMenu(){
             .addGroup(jpCartelera1Layout.createSequentialGroup()
                 .addGroup(jpCartelera1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpCartelera1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(41, 41, 41)
                         .addComponent(btnCartelera, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpCartelera1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(33, 33, 33)
                         .addComponent(lblPelículas)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jpCartelera1Layout.setVerticalGroup(
             jpCartelera1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCartelera1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(48, 48, 48)
                 .addComponent(lblPelículas)
-                .addGap(74, 74, 74)
+                .addGap(70, 70, 70)
                 .addComponent(btnCartelera, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );

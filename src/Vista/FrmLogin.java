@@ -3,6 +3,7 @@ package Vista;
 
 import Controlador.ctrlLogin;
 import Modelo.Usuario;
+import javax.swing.ImageIcon;
 
 
 public class FrmLogin extends javax.swing.JFrame {
@@ -12,6 +13,8 @@ public class FrmLogin extends javax.swing.JFrame {
      */
      public FrmLogin() {
         initComponents();
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
     }
      
      public static void initFrmLogin(){
@@ -32,7 +35,6 @@ public class FrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtPassword = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         imgBanner = new javax.swing.JLabel();
@@ -45,19 +47,16 @@ public class FrmLogin extends javax.swing.JFrame {
         lblLogin1 = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
+        btnSignUp = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CinemaNow - Login");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
-        txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setToolTipText("");
-        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 520, 50));
 
         lblPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -117,9 +116,9 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 668, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addGap(18, 18, 18))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,11 +128,11 @@ public class FrmLogin extends javax.swing.JFrame {
             .addGroup(jpHeaderLayout.createSequentialGroup()
                 .addGroup(jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpHeaderLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpHeaderLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(lblCinemaNOW)))
+                        .addComponent(lblCinemaNOW))
+                    .addGroup(jpHeaderLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -177,6 +176,22 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, 200, 40));
 
+        btnSignUp.setBackground(new java.awt.Color(248, 93, 116));
+        btnSignUp.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignUp.setText("Registrarse");
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 200, 40));
+
+        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 520, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,6 +209,10 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSignUpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,6 +253,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnSignUp;
     private javax.swing.JLabel imgBanner;
     private javax.swing.JLabel imgCinemaNOW;
     public javax.swing.JPanel jPanel1;
@@ -246,6 +266,6 @@ public class FrmLogin extends javax.swing.JFrame {
     public javax.swing.JLabel lblLogin1;
     public javax.swing.JLabel lblPassword;
     public javax.swing.JTextField txtEmail;
-    public javax.swing.JTextField txtPassword;
+    public javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

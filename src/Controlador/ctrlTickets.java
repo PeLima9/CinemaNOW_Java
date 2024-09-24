@@ -4,6 +4,11 @@ import Modelo.Tickets;
 import Vista.FrmTickets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ctrlTickets implements MouseListener{
         
@@ -12,8 +17,7 @@ public class ctrlTickets implements MouseListener{
         private Tickets modeloTickets;
         
      public ctrlTickets (FrmTickets Vista){
-         
-         
+         this.iniciarReloj();
          //Asignar Modelo y Vista
          this.VistaTickets = Vista;
          
@@ -60,11 +64,23 @@ public class ctrlTickets implements MouseListener{
         }
         
          if (e.getSource() == VistaTickets.jtbTickets) {
-            modeloTickets.cargarDatosTabla(modeloTickets);
+            modeloTickets.(modeloTickets);
             System.out.println("Datos mostrados exitosamente");
 
         }
     }
+    public void iniciarReloj() {
+    Timer timer = new Timer();
+    TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            SimpleDateFormat formatoFechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaHoraActual = formatoFechaHora.format(new Date());
+            VistaTickets.lblDate.setText(fechaHoraActual);
+        }
+    };
+    timer.scheduleAtFixedRate(task, 0, 1000); // Actualizar cada segundo (1000 ms)
+}
 
     @Override
     public void mousePressed(MouseEvent e) {

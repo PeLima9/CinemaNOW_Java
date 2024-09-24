@@ -3,6 +3,7 @@ package Vista;
 
 import Controlador.ctrlEmpleados;
 import Modelo.Empleado;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -12,6 +13,8 @@ public class FrmEmpleados extends javax.swing.JFrame {
 
     public FrmEmpleados() {
         initComponents();
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
     }
     
     public static void initFrmEmpleados(){
@@ -55,6 +58,8 @@ public class FrmEmpleados extends javax.swing.JFrame {
         imgEmpleados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CinemaNow - Empleados");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
@@ -100,9 +105,9 @@ public class FrmEmpleados extends javax.swing.JFrame {
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 668, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addGap(18, 18, 18))
         );
         jpHeaderLayout.setVerticalGroup(
             jpHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
