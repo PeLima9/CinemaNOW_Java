@@ -35,7 +35,6 @@ public class FrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtPassword = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         imgBanner = new javax.swing.JLabel();
@@ -49,6 +48,7 @@ public class FrmLogin extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnSignUp = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CinemaNow - Login");
@@ -57,13 +57,6 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
-        txtPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setToolTipText("");
-        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 520, 50));
 
         lblPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
@@ -194,6 +187,11 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 200, 40));
 
+        txtPassword.setBackground(new java.awt.Color(54, 47, 92));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 520, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -268,6 +266,6 @@ public class FrmLogin extends javax.swing.JFrame {
     public javax.swing.JLabel lblLogin1;
     public javax.swing.JLabel lblPassword;
     public javax.swing.JTextField txtEmail;
-    public javax.swing.JTextField txtPassword;
+    public javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
