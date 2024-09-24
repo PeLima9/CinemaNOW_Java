@@ -12,11 +12,8 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Administrator/Desktop/CinemaNOW_Java/src/Controlador/ctrlRegister.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/CinemaNOW_Java/src/Controlador/ctrlLogin.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/CinemaNOW_Java/src/Vista/FrmLogin.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/CinemaNOW_Java/src/Vista/FrmRegister.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/CinemaNOW_Java/src/Modelo/Usuario.java</file>
+            <file>file:/C:/Users/eduar/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlEmpleados.java</file>
+            <file>file:/C:/Users/eduar/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlCartelera.java</file>
         </group>
     </open-files>
 </project-private>
