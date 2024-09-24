@@ -137,10 +137,8 @@ public class Tickets {
     } catch (Exception e) {
         System.out.println("[Tickets] Error en MostrarTickets: " + e);
     }
-         
-    
     
 }
-    
+         
         
 }
