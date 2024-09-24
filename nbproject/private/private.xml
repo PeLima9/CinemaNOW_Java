@@ -12,8 +12,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/eduar/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlEmpleados.java</file>
             <file>file:/C:/Users/eduar/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlCartelera.java</file>
+=======
+=======
+            <file>file:/C:/Users/eduar/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlEmpleados.java</file>
+            <file>file:/C:/Users/eduar/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlCartelera.java</file>
+>>>>>>> 272451f215fc2970bb3fb7c17ea7717f1575d9d1
             <file>file:/C:/Users/lfern/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlTickets.java</file>
             <file>file:/C:/Users/lfern/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlMenu.java</file>
             <file>file:/C:/Users/lfern/OneDrive/Escritorio/CinemaNOW_Java/src/Modelo/Tickets.java</file>
@@ -21,6 +28,10 @@
             <file>file:/C:/Users/lfern/OneDrive/Escritorio/CinemaNOW_Java/src/Modelo/Cartelera.java</file>
             <file>file:/C:/Users/lfern/OneDrive/Escritorio/CinemaNOW_Java/src/Controlador/ctrlEmpleados.java</file>
             <file>file:/C:/Users/lfern/OneDrive/Escritorio/CinemaNOW_Java/src/Vista/FrmTickets.java</file>
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> 272451f215fc2970bb3fb7c17ea7717f1575d9d1
         </group>
     </open-files>
 </project-private>
