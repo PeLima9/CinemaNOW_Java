@@ -15,8 +15,6 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-
 public class ctrlCartelera implements MouseListener, KeyListener {
     
     //Conectar Modelo y Vista
@@ -66,48 +64,41 @@ public class ctrlCartelera implements MouseListener, KeyListener {
         ModeloCartelera.MostrarCartelera(VistaCartelera.jtbCartelera);
     }    
     
-    
     @Override
     public void mouseClicked(MouseEvent e) {
         
-        //Volver al Menú
+        // Volver al Menú
         if (e.getSource() == VistaFrmCartelera.btnMenu){
-                Vista.FrmMenu.initFrmMenu();
-                VistaFrmCartelera.dispose();
-                System.out.println("FrmMenu cargado exitosamente");
+            Vista.FrmMenu.initFrmMenu();
+            VistaFrmCartelera.dispose();
+            System.out.println("FrmMenu cargado exitosamente");
         }
         
-         //Boton Cartelera
+        // Boton Cartelera
         if (e.getSource() == VistaFrmCartelera.imgCartelera){
-                Vista.FrmCartelera.initFrmCartelera();
-                VistaFrmCartelera.dispose();
-                System.out.println("FrmCartelera cargado exitosamente");
-
+            Vista.FrmCartelera.initFrmCartelera();
+            VistaFrmCartelera.dispose();
+            System.out.println("FrmCartelera cargado exitosamente");
         }
         
-        //Boton Tickets
+        // Boton Tickets
         if (e.getSource() == VistaFrmCartelera.imgTickets){
-                Vista.FrmTickets.initFrmTickets();
-                VistaFrmCartelera.dispose();
-                System.out.println("FrmTickets cargado exitosamente");
+            Vista.FrmTickets.initFrmTickets();
+            VistaFrmCartelera.dispose();
+            System.out.println("FrmTickets cargado exitosamente");
         }
         
-        //Boton Empleados
+        // Boton Empleados
         if ( e.getSource() == VistaFrmCartelera.imgEmpleados){
-                Vista.FrmEmpleados.initFrmEmpleados();
-                VistaFrmCartelera.dispose();
-                System.out.println("FrmEmpleados cargado Exitosamente");
+            Vista.FrmEmpleados.initFrmEmpleados();
+            VistaFrmCartelera.dispose();
+            System.out.println("FrmEmpleados cargado Exitosamente");
         }
         
-        //Agregar
+        // Agregar
         if (e.getSource() == VistaFrmCartelera.btnAddMovie) {
-            
-            //Validación de Datos
-            if (VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty()){
-                //Mostrar JOptionPane
-                JOptionPane.showMessageDialog(VistaFrmCartelera, "No pueden haber campos vacíos, intente nuevamente.");
-            }
-            else{
+            if (validarCampos()) {
+                // Si la validación es correcta, guardar los datos
                 ModeloCartelera.setTitulo(VistaFrmCartelera.txtMovieTitle.getText());
                 ModeloCartelera.setDescripcion(VistaFrmCartelera.txtSinopsis.getText());
                 ModeloCartelera.setDuracion(Integer.parseInt(VistaFrmCartelera.txtDuration.getText()));
@@ -115,147 +106,146 @@ public class ctrlCartelera implements MouseListener, KeyListener {
                 ModeloCartelera.setGenero_id(((Genero) VistaFrmCartelera.jcbGenre.getSelectedItem()).getGenero_id());
                 ModeloCartelera.setPoster(VistaFrmCartelera.txtMoviePoster.getText());
                 ModeloCartelera.setTrailer(VistaFrmCartelera.txtMovieTrailer.getText());
-            
+
                 ModeloCartelera.Guardar();
                 ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
                 System.out.println("Dato guardado exitosamente");
-            
-                //Vaciar campos
-                VistaFrmCartelera.txtMovieTitle.setText(null);
-                VistaFrmCartelera.txtSinopsis.setText(null);
-                VistaFrmCartelera.txtDuration.setText(null);
-                VistaFrmCartelera.txtMoviePoster.setText(null);
-                VistaFrmCartelera.txtMovieTrailer.setText(null);
-            }            
+
+                // Vaciar campos
+                limpiarCampos();
+            }
         }
         
-        //Eliminar
+        // Eliminar
         if (e.getSource() == VistaFrmCartelera.btnDeleteMovie) {
-            //Mostrar JOptionPanel con botones
             String[] buttons = {"Cancelar", "Continuar"};
             int confirm = JOptionPane.showOptionDialog(VistaFrmCartelera, "Está seguro que desea eliminar este registro?", "Eliminar", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, buttons, buttons[0]);
             
-            if (confirm == 0){
-                //*No hace nada*
-            }
-            else if (confirm == 1){
+            if (confirm == 1) {
                 ModeloCartelera.Eliminar(VistaFrmCartelera.jtbCartelera);
                 ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
-            
                 System.out.println("Dato eliminado exitosamente");
-            //Vaciar campos
-            VistaFrmCartelera.txtMovieTitle.setText(null);
-            VistaFrmCartelera.txtSinopsis.setText(null);
-            VistaFrmCartelera.txtDuration.setText(null);
-            VistaFrmCartelera.txtMoviePoster.setText(null);
-            VistaFrmCartelera.txtMovieTrailer.setText(null);
+                limpiarCampos();
             }
         }
         
-        //Mostrar
+        // Mostrar
         if (e.getSource() == VistaFrmCartelera.jtbCartelera) {
             ModeloCartelera.cargarDatosTabla(VistaFrmCartelera);
             System.out.println("Datos mostrados exitosamente");
-
         }
         
-        //Actualizar
+        // Actualizar
         if (e.getSource() == VistaFrmCartelera.btnEditMovie) {
-            //Mostrar JOptionPanel con botones
             String[] buttons = {"Cancelar", "Continuar"};
             int confirm = JOptionPane.showOptionDialog(VistaFrmCartelera, "Está seguro que desea actualizar este registro?", "Actualizar", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, buttons, buttons[0]);
-            
-            if (confirm == 0){
-                //*No hace nada*
-            }
-                else if (confirm == 1){
-                
-                //Validación de Datos
-                if (VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty() || VistaFrmCartelera.txtMovieTitle.getText().isEmpty()){
-                    //Mostrar JOptionPane
-                    JOptionPane.showMessageDialog(VistaFrmCartelera, "No pueden haber campos vacíos, intente nuevamente.");
-                }
-                else{
-                    ModeloCartelera.setTitulo(VistaFrmCartelera.txtMovieTitle.getText());
-                    ModeloCartelera.setDescripcion(VistaFrmCartelera.txtSinopsis.getText());
-                    ModeloCartelera.setDuracion(Integer.parseInt(VistaFrmCartelera.txtDuration.getText()));
-                    ModeloCartelera.setClasificacion_id(((Clasificacion) VistaFrmCartelera.jcbRating.getSelectedItem()).getClasificacion_id());
-                    ModeloCartelera.setGenero_id(((Genero) VistaFrmCartelera.jcbGenre.getSelectedItem()).getGenero_id()); 
-                    ModeloCartelera.setPoster(VistaFrmCartelera.txtMoviePoster.getText());
-                    ModeloCartelera.setTrailer(VistaFrmCartelera.txtMovieTrailer.getText());
-            
-                    ModeloCartelera.Actualizar(VistaFrmCartelera.jtbCartelera);
-                    ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
-                    System.out.println("Dato actualizado exitosamente");
-            
-                    //Vaciar campos
-                    VistaFrmCartelera.txtMovieTitle.setText(null);
-                    VistaFrmCartelera.txtSinopsis.setText(null);
-                    VistaFrmCartelera.txtDuration.setText(null);
-                    VistaFrmCartelera.txtMoviePoster.setText(null);
-                    VistaFrmCartelera.txtMovieTrailer.setText(null);
-                }
-            }
 
+            if (confirm == 1 && validarCampos()) {
+                ModeloCartelera.setTitulo(VistaFrmCartelera.txtMovieTitle.getText());
+                ModeloCartelera.setDescripcion(VistaFrmCartelera.txtSinopsis.getText());
+                ModeloCartelera.setDuracion(Integer.parseInt(VistaFrmCartelera.txtDuration.getText()));
+                ModeloCartelera.setClasificacion_id(((Clasificacion) VistaFrmCartelera.jcbRating.getSelectedItem()).getClasificacion_id());
+                ModeloCartelera.setGenero_id(((Genero) VistaFrmCartelera.jcbGenre.getSelectedItem()).getGenero_id()); 
+                ModeloCartelera.setPoster(VistaFrmCartelera.txtMoviePoster.getText());
+                ModeloCartelera.setTrailer(VistaFrmCartelera.txtMovieTrailer.getText());
+
+                ModeloCartelera.Actualizar(VistaFrmCartelera.jtbCartelera);
+                ModeloCartelera.MostrarCartelera(VistaFrmCartelera.jtbCartelera);
+                System.out.println("Dato actualizado exitosamente");
+                limpiarCampos();
+            }
         }
         
-        //Limpiar Campos
+        // Limpiar Campos
         if (e.getSource() == VistaFrmCartelera.btnClear){
-
-            VistaFrmCartelera.txtMovieTitle.setText(null);
-            VistaFrmCartelera.txtSinopsis.setText(null);
-            VistaFrmCartelera.txtDuration.setText(null);
-            VistaFrmCartelera.txtMoviePoster.setText(null);
-            VistaFrmCartelera.txtMovieTrailer.setText(null);
+            limpiarCampos();
             System.out.println("Campos vaciados exitosamente");
         }
     }
-    
-    public void iniciarReloj() {
-    Timer timer = new Timer();
-    TimerTask task = new TimerTask() {
-        @Override
-        public void run() {
-            SimpleDateFormat formatoFechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            String fechaHoraActual = formatoFechaHora.format(new Date());
-            VistaFrmCartelera.lblDate.setText(fechaHoraActual);
+
+    // Método para validar los campos
+    private boolean validarCampos() {
+        if (VistaFrmCartelera.txtMovieTitle.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "El título de la película es obligatorio.");
+            return false;
         }
-    };
-    timer.scheduleAtFixedRate(task, 0, 1000); // Actualizar cada segundo (1000 ms)
-}
+        if (VistaFrmCartelera.txtSinopsis.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "La sinopsis es obligatoria.");
+            return false;
+        }
+        if (VistaFrmCartelera.txtDuration.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "La duración es obligatoria.");
+            return false;
+        }
+        try {
+            Integer.parseInt(VistaFrmCartelera.txtDuration.getText().trim());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "La duración debe ser un número válido.");
+            return false;
+        }
+        if (VistaFrmCartelera.jcbRating.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "Debe seleccionar una clasificación.");
+            return false;
+        }
+        if (VistaFrmCartelera.jcbGenre.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "Debe seleccionar un género.");
+            return false;
+        }
+        if (VistaFrmCartelera.txtMoviePoster.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "El enlace del póster es obligatorio.");
+            return false;
+        }
+        if (VistaFrmCartelera.txtMovieTrailer.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(VistaFrmCartelera, "El enlace del tráiler es obligatorio.");
+            return false;
+        }
+        return true;
+    }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-  
+    // Método para limpiar los campos
+    private void limpiarCampos() {
+        VistaFrmCartelera.txtMovieTitle.setText("");
+        VistaFrmCartelera.txtSinopsis.setText("");
+        VistaFrmCartelera.txtDuration.setText("");
+        VistaFrmCartelera.jcbRating.setSelectedIndex(-1);
+        VistaFrmCartelera.jcbGenre.setSelectedIndex(-1);
+        VistaFrmCartelera.txtMoviePoster.setText("");
+        VistaFrmCartelera.txtMovieTrailer.setText("");
+    }
+
+    // Método para iniciar el reloj en el label lblDate
+    private void iniciarReloj() {
+        Timer timer = new Timer();
+        TimerTask tarea = new TimerTask() {
+            @Override
+            public void run() {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                Date now = new Date();
+                String strDate = sdf.format(now);
+                VistaFrmCartelera.lblDate.setText(strDate);
+            }
+        };
+        timer.scheduleAtFixedRate(tarea, 0, 1000);
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-      
-    }
+    public void mousePressed(MouseEvent e) {}
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-        
-    }
+    public void mouseReleased(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-       
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
+    public void mouseExited(MouseEvent e) {}
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
-    public void keyReleased(KeyEvent e) {
-       
-    }
+    public void keyPressed(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
