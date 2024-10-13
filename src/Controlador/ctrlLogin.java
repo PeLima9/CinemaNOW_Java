@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.SwingUtilities;
 
 public class ctrlLogin implements MouseListener, ActionListener {
     
@@ -28,6 +29,7 @@ public class ctrlLogin implements MouseListener, ActionListener {
         
         this.vistaLogin.btnLogin.addActionListener(this);
         this.vistaLogin.btnSignUp.addActionListener(this);
+        this.vistaLogin.btnSalir.addActionListener(this);
         
         TextPrompt hintCorreo = new TextPrompt("Correo", vistaLogin.txtEmail);
         TextPrompt hintPassWord = new TextPrompt("Contraseña", vistaLogin.txtPassword);
@@ -38,6 +40,9 @@ public class ctrlLogin implements MouseListener, ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vistaLogin.btnSalir){
+            System.exit(0);
+        }
         // Establecer datos
         if (e.getSource() == vistaLogin.btnLogin) {
             // Validaciones de campos vacíos
@@ -70,7 +75,7 @@ public class ctrlLogin implements MouseListener, ActionListener {
                 System.out.println("Login Completado");
 
                 Vista.FrmMenu.initFrmMenu();
-                vistaLogin.dispose();
+                SwingUtilities.invokeLater(() -> vistaLogin.dispose());
             } else {
                 JOptionPane.showMessageDialog(vistaLogin, "[ERROR] Usuario o contraseña incorrectos.");
                 System.out.println("Login Fallido");

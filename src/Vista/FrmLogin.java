@@ -3,6 +3,7 @@ package Vista;
 
 import Controlador.ctrlLogin;
 import Modelo.Usuario;
+import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.ImageIcon;
 
 
@@ -12,6 +13,7 @@ public class FrmLogin extends javax.swing.JFrame {
      * Creates new form FrmLogin
      */
      public FrmLogin() {
+        FlatLightLaf.setup();
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
@@ -50,10 +52,10 @@ public class FrmLogin extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         btnSignUp = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CinemaNow - Login");
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
         setSize(new java.awt.Dimension(1920, 1080));
 
@@ -65,19 +67,20 @@ public class FrmLogin extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Contraseña");
-        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, -1, -1));
+        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, -1, -1));
 
         txtEmail.setBackground(new java.awt.Color(54, 47, 92));
         txtEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setToolTipText("");
-        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 520, 50));
+        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116), 3));
+        txtEmail.setCaretColor(new java.awt.Color(255, 102, 102));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 520, 50));
 
         imgBanner.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         imgBanner.setForeground(new java.awt.Color(255, 255, 255));
-        imgBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/CinemaNOW_LoginBanner.png"))); // NOI18N
-        jPanel1.add(imgBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(1410, 300, 400, 450));
+        imgBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/login (2).png"))); // NOI18N
+        jPanel1.add(imgBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 140, -1, 800));
 
         jpHeader.setBackground(new java.awt.Color(146, 134, 208));
 
@@ -160,46 +163,63 @@ public class FrmLogin extends javax.swing.JFrame {
         lblLogin1.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
         lblLogin1.setForeground(new java.awt.Color(255, 255, 255));
         lblLogin1.setText("Login");
-        jPanel1.add(lblLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, -1));
+        jPanel1.add(lblLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
 
         lblEmail.setBackground(new java.awt.Color(255, 255, 255));
         lblEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email");
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
 
         btnLogin.setBackground(new java.awt.Color(248, 93, 116));
         btnLogin.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/loginicon.png"))); // NOI18N
         btnLogin.setText("Iniciar Sesión");
+        btnLogin.setBorder(null);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 200, 40));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 600, 200, 40));
 
         btnSignUp.setBackground(new java.awt.Color(248, 93, 116));
         btnSignUp.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
         btnSignUp.setText("Registrarse");
+        btnSignUp.setBorder(null);
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 700, 200, 40));
+        jPanel1.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 680, 200, 40));
 
         txtPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, 520, 50));
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116), 3));
+        txtPassword.setCaretColor(new java.awt.Color(255, 102, 102));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 520, 50));
+
+        btnSalir.setBackground(new java.awt.Color(248, 93, 116));
+        btnSalir.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/x (1).png"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.setBorder(null);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 760, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,6 +236,10 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +280,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnSignUp;
     private javax.swing.JLabel imgBanner;
     private javax.swing.JLabel imgCinemaNOW;

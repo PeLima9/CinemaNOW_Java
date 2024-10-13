@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.SwingUtilities;
 
 public class ctrlEmpleados implements MouseListener, ActionListener {
 
@@ -47,28 +48,28 @@ public class ctrlEmpleados implements MouseListener, ActionListener {
         // Volver al Menú
         if (e.getSource() == VistaEmpleados.btnMenu) {
             Vista.FrmMenu.initFrmMenu();
-            VistaEmpleados.dispose();
+            SwingUtilities.invokeLater(() -> VistaEmpleados.dispose());
             System.out.println("FrmMenu cargado exitosamente\n");
         }
 
         // Boton Cartelera
         if (e.getSource() == VistaEmpleados.imgCartelera) {
             Vista.FrmCartelera.initFrmCartelera();
-            VistaEmpleados.dispose();
+            SwingUtilities.invokeLater(() -> VistaEmpleados.dispose());
             System.out.println("FrmCartelera cargado exitosamente\n");
         }
 
         // Boton Tickets
         if (e.getSource() == VistaEmpleados.imgTickets) {
             Vista.FrmTickets.initFrmTickets();
-            VistaEmpleados.dispose();
+            SwingUtilities.invokeLater(() -> VistaEmpleados.dispose());
             System.out.println("FrmTickets cargado exitosamente\n");
         }
 
         // Boton Empleados
         if (e.getSource() == VistaEmpleados.imgEmpleados) {
             Vista.FrmEmpleados.initFrmEmpleados();
-            VistaEmpleados.dispose();
+            SwingUtilities.invokeLater(() -> VistaEmpleados.dispose());
             System.out.println("FrmEmpleados cargado exitosamente\n");
         }
     }

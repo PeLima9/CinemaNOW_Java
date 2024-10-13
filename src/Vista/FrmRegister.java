@@ -15,6 +15,7 @@ public class FrmRegister extends javax.swing.JFrame {
      * Creates new form FrmRegister
      */
     public FrmRegister() {
+        setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
@@ -52,8 +53,9 @@ public class FrmRegister extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CinemaNow - Registro");
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
-        setSize(new java.awt.Dimension(1440, 800));
+        setSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
@@ -70,12 +72,14 @@ public class FrmRegister extends javax.swing.JFrame {
         txtRegisterName.setForeground(new java.awt.Color(255, 255, 255));
         txtRegisterName.setToolTipText("");
         txtRegisterName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        txtRegisterName.setCaretColor(new java.awt.Color(255, 102, 102));
         jPanel1.add(txtRegisterName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 520, 50));
 
         btnRegister.setBackground(new java.awt.Color(248, 93, 116));
         btnRegister.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Registrarse");
+        btnRegister.setBorder(null);
         jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 180, 50));
 
         imgBanner.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
@@ -123,7 +127,7 @@ public class FrmRegister extends javax.swing.JFrame {
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 666, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1146, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -143,7 +147,7 @@ public class FrmRegister extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1440, 150));
+        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1920, 150));
 
         jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
 
@@ -151,30 +155,33 @@ public class FrmRegister extends javax.swing.JFrame {
         jpNavBar.setLayout(jpNavBarLayout);
         jpNavBarLayout.setHorizontalGroup(
             jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1440, Short.MAX_VALUE)
+            .addGap(0, 1920, Short.MAX_VALUE)
         );
         jpNavBarLayout.setVerticalGroup(
             jpNavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 140, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 1440, 140));
+        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 940, 1920, 140));
 
         txtRegisterEmail.setBackground(new java.awt.Color(54, 47, 92));
         txtRegisterEmail.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         txtRegisterEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtRegisterEmail.setToolTipText("");
         txtRegisterEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        txtRegisterEmail.setCaretColor(new java.awt.Color(255, 102, 102));
         jPanel1.add(txtRegisterEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 520, 50));
 
         txtRegisterPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtRegisterPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtRegisterPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        txtRegisterPassword.setCaretColor(new java.awt.Color(255, 102, 102));
         jPanel1.add(txtRegisterPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 520, 50));
 
         txtConfirmPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtConfirmPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116)));
+        txtConfirmPassword.setCaretColor(new java.awt.Color(255, 102, 102));
         jPanel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 520, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimerTask;
+import javax.swing.SwingUtilities;
 
 public class ctrlTickets {
     private FrmTickets vista;
@@ -24,6 +25,8 @@ public class ctrlTickets {
     public ctrlTickets(FrmTickets vista) {
         this.vista = vista;
         tickets = new ArrayList<>();
+        cargarTickets(); // Carga los tickets desde la base de datos
+        mostrarTicketsEnTabla(); // Actualiza la tabla con los tickets cargados
         this.iniciarReloj();
         // Configura el temporizador para actualizar los tickets cada segundo (1000 ms)
         timer = new Timer(1000, new ActionListener() {
@@ -206,25 +209,25 @@ public class ctrlTickets {
 
     private void abrirMenu() {
         Vista.FrmMenu.initFrmMenu();  // Iniciar el formulario del menú
-        vista.dispose();  // Cerrar la ventana actual (FrmTickets)
+        SwingUtilities.invokeLater(() -> vista.dispose());  // Cerrar la ventana actual (FrmTickets)
         System.out.println("FrmMenu cargado exitosamente\n");  // Imprimir en consola
     }
 
     private void abrirCartelera() {
         Vista.FrmCartelera.initFrmCartelera();  // Iniciar el formulario de la cartelera
-        vista.dispose();  // Cerrar la ventana actual (FrmTickets)
+        SwingUtilities.invokeLater(() -> vista.dispose());  // Cerrar la ventana actual (FrmTickets)
         System.out.println("FrmCartelera cargado exitosamente\n");  // Imprimir en consola
     }
 
     private void abrirTickets() {
         Vista.FrmTickets.initFrmTickets();  // Iniciar el formulario de tickets
-        vista.dispose();  // Cerrar la ventana actual (FrmTickets)
+        SwingUtilities.invokeLater(() -> vista.dispose());  // Cerrar la ventana actual (FrmTickets)
         System.out.println("FrmTickets cargado exitosamente\n");  // Imprimir en consola
     }
 
     private void abrirEmpleados() {
         Vista.FrmEmpleados.initFrmEmpleados();  // Iniciar el formulario de empleados
-        vista.dispose();  // Cerrar la ventana actual (FrmTickets)
+        SwingUtilities.invokeLater(() -> vista.dispose());  // Cerrar la ventana actual (FrmTickets)
         System.out.println("FrmEmpleados cargado exitosamente\n");  // Imprimir en consola
     }
 }

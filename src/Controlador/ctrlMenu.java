@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 
 public class ctrlMenu implements MouseListener, ActionListener{
@@ -31,35 +33,65 @@ public class ctrlMenu implements MouseListener, ActionListener{
         this.vistaMenu.btnCartelera.addActionListener(this);
         this.vistaMenu.btnTickets.addActionListener(this);
         this.vistaMenu.btnEmpleados.addActionListener(this);
-        this.vistaMenu.imgCartelera.addActionListener(this);
-        this.vistaMenu.imgTickets.addActionListener(this);
-        this.vistaMenu.imgEmpleados.addActionListener(this);
+        this.vistaMenu.btnSalir.addActionListener(this);
+        this.vistaMenu.btnLogOut.addActionListener(this);
+        
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         //Boton Cartelera
-        if (e.getSource() == vistaMenu.btnCartelera || e.getSource() == vistaMenu.imgCartelera){
-                Vista.FrmCartelera.initFrmCartelera();
-                vistaMenu.dispose();
-                System.out.println("FrmCartelera cargado exitosamente");
-
-        }
+        if (e.getSource() == vistaMenu.btnCartelera) {
+        // Inicializar y mostrar la nueva ventana
+        Vista.FrmCartelera.initFrmCartelera();
+    
+        // Ocultar la ventana actual en lugar de cerrarla de inmediato
+        //vistaMenu.setVisible(false);
+    
+        // Liberar los recursos de la ventana actual tras un breve retardo
+        SwingUtilities.invokeLater(() -> vistaMenu.dispose());
+    
+        System.out.println("FrmCartelera cargado exitosamente");
+    }
         
         //Boton Tickets
-        if (e.getSource() == vistaMenu.btnTickets || e.getSource() == vistaMenu.imgTickets){
+        if (e.getSource() == vistaMenu.btnTickets){
                 Vista.FrmTickets.initFrmTickets();
-                vistaMenu.dispose();
+                SwingUtilities.invokeLater(() -> vistaMenu.dispose());
                 System.out.println("FrmTickets cargado exitosamente");
         }
         
         //Boton Empleados
-        if (e.getSource() == vistaMenu.btnEmpleados || e.getSource() == vistaMenu.imgEmpleados){
+        if (e.getSource() == vistaMenu.btnEmpleados){
                 Vista.FrmEmpleados.initFrmEmpleados();
-                vistaMenu.dispose();
+                SwingUtilities.invokeLater(() -> vistaMenu.dispose());
                 System.out.println("FrmEmpleados cargado Exitosamente");
         }
+        
+        if (e.getSource() == vistaMenu.btnSalir){
+                System.exit(0);
+        }
+       
+        if (e.getSource() == vistaMenu.btnLogOut) {
+        // Mostrar cuadro de diálogo de confirmación
+        int opcion = JOptionPane.showConfirmDialog(
+            vistaMenu, 
+            "¿Estás seguro de que deseas cerrar sesión?", 
+            "Confirmar cierre de sesión", 
+            JOptionPane.YES_NO_OPTION
+        );
+
+        // Comprobar si el usuario seleccionó "Sí"
+        if (opcion == JOptionPane.YES_OPTION) {
+        Vista.FrmLogin.initFrmLogin(); // Abrir formulario de inicio de sesión
+        SwingUtilities.invokeLater(() -> vistaMenu.dispose()); // Cerrar ventana actual
+        System.out.println("Sesión cerrada exitosamente");
+        } else {
+        System.out.println("Cierre de sesión cancelado");
+        }
+    }
+
     }
     public void iniciarReloj() {
     Timer timer = new Timer();

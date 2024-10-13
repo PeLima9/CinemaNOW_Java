@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 public class FrmTickets extends javax.swing.JFrame {
 
     public FrmTickets() {
+        setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
@@ -44,6 +45,7 @@ public class FrmTickets extends javax.swing.JFrame {
         setTitle("CinemaNow - Tickets");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
+        setSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
@@ -89,7 +91,7 @@ public class FrmTickets extends javax.swing.JFrame {
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1144, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -109,15 +111,15 @@ public class FrmTickets extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 140));
+        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 140));
 
         lblTickets.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
         lblTickets.setForeground(new java.awt.Color(255, 255, 255));
         lblTickets.setText("Tickets");
-        jPanel1.add(lblTickets, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, -1, -1));
+        jPanel1.add(lblTickets, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 150, -1, -1));
 
         jtbTickets.setBackground(new java.awt.Color(32, 29, 76));
-        jtbTickets.setFont(new java.awt.Font("Montserrat Black", 0, 12)); // NOI18N
+        jtbTickets.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         jtbTickets.setForeground(new java.awt.Color(255, 255, 255));
         jtbTickets.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,9 +132,11 @@ public class FrmTickets extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtbTickets.setRowHeight(40);
+        jtbTickets.setSelectionBackground(new java.awt.Color(146, 134, 208));
         jScrollPane1.setViewportView(jtbTickets);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 1360, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 1840, 660));
 
         lblUsername.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,28 +146,35 @@ public class FrmTickets extends javax.swing.JFrame {
         btnDeleteTicket.setBackground(new java.awt.Color(248, 93, 116));
         btnDeleteTicket.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnDeleteTicket.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/borrar.png"))); // NOI18N
         btnDeleteTicket.setText("Borrar Ticket");
-        jPanel1.add(btnDeleteTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 630, 210, 50));
+        btnDeleteTicket.setBorder(null);
+        jPanel1.add(btnDeleteTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 900, 210, 50));
 
         btnMenu.setBackground(new java.awt.Color(248, 93, 116));
         btnMenu.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/casa (1).png"))); // NOI18N
         btnMenu.setText("Volver a inicio");
-        jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 210, 50));
+        btnMenu.setBorder(null);
+        jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 900, 210, 50));
 
         jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
 
         imgTickets.setBackground(new java.awt.Color(32, 29, 76));
         imgTickets.setForeground(new java.awt.Color(32, 29, 76));
         imgTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie_Ticket.png"))); // NOI18N
+        imgTickets.setBorder(null);
 
         imgCartelera.setBackground(new java.awt.Color(32, 29, 76));
         imgCartelera.setForeground(new java.awt.Color(32, 29, 76));
         imgCartelera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Movie.png"))); // NOI18N
+        imgCartelera.setBorder(null);
 
         imgEmpleados.setBackground(new java.awt.Color(32, 29, 76));
         imgEmpleados.setForeground(new java.awt.Color(32, 29, 76));
         imgEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Management.png"))); // NOI18N
+        imgEmpleados.setBorder(null);
 
         javax.swing.GroupLayout jpNavBarLayout = new javax.swing.GroupLayout(jpNavBar);
         jpNavBar.setLayout(jpNavBarLayout);
@@ -172,9 +183,9 @@ public class FrmTickets extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
                 .addGap(213, 213, 213)
                 .addComponent(imgTickets)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 656, Short.MAX_VALUE)
                 .addComponent(imgEmpleados)
-                .addGap(312, 312, 312)
+                .addGap(540, 540, 540)
                 .addComponent(imgCartelera)
                 .addGap(223, 223, 223))
         );
@@ -189,15 +200,13 @@ public class FrmTickets extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1440, 110));
+        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 970, 1920, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
