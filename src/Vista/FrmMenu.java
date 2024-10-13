@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 public class FrmMenu extends javax.swing.JFrame {
 
     public FrmMenu() {
+        setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
@@ -51,7 +52,9 @@ public static void initFrmMenu(){
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CinemaNow - Menu");
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
+        setSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(54, 47, 92));
         jPanel1.setName("CinemaNOW - Login"); // NOI18N
@@ -97,7 +100,7 @@ public static void initFrmMenu(){
                 .addComponent(imgCinemaNOW)
                 .addGap(18, 18, 18)
                 .addComponent(lblCinemaNOW)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1144, Short.MAX_VALUE)
                 .addComponent(jpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -117,7 +120,7 @@ public static void initFrmMenu(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 140));
+        jPanel1.add(jpHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 140));
 
         jPanel3.setBackground(new java.awt.Color(54, 47, 92));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,7 +133,7 @@ public static void initFrmMenu(){
         lblBienvenida.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
         lblBienvenida.setForeground(new java.awt.Color(255, 255, 255));
         lblBienvenida.setText("Bienvenido a CinemaNOW.");
-        jPanel3.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, -1, -1));
+        jPanel3.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, -1, -1));
 
         jpTickets3.setBackground(new java.awt.Color(32, 29, 76));
 
@@ -240,7 +243,7 @@ public static void initFrmMenu(){
 
         jPanel3.add(jpCartelera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1440, 550));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1920, 830));
 
         jpNavBar.setBackground(new java.awt.Color(32, 29, 76));
 
@@ -263,9 +266,9 @@ public static void initFrmMenu(){
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpNavBarLayout.createSequentialGroup()
                 .addGap(213, 213, 213)
                 .addComponent(imgTickets)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 614, Short.MAX_VALUE)
                 .addComponent(imgEmpleados)
-                .addGap(312, 312, 312)
+                .addGap(564, 564, 564)
                 .addComponent(imgCartelera)
                 .addGap(223, 223, 223))
         );
@@ -280,7 +283,7 @@ public static void initFrmMenu(){
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1440, 110));
+        jPanel1.add(jpNavBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 970, 1920, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -349,7 +352,7 @@ public static void initFrmMenu(){
     public javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPelículas;
     private javax.swing.JLabel lblReservaTickets;
-    public javax.swing.JLabel lblUsername;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblVerEmpleados;
     // End of variables declaration//GEN-END:variables
 }
