@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import java.sql.*;
@@ -22,7 +21,7 @@ public class Empleado {
     public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
-    
+
     public String getNombreEmpleado() {
         return nombreEmpleado;
     }
@@ -54,171 +53,112 @@ public class Empleado {
     public void setSalarioEmpleado(double salarioEmpleado) {
         this.salarioEmpleado = salarioEmpleado;
     }
-    
-    //Select
-    public void MostrarEmpleados (JTable Table){
-        //Conectar a Oracle
-        Connection conexion = ClaseConexion.getConexion();
-        
-        //Configurar Tabla
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(new Object[]{"idEmpleado", "nombreEmpleado", "correoEmpleado", "passwordEmpleado", "salarioEmpleado"});
-        
-        //Preparar Query
-        try {
-            Statement statement = conexion.createStatement();
-            
-            //SQL Query
-            ResultSet rs = statement.executeQuery("SELECT * FROM Empleados");
-            
-            //Agregar filas con datos
-            while (rs.next()){
-                model.addRow(new Object[]{
-                    rs.getInt ("idEmpleado"),
-                    rs.getString ("nombreEmpleado"),
-                    rs.getString ("correoEmpleado"),
-                    rs.getString ("passwordEmpleado"),
-                    rs.getDouble ("salario")
-                    }
-                );
+
+    public void MostrarEmpleados(JTable tabla) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Correo");
+        modelo.addColumn("Salario");
+
+        tabla.setModel(modelo);
+
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tu_base_de_datos", "root", "password");
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM empleados")) {
+
+            while (rs.next()) {
+                modelo.addRow(new Object[]{
+                    rs.getInt("idEmpleado"),
+                    rs.getString("nombreEmpleado"),
+                    rs.getString("correoEmpleado"),
+                    rs.getDouble("salarioEmpleado")
+                });
             }
-            
-            Table.setModel(model);
-        }
-        catch (Exception e){
-            System.out.println("[Empleados] Error en MostrarEmpleados: " + e + "\n");
-        }   
-    }
-    
-    //Select
-    public void CargarDatosTabla(FrmEmpleados Vista){
-        //Cargar fila seleccionada
-        int selectedRow = Vista.jtbEmpleados.getSelectedRow();
-        
-        //Verificar fila seleccionada
-        if (selectedRow != -1){
-            String idTb = Vista.jtbEmpleados.getValueAt(selectedRow, 0).toString();
-            String nombreTb = Vista.jtbEmpleados.getValueAt(selectedRow, 1).toString();
-            String correoTb = Vista.jtbEmpleados.getValueAt(selectedRow, 2).toString();
-            String passwordTb = Vista.jtbEmpleados.getValueAt(selectedRow, 3).toString();
-            String salarioTb = Vista.jtbEmpleados.getValueAt(selectedRow, 4).toString();
-            
-            Vista.txtNombreEmpleado.setText(nombreTb);
-            Vista.txtCorreoEmpleado.setText(correoTb);
-            Vista.txtPasswordEmpleado.setText(passwordTb);
-            Vista.txtSalario.setText(salarioTb);
+        } catch (SQLException e) {
+            System.out.println("Error al mostrar empleados: " + e.getMessage());
         }
     }
-    
-    //Insert
-    public void AgregarEmpleado(){
-        //Obtener Conexión
-        Connection conexion = ClaseConexion.getConexion();
-        
-        //Preparar Query
-        try {
-            //SQL Query
-            PreparedStatement addEmpleado = conexion.prepareStatement("INSERT INTO Empleados (nombreEmpleado, correoEmpleado, passwordEmpleado, salario) VALUES (?, ?, ?, ?)");
-            
-            //Establecer Valores
-            addEmpleado.setString(1, getNombreEmpleado());
-            addEmpleado.setString(2, getCorreoEmpleado());
-            addEmpleado.setString(3, getPasswordEmpleado());
-            addEmpleado.setDouble(4, getSalarioEmpleado());
-            
-            //Ejecutar Query
-            addEmpleado.executeUpdate();
-            
-            System.out.println("Dato guardado exitosamente\n");
-            
-        }
-        catch (Exception e){
-            System.out.println("[Empleado] Error en AgregarEmpleado: " + e + "\n");
+
+    public void CargarDatosTabla(FrmEmpleados vista) {
+        int filaSeleccionada = vista.jtbEmpleados.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            vista.txtNombreEmpleado.setText(vista.jtbEmpleados.getValueAt(filaSeleccionada, 1).toString());
+            vista.txtCorreoEmpleado.setText(vista.jtbEmpleados.getValueAt(filaSeleccionada, 2).toString());
+            vista.txtSalario.setText(vista.jtbEmpleados.getValueAt(filaSeleccionada, 3).toString());
         }
     }
-    
-    //Update
-    public void EditarEmpleados(JTable Tabla){
-        //Obtener Conexión
-        Connection conexion = ClaseConexion.getConexion();
-        
-        //Seleccionar fila de la tabla
-        int selectedRow = Tabla.getSelectedRow();
-        if (selectedRow != 1) {
-             
-            String selectedId = Tabla.getValueAt(selectedRow, 0).toString();
-            //Preparar Query
-            try {
-                //SQL Query
-                PreparedStatement updateEmpleado = conexion.prepareStatement("UPDATE Empleados SET nombreEmpleado = ?, correoEmpleado = ?, passwordEmpleado = ?, salario = ? WHERE idEmpleado = ?");
-                
-                //Asignar valores
-                updateEmpleado.setString(1, getNombreEmpleado());
-                updateEmpleado.setString(2, getCorreoEmpleado());
-                updateEmpleado.setString(3, getPasswordEmpleado());
-                updateEmpleado.setDouble(4, getSalarioEmpleado());
-                
-                updateEmpleado.setInt(5, Integer.parseInt(selectedId));
-                
-                //Ejecutar Query
-                updateEmpleado.executeUpdate();
-                
-                //Imprimir en Consola
-                System.out.println("Empleado actualizado exitosamente\n");
-            }
-            catch (Exception e){
-                System.out.println("[Empleado] Error en EditarEmpleado: " + e + "\n");
+
+    public void AgregarEmpleado() {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tu_base_de_datos", "root", "password");
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO empleados (nombreEmpleado, correoEmpleado, passwordEmpleado, salarioEmpleado) VALUES (?, ?, ?, ?)")) {
+
+            ps.setString(1, this.nombreEmpleado);
+            ps.setString(2, this.correoEmpleado);
+            ps.setString(3, this.passwordEmpleado);
+            ps.setDouble(4, this.salarioEmpleado);
+
+            ps.executeUpdate();
+            System.out.println("Empleado agregado exitosamente");
+        } catch (SQLException e) {
+            System.out.println("Error al agregar empleado: " + e.getMessage());
+        }
+    }
+
+    public void EditarEmpleados(JTable tabla) {
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            int idEmpleado = (int) tabla.getValueAt(filaSeleccionada, 0);
+
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tu_base_de_datos", "root", "password");
+                 PreparedStatement ps = conn.prepareStatement("UPDATE empleados SET nombreEmpleado = ?, correoEmpleado = ?, passwordEmpleado = ?, salarioEmpleado = ? WHERE idEmpleado = ?")) {
+
+                ps.setString(1, this.nombreEmpleado);
+                ps.setString(2, this.correoEmpleado);
+                ps.setString(3, this.passwordEmpleado);
+                ps.setDouble(4, this.salarioEmpleado);
+                ps.setInt(5, idEmpleado);
+
+                ps.executeUpdate();
+                System.out.println("Empleado actualizado exitosamente");
+            } catch (SQLException e) {
+                System.out.println("Error al actualizar empleado: " + e.getMessage());
             }
         }
     }
-    
-    //Delete
-    public void EliminarEmpleado(JTable Tabla){
-        //Obtener Conexión
-        Connection conexion = ClaseConexion.getConexion();
 
-        //Seleccionar fila de la tabla
-        int selectedRow = Tabla.getSelectedRow();
-        String id = Tabla.getValueAt(selectedRow, 0).toString();
+    public void EliminarEmpleado(JTable tabla) {
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            int idEmpleado = (int) tabla.getValueAt(filaSeleccionada, 0);
 
-        //Preparar Query
-        try{
-            //SQL Query
-            PreparedStatement deleteEmpleado = conexion.prepareStatement("DELETE FROM Empleados WHERE idEmpleado = ?");
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tu_base_de_datos", "root", "password");
+                 PreparedStatement ps = conn.prepareStatement("DELETE FROM empleados WHERE idEmpleado = ?")) {
 
-            //Asignar valores
-            deleteEmpleado.setString(1, id);
-
-            //Ejecutar Query
-            deleteEmpleado.executeUpdate();
-
-            //Imprimir en Consola
-            System.out.println("Empleado eliminado exitosamente\n");
-        }
-        catch (Exception e){
-            System.out.println("[Empleado] Error en EliminarEmpleado: " + e + "\n");
+                ps.setInt(1, idEmpleado);
+                ps.executeUpdate();
+                System.out.println("Empleado eliminado exitosamente");
+            } catch (SQLException e) {
+                System.out.println("Error al eliminar empleado: " + e.getMessage());
+            }
         }
     }
-    
-    //Encriptación a SHA-256
+
     public String encryptSHA256(String password) {
-	MessageDigest md = null;
-	try {
-		md = MessageDigest.getInstance("SHA-256");
-	}
-	catch (NoSuchAlgorithmException e) {
-		System.out.println(e.toString());
-		return null;
-	}
-	byte[] hash = md.digest(password.getBytes());
-	StringBuffer sb = new StringBuffer();
- 
-	for(byte b : hash) {
-		sb.append(String.format("%02x", b));
-	}
- 
-	return sb.toString();
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes("UTF-8"));
+            StringBuilder hexString = new StringBuilder();
+
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException | java.io.UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
-
-

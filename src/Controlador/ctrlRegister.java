@@ -2,6 +2,7 @@ package Controlador;
 
 import javax.swing.JPasswordField;
 import Modelo.Usuario;
+import static Vista.FrmLogin.initFrmLogin;
 import Vista.FrmRegister;
 import Vista.TextPrompt;
 import java.awt.event.ActionEvent;
@@ -81,6 +82,7 @@ public class ctrlRegister implements ActionListener {
             if (registered) {
                 JOptionPane.showMessageDialog(vistaRegister, "Registro Exitoso!");
                 System.out.println("Usuario registrado");
+                initFrmLogin();
                 vistaRegister.dispose();
             } else {
                 JOptionPane.showMessageDialog(vistaRegister, "[ERROR] No se pudo registrar el usuario");
