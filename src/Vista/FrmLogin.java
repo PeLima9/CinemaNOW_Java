@@ -50,7 +50,6 @@ public class FrmLogin extends javax.swing.JFrame {
         lblLogin1 = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
-        btnSignUp = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
         btnSalir = new javax.swing.JButton();
 
@@ -184,18 +183,6 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 600, 200, 40));
 
-        btnSignUp.setBackground(new java.awt.Color(248, 93, 116));
-        btnSignUp.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
-        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
-        btnSignUp.setText("Registrarse");
-        btnSignUp.setBorder(null);
-        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignUpActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 680, 200, 40));
-
         txtPassword.setBackground(new java.awt.Color(54, 47, 92));
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 93, 116), 3));
@@ -213,7 +200,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 760, 200, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 660, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -232,10 +219,6 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
@@ -281,7 +264,6 @@ public class FrmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnSalir;
-    public javax.swing.JButton btnSignUp;
     private javax.swing.JLabel imgBanner;
     private javax.swing.JLabel imgCinemaNOW;
     public javax.swing.JPanel jPanel1;

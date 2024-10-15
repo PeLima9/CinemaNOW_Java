@@ -1,7 +1,9 @@
 package Controlador;
 
+import Modelo.UserSession;
 import Modelo.Usuario;
 import Vista.FrmLogin;
+import Vista.FrmMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -20,6 +22,7 @@ public class ctrlLogin implements MouseListener, ActionListener {
     // Llamar otros paquetes
     private Usuario modeloLogin;
     private FrmLogin vistaLogin;
+    private String username;
     
     public ctrlLogin(Usuario Modelo, FrmLogin Vista) {
         this.iniciarReloj();
@@ -28,7 +31,7 @@ public class ctrlLogin implements MouseListener, ActionListener {
         this.vistaLogin = Vista;
         
         this.vistaLogin.btnLogin.addActionListener(this);
-        this.vistaLogin.btnSignUp.addActionListener(this);
+        
         this.vistaLogin.btnSalir.addActionListener(this);
         
         TextPrompt hintCorreo = new TextPrompt("Correo", vistaLogin.txtEmail);
@@ -71,20 +74,19 @@ public class ctrlLogin implements MouseListener, ActionListener {
            
             boolean verify = modeloLogin.Login();
             if (verify) {
-                JOptionPane.showMessageDialog(vistaLogin, "Login Exitoso, bienvenido!");
-                System.out.println("Login Completado");
+    UserSession.setUsername(modeloLogin.getNombre());  // Almacena el nombre en UserSession
+    JOptionPane.showMessageDialog(vistaLogin, "Login Exitoso, bienvenido!");
+    System.out.println("Login Completado");
 
-                Vista.FrmMenu.initFrmMenu();
-                SwingUtilities.invokeLater(() -> vistaLogin.dispose());
-            } else {
-                JOptionPane.showMessageDialog(vistaLogin, "[ERROR] Usuario o contraseña incorrectos.");
-                System.out.println("Login Fallido");
-            }
-        } else if (e.getSource() == vistaLogin.btnSignUp) {
-            Vista.FrmRegister.initFrmRegister();
-            vistaLogin.dispose();
-        }
+    Vista.FrmMenu.initFrmMenu();  // Llama a initFrmMenu sin parámetro
+    SwingUtilities.invokeLater(() -> vistaLogin.dispose());
+    } else {
+        JOptionPane.showMessageDialog(vistaLogin, "[ERROR] Usuario o contraseña incorrectos.");
+        System.out.println("Login Fallido");
     }
+        } 
+    }
+    
     
     //Validar el formato del correo
     private boolean validarEmail(String email) {

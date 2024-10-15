@@ -3,6 +3,8 @@ package Vista;
 
 import Controlador.ctrlEmpleados;
 import Modelo.Empleado;
+import Modelo.UserSession;
+import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,6 +14,7 @@ import javax.swing.ImageIcon;
 public class FrmEmpleados extends javax.swing.JFrame {
 
     public FrmEmpleados() {
+        FlatLightLaf.setup();
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
@@ -21,9 +24,14 @@ public class FrmEmpleados extends javax.swing.JFrame {
     public static void initFrmEmpleados(){
         Empleado Modelo = new Empleado();
         FrmEmpleados Vista = new FrmEmpleados();
+        Vista.setUsername(UserSession.getUsername());
         ctrlEmpleados Controlador = new ctrlEmpleados(Vista, Modelo);
         
         Vista.setVisible(true);
+    }
+    
+    public void setUsername(String username) {
+    lblUsername.setText(username);
     }
 
     @SuppressWarnings("unchecked")
@@ -340,7 +348,7 @@ public class FrmEmpleados extends javax.swing.JFrame {
     public javax.swing.JLabel lblCartelera4;
     private javax.swing.JLabel lblCinemaNOW;
     public javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblUsername;
+    public javax.swing.JLabel lblUsername;
     public javax.swing.JTextField txtCorreoEmpleado;
     public javax.swing.JTextField txtNombreEmpleado;
     public javax.swing.JTextField txtPasswordEmpleado;

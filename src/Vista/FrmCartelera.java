@@ -5,11 +5,14 @@ import Controlador.ctrlCartelera;
 import Modelo.Cartelera;
 import Modelo.Clasificacion;
 import Modelo.Genero;
+import Modelo.UserSession;
+import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.ImageIcon;
 
 public class FrmCartelera extends javax.swing.JFrame {
 
     public FrmCartelera() {
+        FlatLightLaf.setup();
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
@@ -21,10 +24,15 @@ public class FrmCartelera extends javax.swing.JFrame {
          Clasificacion ModeloClasificacion = new Clasificacion();
          Genero ModeloGenero = new Genero();
          FrmCartelera Vista = new FrmCartelera();
+         Vista.setUsername(UserSession.getUsername());
          ctrlCartelera Controlador = new ctrlCartelera(ModeloCartelera, ModeloGenero, ModeloClasificacion, Vista);
         
                 Vista.setVisible(true);
     }
+    
+    public void setUsername(String username) {
+    lblUsername.setText(username);
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

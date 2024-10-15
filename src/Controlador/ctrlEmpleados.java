@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Empleado;
+import Modelo.UserSession;
 import Vista.FrmEmpleados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +39,7 @@ public class ctrlEmpleados implements MouseListener, ActionListener {
         this.VistaEmpleados.btnEditEmployee.addMouseListener(this);
         this.VistaEmpleados.btnDeleteEmployee.addMouseListener(this);
         this.VistaEmpleados.btnClear.addMouseListener(this);
+        
 
         // Configurar JTable
         ModeloEmpleados.MostrarEmpleados(Vista.jtbEmpleados);
@@ -46,11 +48,11 @@ public class ctrlEmpleados implements MouseListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // Volver al Menú
-        if (e.getSource() == VistaEmpleados.btnMenu) {
-            Vista.FrmMenu.initFrmMenu();
-            SwingUtilities.invokeLater(() -> VistaEmpleados.dispose());
-            System.out.println("FrmMenu cargado exitosamente\n");
-        }
+       if (e.getSource() == VistaEmpleados.btnMenu) {
+        Vista.FrmMenu.initFrmMenu();  // Usa el nombre almacenado
+        SwingUtilities.invokeLater(() -> VistaEmpleados.dispose());
+        System.out.println("FrmMenu cargado exitosamente\n");
+    }
 
         // Boton Cartelera
         if (e.getSource() == VistaEmpleados.imgCartelera) {
@@ -73,6 +75,8 @@ public class ctrlEmpleados implements MouseListener, ActionListener {
             System.out.println("FrmEmpleados cargado exitosamente\n");
         }
     }
+    
+   
 
     public void iniciarReloj() {
         Timer timer = new Timer();

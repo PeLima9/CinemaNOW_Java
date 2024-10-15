@@ -35,11 +35,15 @@ public class ctrlRegister implements ActionListener {
         vistaRegister.txtConfirmPassword.setEchoChar('●');
     
         this.vistaRegister.btnRegister.addActionListener(this);
+        this.vistaRegister.btnSalir.addActionListener(this);
         System.out.println("ActionListener asignado al botón de registro.");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vistaRegister.btnSalir){
+            System.exit(0);
+        }
         if (e.getSource() == vistaRegister.btnRegister) {
             System.out.println("El botón de registro fue presionado.");
             

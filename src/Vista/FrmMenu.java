@@ -3,6 +3,7 @@ package Vista;
 
 import Controlador.ctrlLogin;
 import Controlador.ctrlMenu;
+import Modelo.UserSession;
 import Modelo.Usuario;
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.ImageIcon;
@@ -17,13 +18,20 @@ public class FrmMenu extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
     }
     
+    
 public static void initFrmMenu(){
          Usuario Modelo = new Usuario();
          FrmMenu Vista = new FrmMenu();
+         Vista.setUsername(UserSession.getUsername());
          ctrlMenu Controlador = new ctrlMenu(Modelo, Vista);
         
                 Vista.setVisible(true);
     }
+
+
+public void setUsername(String username) {
+    lblUsername.setText(username);
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

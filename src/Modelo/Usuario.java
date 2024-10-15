@@ -57,33 +57,28 @@ public class Usuario {
     
     //Iniciar Sesión
     public boolean Login() {
-        
-        //Conectar a ClaseConexion.java
-        Connection conexion = ClaseConexion.getConexion();
-        boolean resultado = false;
+    Connection conexion = ClaseConexion.getConexion();
+    boolean resultado = false;
 
-        try {
-            //Preparar Query
-            String sql = "SELECT * FROM Usuarios WHERE email = ? AND contraseña = ? AND rol_id = 2";
-            PreparedStatement statement = conexion.prepareStatement(sql);
-            statement.setString(1, getEmail());
-            statement.setString(2, getContraseña());
-            
-            //Ejecutar Query
-            ResultSet resultSet = statement.executeQuery();
+    try {
+        String sql = "SELECT nombre FROM Usuarios WHERE email = ? AND contraseña = ? AND rol_id = 2";
+        PreparedStatement statement = conexion.prepareStatement(sql);
+        statement.setString(1, getEmail());
+        statement.setString(2, getContraseña());
 
-            //Return si el valor existe
-            if (resultSet.next()) {
-                resultado = true;
+        ResultSet resultSet = statement.executeQuery();
 
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("[Error en Modelo: Login] " + ex);
+        if (resultSet.next()) {
+            this.nombre = resultSet.getString("nombre");  // Guarda el nombre del usuario
+            resultado = true;
         }
 
-        return resultado;
+    } catch (SQLException ex) {
+        System.out.println("[Error en Modelo: Login] " + ex);
     }
+
+    return resultado;
+}
    
     public boolean GetUserData(){
         Connection conexion = ClaseConexion.getConexion();

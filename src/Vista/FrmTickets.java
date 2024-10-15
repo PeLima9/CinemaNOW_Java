@@ -2,11 +2,14 @@
 package Vista;
 
 import Controlador.ctrlTickets;
+import Modelo.UserSession;
+import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.ImageIcon;
 
 public class FrmTickets extends javax.swing.JFrame {
 
     public FrmTickets() {
+        FlatLightLaf.setup();
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
@@ -15,11 +18,17 @@ public class FrmTickets extends javax.swing.JFrame {
     
     public static void initFrmTickets(){
         FrmTickets Vista = new FrmTickets();
+        Vista.setUsername(UserSession.getUsername());
         ctrlTickets Controlador = new ctrlTickets(Vista);
         
         Vista.setVisible(true);
     }
 
+    public void setUsername(String username) {
+    lblUsername.setText(username);
+    }
+
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
